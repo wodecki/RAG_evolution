@@ -13,7 +13,14 @@ docs = loader.load()
 
 # Create embeddings and vector store
 embeddings = OpenAIEmbeddings()
-vector_store = InMemoryVectorStore(embeddings)
+
+from langchain_chroma import Chroma
+#vector_store = InMemoryVectorStore(embeddings)
+vector_store = Chroma(
+    collection_name="scientists_bios",
+    embedding_function=embeddings,
+    persist_directory="./chroma_langchain_db",  # Where to save data locally, remove if not necessary
+)
 
 vector_store.add_documents(documents=docs)
 
@@ -74,5 +81,5 @@ questions = ["What was the significance of Ada Lovelace's contributions to compu
 
 
 
-response = rag_chain.invoke(questions[12])
+response = rag_chain.invoke(questions[8])
 print(response)
