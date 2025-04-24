@@ -38,7 +38,7 @@ vector_store.add_documents(documents=docs)
 retriever = vector_store.as_retriever()
 
 # Define the LLM and RAG chain
-from langchain_core.runnables import RunnablePassthrough
+from langchain_core.runnables import RunnablePassthrough, RunnableParallel
 from langchain_core.output_parsers import StrOutputParser
 
 llm = ChatOpenAI(model="gpt-4o-mini")
@@ -55,6 +55,11 @@ Context: {context}
 
 Answer:
 """)
+
+grounding_chain = RunnableParallel(
+    {"context": retriever, "question": RunnablePassthrough()}
+)
+
 rag_chain = (
     {"context": retriever, "question": RunnablePassthrough()}
     | prompt
@@ -90,6 +95,16 @@ questions = ["What was the significance of Ada Lovelace's contributions to compu
  'What challenges did Marie Curie face as a woman in the scientific community, and how did she overcome them?']
 
 
-
-response = rag_chain.invoke(questions[8])
+question = questions[0]
+response = rag_chain.invoke(question)
+grounding = grounding_chain.invoke(question)["context"] 
+print("\n\n\n")
+print("Question:")
+print(question)
+print("\n")
+print("Response:")
 print(response)
+print("\n")
+grounding = grounding[3].page_content
+print("Grounding:")
+print(grounding)
