@@ -3,21 +3,14 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_core.vectorstores import InMemoryVectorStore
 
-# Load documents from data directory
-from langchain_community.document_loaders import DirectoryLoader
-directory = "./datasets/scientists_bios"
-loader = DirectoryLoader(
-    directory
-)
-docs = loader.load()
-
 # Create embeddings and vector store
 embeddings = OpenAIEmbeddings()
 
 from langchain_community.vectorstores import FAISS
-# vector_store = InMemoryVectorStore(embeddings) 
 
-vector_store = FAISS.from_documents(docs, embeddings)
+vector_store = FAISS.load_local(
+    "./langchain_db/faiss_index", embeddings, allow_dangerous_deserialization=True
+)
 
 # Add persistence to the vector store
 vector_store.save_local("./langchain_db/faiss_index")
