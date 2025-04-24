@@ -4,15 +4,18 @@ from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_core.vectorstores import InMemoryVectorStore
 
 # Load documents from data directory
-file_path = "./datasets/scientists_bios/Ada Lovelace.txt"
-loader = TextLoader(file_path)
-doc = loader.load()
+from langchain_community.document_loaders import DirectoryLoader
+directory = "./datasets/scientists_bios"
+loader = DirectoryLoader(
+    directory
+)
+docs = loader.load()
 
 # Create embeddings and vector store
 embeddings = OpenAIEmbeddings()
 vector_store = InMemoryVectorStore(embeddings)
 
-vector_store.add_documents(documents=doc)
+vector_store.add_documents(documents=docs)
 
 # Define the retriever
 retriever = vector_store.as_retriever()
