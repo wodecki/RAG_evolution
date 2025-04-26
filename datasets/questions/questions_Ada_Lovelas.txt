@@ -1,5 +1,0 @@
-['What contributions did Ada Lovelace make to the field of computer science?  ',
- "How did Ada Lovelace's education differ from that of other women in the 19th century?  ",
- 'What was the significance of the algorithm that Lovelace published for the Analytical Engine?  ',
- 'What challenges did Ada Lovelace face in her personal life?  ',
- 'Why is Ada Lovelace celebrated today, and how is her legacy honored?']
