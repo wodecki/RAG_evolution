@@ -86,10 +86,10 @@ Context: {context}
 Answer:
 """)
 
-# Define the grounding chain
-grounding_chain = RunnableParallel(
-    {"context": retriever, "question": RunnablePassthrough()}
-)
+# # Define the grounding chain
+# grounding_chain = RunnableParallel(
+#     {"context": retriever, "question": RunnablePassthrough()}
+# )
 
 # Define the RAG chain
 rag_chain = (
@@ -107,5 +107,5 @@ for i, (question, reference) in enumerate(zip(questions, references)):
     
     # Get response and grounding context
     response = rag_chain.invoke(question)
-    grounding_docs = grounding_chain.invoke(question)["context"]
-            
+    #grounding_docs = grounding_chain.invoke(question)["context"]
+        
