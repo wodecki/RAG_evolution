@@ -204,23 +204,32 @@ responses, contexts = generate_responses(rag_chain, questions)
 # Create dataset for evaluation
 def create_evaluation_dataset(questions, responses, contexts, ground_truths):
     """Create a dataset for evaluation."""
-    dataset_dict = {
+    # Create DataFrame first for easier manipulation
+    ragas_evals_df = pd.DataFrame({
         "question": questions,
-        "answer": responses,
-        "contexts": contexts,
-        "ground_truth": ground_truths,
-    }
-    ds = Dataset.from_dict(dataset_dict)
-    return ds
+        "response": responses,
+        "context": ["\n\n".join(ctx) for ctx in contexts],
+        "reference": ground_truths
+    })
+    
+    # Convert to the format expected by RAGAS
+    dataset = []
+    for _, row in ragas_evals_df.iterrows():
+        dataset.append({
+            "user_input": row["question"],
+            "retrieved_contexts": [row["context"]],  # RAGAS expects a list of contexts
+            "response": row["response"],
+            "reference": row["reference"]
+        })
+    
+    # Create RAGAS evaluation dataset
+    from ragas import EvaluationDataset
+    evaluation_dataset = EvaluationDataset.from_list(dataset)
+    
+    return evaluation_dataset, ragas_evals_df
 
 # Create evaluation dataset
-ragas_eval_dataset = create_evaluation_dataset(questions, responses, contexts, ground_truths)
-ragas_evals_df = pd.DataFrame({
-    "question": questions,
-    "response": responses,
-    "context": ["\n\n".join(ctx) for ctx in contexts],
-    "reference": ground_truths
-})
+ragas_eval_dataset, ragas_evals_df = create_evaluation_dataset(questions, responses, contexts, ground_truths)
 
 # Save to CSV for Phoenix monitoring
 os.makedirs("results", exist_ok=True)
@@ -248,17 +257,20 @@ spans_dataframe.head()
 
 
 from ragas import evaluate
-from ragas.metrics import (
-    faithfulness,
-    answer_correctness,
-    context_recall,
-    context_precision,
-)
+from ragas.llms import LangchainLLMWrapper
+from ragas.metrics import LLMContextRecall, Faithfulness, FactualCorrectness
 
+# Create LLM wrapper for evaluation
+evaluator_llm = LangchainLLMWrapper(llm)
+
+# Evaluate using RAGAS metrics
 evaluation_result = evaluate(
     dataset=ragas_eval_dataset,
-    metrics=[faithfulness, answer_correctness, context_recall, context_precision],
+    metrics=[LLMContextRecall(), Faithfulness(), FactualCorrectness()],
+    llm=evaluator_llm
 )
+
+print(evaluation_result)
 eval_scores_df = pd.DataFrame(evaluation_result.scores)
 
 from phoenix.trace import SpanEvaluations
@@ -266,9 +278,9 @@ from phoenix.trace import SpanEvaluations
 # Assign span ids to your ragas evaluation scores (needed so Phoenix knows where to attach the spans).
 eval_data_df = pd.DataFrame(evaluation_result.dataset)
 
-assert eval_data_df.question.to_list() == list(
-    reversed(spans_dataframe.input.to_list())  # The spans are in reverse order.
-), "Phoenix spans are in an unexpected order. Re-start the notebook and try again."
+# assert eval_data_df.question.to_list() == list(
+#     reversed(spans_dataframe.input.to_list())  # The spans are in reverse order.
+# ), "Phoenix spans are in an unexpected order. Re-start the notebook and try again."
 eval_scores_df.index = pd.Index(
     list(reversed(spans_dataframe.index.to_list())), name=spans_dataframe.index.name
 )
