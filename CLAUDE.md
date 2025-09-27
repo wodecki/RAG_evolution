@@ -23,28 +23,35 @@ uv sync
 uv add <package_name>
 ```
 
-### Running the Application
+### Running Course Modules
 ```bash
-# Main RAG application (creates and populates ChromaDB)
-python main.py
+# Module 1: Basic RAG
+uv run python "01_basic_rag/1. minimal_rag.py"
+uv run python "01_basic_rag/2. minimal_rag_wtih_chunking.py"
 
-# Query existing ChromaDB
-python read_from_chroma_db.py
+# Module 2: Vector Stores
+uv run python "02_vector_stores/1_in_memory.py"
+uv run python "02_vector_stores/2_chroma_basic.py"
+uv run python "02_vector_stores/3_faiss_intro.py"
+
+# Legacy scripts (use course modules instead)
+uv run python main.py
+uv run python read_from_chroma_db.py
 ```
 
 ### Dataset Generation
 ```bash
 # Generate questions for documents
-python datasets/generate_questions_for_files.py
+uv run python datasets/generate_questions_for_files.py
 
 # Create question dataset
-python datasets/create_question_dataset.py
+uv run python datasets/create_question_dataset.py
 
 # Generate ground truth answers
-python datasets/generate_ground_truth_answers.py
+uv run python datasets/generate_ground_truth_answers.py
 
 # Generate multi-hop questions
-python datasets/generate_multi-hop_questions.py
+uv run python datasets/generate_multi-hop_questions.py
 ```
 
 ## Architecture
@@ -56,13 +63,13 @@ python datasets/generate_multi-hop_questions.py
 - **Text Splitting**: RecursiveCharacterTextSplitter (1000 char chunks, 20 overlap)
 - **Retrieval**: Standard similarity search retriever
 
-### Key Files
-- `main.py`: Creates ChromaDB from scientist biographies, runs sample questions
-- `read_from_chroma_db.py`: Queries existing ChromaDB without recreation
-- `datasets/`: Question generation and ground truth creation scripts
+### Course Module Structure
+- `01_basic_rag/`: Introduction to RAG concepts with in-memory storage
+- `02_vector_stores/`: Comparison of vector stores (InMemory, ChromaDB, FAISS)
 - `datasets/scientists_bios/`: Source documents (scientist biographies)
-- `chroma_langchain_db/`: Persisted ChromaDB vector store
-- `datasets/questions_with_answers.csv`: Generated question-answer pairs
+- `main.py`: Legacy ChromaDB implementation (use course modules instead)
+- `read_from_chroma_db.py`: Legacy query script
+- Scripts are numbered for execution order: `1_script.py`, `2_script.py`, etc.
 
 ### RAG Chain Structure
 ```
@@ -80,9 +87,22 @@ python datasets/generate_multi-hop_questions.py
 5. **Retrieval**: Similarity search retrieves relevant chunks for questions
 6. **Generation**: GPT-4o-mini generates answers using retrieved context
 
-## Dependencies
+## Package Management
 
-Uses `uv` for dependency management. Core dependencies:
+**ALWAYS use `uv` for all Python operations:**
+
+```bash
+# Install dependencies
+uv sync
+
+# Add new packages
+uv add package_name
+
+# Run any Python script
+uv run python script_name.py
+```
+
+Core dependencies:
 - `langchain` ecosystem (langchain-core, langchain-community, langchain-openai, langchain-chroma)
 - `unstructured` for document processing
 
@@ -92,4 +112,14 @@ Requires OpenAI API key in environment or `.env` file:
 ```
 OPENAI_API_KEY=your_api_key_here
 ```
-- This codebase is intended to be presented as a live demo in the interactive mode. Use functions (def ...) *ONLY* for technical helper functions. *NEVER* use "def main()" block
+
+## Important Development Rules
+
+- **Always use `uv run python` for script execution**
+- **Live demo format**: Scripts execute immediately when run (no `def main()` blocks)
+- **Numbered execution order**: Within each module, scripts are numbered `1_`, `2_`, `3_` etc.
+- **Helper functions only**: Use `def` only for technical helper functions, never for main execution
+- **Interactive variables**: Scripts create accessible variables for live exploration
+- In all the scripts *ALWAYS* add:\
+from dotenv import load_dotenv
+load_dotenv(override=True)

@@ -12,7 +12,7 @@
 
 ## Scripts in This Module
 
-### 1. `minimal_rag.py` - Simplest RAG Implementation
+### 1. `1. minimal_rag.py` - Simplest RAG Implementation
 A bare-bones RAG system that demonstrates the core concept without complexity:
 - Loads documents from the scientists_bios dataset
 - Creates embeddings using OpenAI
@@ -21,7 +21,7 @@ A bare-bones RAG system that demonstrates the core concept without complexity:
 
 **Key learning:** Understanding the RAG pipeline: Load → Embed → Store → Retrieve → Generate
 
-### 2. `with_chunking.py` - RAG with Text Splitting
+### 2. `2. minimal_rag_wtih_chunking.py` - RAG with Text Splitting
 Enhanced RAG system that introduces document chunking:
 - Splits long documents into smaller, focused chunks
 - Compares different chunk sizes (500, 1000, 2000 characters)
@@ -40,14 +40,14 @@ Enhanced RAG system that introduces document chunking:
 
 ## Running the Code
 
-Make sure you're in the project root directory and have activated your environment:
+Make sure you're in the project root directory:
 
 ```bash
 # Run minimal RAG example
-python 01_basic_rag/minimal_rag.py
+uv run python "1. minimal_rag.py"
 
 # Run chunking comparison
-python 01_basic_rag/with_chunking.py
+uv run python "2. minimal_rag_wtih_chunking.py"
 ```
 
 ## Expected Output
@@ -65,6 +65,7 @@ The chunking script additionally compares different chunk sizes to show their im
 - **"No such file or directory"**: Make sure you're running from the project root, not inside the 01_basic_rag folder
 - **OpenAI API errors**: Ensure your OPENAI_API_KEY environment variable is set
 - **Import errors**: Run `uv sync` to install dependencies
+- **libmagic warnings**: These are harmless but can be fixed with `brew install libmagic` on macOS
 
 ## Key Takeaways
 

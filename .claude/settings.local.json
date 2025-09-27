@@ -11,7 +11,9 @@
       "Bash(cat:*)",
       "Bash(git checkout:*)",
       "Bash(git ls-tree:*)",
-      "Bash(brew install:*)"
+      "Bash(brew install:*)",
+      "Bash(find:*)",
+      "Read(//Users/wodecki/Offline Docs/GitHub/GenAI - edu/**)"
     ],
     "deny": [],
     "ask": []
