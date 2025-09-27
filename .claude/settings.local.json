@@ -13,7 +13,8 @@
       "Bash(git ls-tree:*)",
       "Bash(brew install:*)",
       "Bash(find:*)",
-      "Read(//Users/wodecki/Offline Docs/GitHub/GenAI - edu/**)"
+      "Read(//Users/wodecki/Offline Docs/GitHub/GenAI - edu/**)",
+      "Bash(timeout 120 uv run:*)"
     ],
     "deny": [],
     "ask": []

@@ -34,21 +34,15 @@ Handle PDF documents in RAG systems:
 
 ### 3. `3_web_sources.py` - Web Content Integration
 Load content from web sources:
-- URL accessibility checking
+- URL accessibility checking with proper headers
 - Web scraping with WebBaseLoader
-- Content cleaning and artifact removal
-- Handling rate limits and errors gracefully
+- Simplified content cleaning using BeautifulSoup
+- BeautifulSoup vs basic text processing comparison
+- Rate limiting and error handling
 
-**Key learning:** Web content integration challenges and solutions
+**Key learning:** Web content integration with effective cleaning strategies
 
-### 4. `4_multiple_files.py` - Unified Multi-Source Loading
-Combine multiple document types in one system:
-- Mixed file type processing (text, PDF, HTML, web)
-- Unified metadata schema design
-- Cross-source content normalization
-- Source provenance tracking
-
-**Key learning:** Building production-ready document ingestion pipelines
+**Note:** Only 3 scripts are currently implemented in this module.
 
 ## Key Concepts
 
@@ -61,14 +55,14 @@ Combine multiple document types in one system:
 
 ## Document Type Comparison
 
-| Feature | Text Files | PDF Files | Web Sources | Mixed Sources |
-|---------|------------|-----------|-------------|---------------|
-| **Processing Speed** | 🟢 Fastest | 🟡 Medium | 🔴 Slowest | 🟡 Variable |
-| **Content Quality** | 🟢 Clean | 🟡 May have artifacts | 🔴 Needs cleaning | 🟡 Mixed |
-| **Reliability** | 🟢 High | 🟢 High | 🔴 Variable | 🟡 Depends |
-| **Setup Complexity** | 🟢 Simple | 🟡 Medium | 🔴 Complex | 🔴 Complex |
-| **Metadata Richness** | 🔴 Basic | 🟢 Rich | 🟡 Medium | 🟢 Comprehensive |
-| **Best For** | Simple content | Documents | Live data | Production systems |
+| Feature | Text Files | PDF Files | Web Sources |
+|---------|------------|-----------|-------------|
+| **Processing Speed** | 🟢 Fastest | 🟡 Medium | 🔴 Slowest |
+| **Content Quality** | 🟢 Clean | 🟡 May have artifacts | 🟡 Cleanable |
+| **Reliability** | 🟢 High | 🟢 High | 🟡 Network dependent |
+| **Setup Complexity** | 🟢 Simple | 🟡 Medium | 🟡 Medium |
+| **Metadata Richness** | 🔴 Basic | 🟢 Rich | 🟡 Medium |
+| **Best For** | Simple content | Documents | Live/current data |
 
 ## Running the Code
 
@@ -81,9 +75,6 @@ uv run python "03_document_loading/2_pdf_loading.py"
 
 # Web content integration (requires internet)
 uv run python "03_document_loading/3_web_sources.py"
-
-# Unified multi-source system
-uv run python "03_document_loading/4_multiple_files.py"
 ```
 
 ## Expected Behavior
@@ -99,14 +90,10 @@ uv run python "03_document_loading/4_multiple_files.py"
 - Shows page-level processing capabilities
 
 **3_web_sources.py:**
-- Attempts to load from Wikipedia (with fallbacks)
-- Demonstrates content cleaning techniques
-- Handles network errors gracefully
-
-**4_multiple_files.py:**
-- Creates `datasets/mixed_sources/` with HTML samples
-- Processes all available file types
-- Shows unified metadata management
+- Loads from Wikipedia URLs with accessibility checks
+- Demonstrates simplified content cleaning with BeautifulSoup
+- Shows successful RAG question-answering with web content
+- Handles network errors gracefully with proper fallbacks
 
 ## Dependencies Added
 
@@ -148,15 +135,6 @@ This module adds several new dependencies:
 **Web Sources:**
 - Always check robots.txt and terms of service
 - Implement rate limiting and respectful crawling
-- Cache content when legally permissible
-- Clean navigation and UI elements
-
-**Mixed Sources:**
-- Design unified metadata schemas upfront
-- Implement source-specific cleaning pipelines
-- Track content provenance for debugging
-- Consider source authority in retrieval
-
-## What's Next
-
-Module 4 will explore advanced retrieval techniques including metadata filtering, hybrid search strategies, and retrieval optimization methods.
+- Use simplified, robust cleaning approaches
+- Handle network failures gracefully
+- Clean navigation and UI elements effectively
