@@ -11,4 +11,6 @@ dependencies = [
     "langchain-openai==0.3.11",
     "langchain-chroma==0.2.3",
     "unstructured>=0.17.2",
+    "libmagic>=1.0",
+    "python-magic>=0.4.27",
 ]

@@ -92,3 +92,4 @@ Requires OpenAI API key in environment or `.env` file:
 ```
 OPENAI_API_KEY=your_api_key_here
 ```
+- This codebase is intended to be presented as a live demo in the interactive mode. Use functions (def ...) *ONLY* for technical helper functions. *NEVER* use "def main()" block
