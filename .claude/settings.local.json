@@ -40,7 +40,9 @@
       "WebFetch(domain:neo4j.com)",
       "Bash(docker exec:*)",
       "WebFetch(domain:github.com)",
-      "Bash(timeout 30 uv run python 3_query_knowledge_graph.py)"
+      "Bash(timeout 30 uv run python 3_query_knowledge_graph.py)",
+      "Bash(timeout 30 uv run:*)",
+      "Bash(awk:*)"
     ],
     "deny": [],
     "ask": []

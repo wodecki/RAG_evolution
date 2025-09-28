@@ -1,258 +1,170 @@
-# GraphRAG Implementation: Programmer Staffing System
+# GraphRAG vs Naive RAG: CV Knowledge Graph Comparison
 
-A comprehensive demonstration of **GraphRAG vs Naive RAG** using a realistic programmer staffing scenario. This project showcases how knowledge graphs enable structured queries that are impossible with traditional vector-based RAG systems.
+A comprehensive demonstration of **GraphRAG vs Naive RAG** using realistic PDF CVs and LLM-powered knowledge graph extraction. This project showcases how knowledge graphs enable structured queries that are impossible with traditional vector-based RAG systems.
 
-## 🚀 Simple Session Management
+## 🚀 Quick Start
 
-### Daily Workflow (3 Commands Only)
+### Prerequisites
+- **Python 3.11+** with `uv` package manager
+- **Docker Desktop** (for Neo4j database)
+- **OpenAI API Key** (set in `.env` file)
 
-**First Time:**
+### One-Command Demo
 ```bash
-uv run python 0_setup.py    # Setup everything
+# Complete end-to-end comparison
+uv run python 5_compare_systems.py
 ```
 
-**Every Session:**
+### Step-by-Step Workflow
 ```bash
-./start_session.sh          # Start working
-# ... do your work ...
-./end_session.sh            # Stop & save
-```
+# 1. Initial setup and validation
+uv run python 0_setup.py
 
-**Check Status Anytime:**
-```bash
-uv run python 0_setup.py --check
-```
+# 2. Start Neo4j database
+./start_session.sh
 
-Your data automatically persists between sessions - no manual saving needed!
+# 3. Generate 30 realistic CV PDFs
+uv run python 1_generate_data.py
+
+# 4. Extract knowledge graph from CVs using LLMGraphTransformer
+uv run python 2_data_to_knowledge_graph.py
+
+# 5. Run complete comparison
+uv run python 5_compare_systems.py
+```
 
 ## 🎯 Problem Addressed
 
 Traditional RAG systems struggle with structured queries requiring:
-1. **Counting**: "How many Python developers do we have?"
-2. **Filtering**: "Find developers with AWS certifications available in Q2"
-3. **Aggregation**: "What's the average hourly rate for React developers?"
-4. **Sorting**: "List developers by project experience"
-5. **Multi-hop reasoning**: "Find Python devs who worked with AWS-certified colleagues"
+
+| Query Type | Example | Traditional RAG Issue |
+|------------|---------|---------------------|
+| **Counting** | "How many Python developers?" | ❌ Estimates from text chunks |
+| **Filtering** | "Find people with Docker AND Kubernetes" | ❌ Limited to semantic similarity |
+| **Aggregation** | "Average years of experience?" | ❌ Cannot calculate across entities |
+| **Sorting** | "Top 3 most experienced developers" | ❌ No structured ranking |
+| **Multi-hop** | "People who attended same university" | ❌ Cannot traverse relationships |
 
 ## 🏗️ Architecture
 
-### Knowledge Graph Schema (Neo4j)
+### Knowledge Graph Schema
+**Auto-extracted from PDF CVs using LLMGraphTransformer:**
+
 ```
 Nodes:
-├── Programmer (id, name, location, hourly_rate, availability)
-├── Skill (name, category)
-├── Certification (name, provider)
-├── Project (id, name, client, dates, status)
-└── RFP (id, title, requirements)
+├── Person (id, name, location, bio)
+├── Skill (id, category)
+├── Company (id, industry, location)
+├── University (id, location, type)
+└── Certification (id, provider, field)
 
 Relationships:
-├── (Programmer)-[HAS_SKILL {proficiency, years}]->(Skill)
-├── (Programmer)-[HAS_CERTIFICATION {dates}]->(Certification)
-├── (Programmer)-[WORKED_ON {role, dates}]->(Project)
-├── (Programmer)-[WORKED_WITH {projects}]->(Programmer)
-├── (Project)-[REQUIRES_SKILL {min_level}]->(Skill)
-└── (RFP)-[RFP_REQUIRES_SKILL]->(Skill)
+├── (Person)-[HAS_SKILL]->(Skill)
+├── (Person)-[WORKED_AT]->(Company)
+├── (Person)-[STUDIED_AT]->(University)
+├── (Person)-[EARNED]->(Certification)
+└── (Person)-[MENTIONS]->(Person)
 ```
 
 ### System Components
-- **Neo4j Database**: Knowledge graph storage with Docker setup
-- **GraphRAG System**: Natural language → Cypher → Results → LLM
-- **Naive RAG Baseline**: ChromaDB vector search for comparison
-- **Query Translator**: Converts questions to Cypher queries
-- **Evaluation Framework**: Side-by-side performance comparison
+- **PDF Processing**: Realistic CV generation with reportlab
+- **Knowledge Extraction**: LangChain LLMGraphTransformer
+- **Graph Database**: Neo4j with Docker
+- **GraphRAG**: LangChain GraphCypherQAChain with custom prompts
+- **Naive RAG**: ChromaDB vector search baseline
+- **Evaluation**: GPT-5 ground truth generation
 
-## 🚀 Quick Start
+## 📊 Example Results
 
-### 1. Environment Setup
-```bash
-# Start Neo4j database
-docker-compose up -d
+### Query: "How many people have Python programming skills?"
 
-# Run environment validation
-uv run python 0_setup.py
-```
-
-### 2. Generate Data & Build Graph
-```bash
-# Generate 50 synthetic programmer profiles
-uv run python 1_generate_data.py
-
-# Populate Neo4j knowledge graph
-uv run python 2_build_knowledge_graph.py
-```
-
-### 3. Run Comparisons
-```bash
-# Test Naive RAG baseline
-uv run python 3_naive_rag_baseline.py
-
-# Test GraphRAG system
-uv run python 4_graph_rag_system.py
-
-# Compare both systems
-uv run python 5_compare_systems.py
-```
-
-## 📊 Key Demonstrations
-
-### Exact Counting
-**Query**: "How many Python developers are available?"
-
-**Naive RAG**: Searches text chunks, estimates from context
-**GraphRAG**:
+**GraphRAG (✅ Accurate):**
 ```cypher
-MATCH (p:Programmer)-[:HAS_SKILL]->(s:Skill {name: 'Python'})
-WHERE p.availability_start <= date() OR p.availability_start IS NULL
-RETURN count(p) as python_developers
+MATCH (p:Person)-[:HAS_SKILL]->(s:Skill)
+WHERE toLower(s.id) = toLower("Python")
+RETURN count(p) AS pythonProgrammers
 ```
-*Result: Exact count with perfect accuracy*
+*Result: **7 people** (exact count)*
 
-### Multi-Criteria Filtering
-**Query**: "Find senior Python developers with AWS certifications"
+**Naive RAG (❌ Incomplete):**
+*Result: "Based on context, only **Amanda Smith** is mentioned" (missed 6 people)*
 
-**Naive RAG**: Relies on semantic similarity across text chunks
-**GraphRAG**:
-```cypher
-MATCH (p:Programmer)-[hs:HAS_SKILL]->(s:Skill {name: 'Python'})
-MATCH (p)-[:HAS_CERTIFICATION]->(c:Certification)
-WHERE hs.proficiency >= 4 AND c.name CONTAINS 'AWS'
-RETURN p.name, p.location, hs.proficiency, c.name
-ORDER BY hs.proficiency DESC
-```
-*Result: Precise filtering with relationship properties*
+### Query: "List people with both React and Node.js skills"
 
-### Multi-Hop Reasoning
-**Query**: "Find Python developers who worked with AWS-certified colleagues"
+**GraphRAG (✅ Complete):**
+*Result: **4 people** - Christine Rodriguez, Joseph Fuller, Krystal Castillo, William Bonilla*
 
-**Naive RAG**: ❌ Impossible - cannot traverse relationships
-**GraphRAG**:
-```cypher
-MATCH (p1:Programmer)-[:HAS_SKILL]->(s:Skill {name: 'Python'})
-MATCH (p1)-[:WORKED_WITH]->(p2:Programmer)
-MATCH (p2)-[:HAS_CERTIFICATION]->(c:Certification)
-WHERE c.name CONTAINS 'AWS'
-RETURN p1.name, p2.name, c.name
-```
-*Result: Complex relationship reasoning*
-
-## 📈 Performance Comparison
-
-| Query Type | Naive RAG | GraphRAG | Advantage |
-|------------|-----------|----------|-----------|
-| **Counting** | Estimates from text | Exact graph traversal | ✅ GraphRAG |
-| **Filtering** | Semantic similarity | Relationship properties | ✅ GraphRAG |
-| **Aggregation** | Text-based approximation | Direct calculation | ✅ GraphRAG |
-| **Sorting** | Limited by chunk ranking | Property-based sorting | ✅ GraphRAG |
-| **Multi-hop** | ❌ Impossible | ✅ Native support | ✅ GraphRAG |
-| **Transparency** | Black box similarity | Interpretable Cypher | ✅ GraphRAG |
-
-## 🔍 Example Queries
-
-### Business Intelligence Queries
-```bash
-# Resource planning
-"How many developers will be available next quarter?"
-
-# Skills gap analysis
-"What skills are we missing for the new fintech RFP?"
-
-# Team optimization
-"Find the most collaborative developers for team leads"
-
-# Market analysis
-"What's the average rate for full-stack developers?"
-```
-
-### Complex Analytical Queries
-```cypher
--- Skill proficiency distribution
-MATCH (p:Programmer)-[hs:HAS_SKILL]->(s:Skill {name: 'Python'})
-RETURN hs.proficiency, count(p) as developer_count
-
--- Collaboration network analysis
-MATCH (p1:Programmer)-[w:WORKED_WITH]->(p2:Programmer)
-RETURN p1.name, p2.name, w.collaboration_count
-ORDER BY w.collaboration_count DESC
-
--- Temporal availability analysis
-MATCH (p:Programmer)
-WHERE p.availability_start > date()
-RETURN p.availability_start.month as month, count(p) as available
-ORDER BY month
-```
+**Naive RAG (❌ Limited):**
+*Result: **1 person** - Christine Rodriguez (missed 3 people)*
 
 ## 📁 Project Structure
 
 ```
 06_GraphRAG/
 ├── 0_setup.py                 # Environment validation
-├── 1_generate_data.py          # Synthetic data generation
-├── 2_build_knowledge_graph.py  # Graph population
-├── 3_naive_rag_baseline.py     # Traditional RAG system
-├── 4_graph_rag_system.py       # GraphRAG implementation
-├── 5_compare_systems.py        # Performance comparison
-├── docker-compose.yml          # Neo4j setup
-├── test_queries.json          # Evaluation queries
-├── utils/
-│   ├── models.py              # Pydantic data models
-│   ├── graph_schema.py        # Neo4j schema management
-│   └── query_translator.py    # NL → Cypher translation
-├── data/                      # Generated synthetic data
-│   ├── programmers/           # 50 programmer profiles
-│   ├── projects/              # 20 project descriptions
-│   └── rfps/                  # 3 RFP documents
+├── 1_generate_data.py          # Synthetic PDF CV generation
+├── 2_data_to_knowledge_graph.py  # LLM graph extraction
+├── 3_query_knowledge_graph.py  # GraphRAG implementation
+├── 4_naive_rag_cv.py          # Naive RAG baseline
+├── 5_compare_systems.py       # System comparison
+├── docker-compose.yml         # Neo4j setup
+├── start_session.sh           # Neo4j management
+├── utils/                     # Utility files
+│   ├── generate_ground_truth.py  # GPT-5 ground truth
+│   ├── test_questions.json    # Evaluation questions
+│   └── config.toml           # Configuration
+├── data/programmers/          # Generated CV PDFs
 └── results/                   # Comparison results
-    ├── comparison_report.md   # Detailed analysis
-    ├── naive_rag_results.json
-    ├── graph_rag_results.json
-    └── detailed_comparison_analysis.json
+    ├── ground_truth_answers.json
+    └── comparison_report.md
 ```
 
-## 🛠️ Technical Stack
+## 🔧 Technical Stack
 
-- **Graph Database**: Neo4j 5.x with Docker
-- **Vector Store**: ChromaDB (for baseline)
-- **LLM**: OpenAI GPT-4o-mini
-- **Frameworks**: LangChain, Pydantic
-- **Language**: Python 3.10+
+- **Language**: Python 3.11+
 - **Package Manager**: uv
+- **LLM**: OpenAI GPT-4o (queries), GPT-5 (ground truth)
+- **Graph Database**: Neo4j 5.x with Docker
+- **Vector Store**: ChromaDB (baseline comparison)
+- **Frameworks**: LangChain, LangChain Experimental
+- **Document Processing**: Unstructured, ReportLab
 
-## 🎓 Educational Value
-
-This implementation demonstrates:
-
-1. **When to use GraphRAG**: Structured data with clear relationships
-2. **Query translation**: Natural language → Cypher → Results
-3. **Performance trade-offs**: Accuracy vs simplicity
-4. **Real-world applications**: Staffing, inventory, recommendation systems
-5. **System design**: Modular architecture with clear separation of concerns
-
-## 🚀 Next Steps
-
-1. **Explore Neo4j Browser**: http://localhost:7474 (neo4j/password123)
-2. **Review Results**: Check `results/comparison_report.md`
-3. **Experiment**: Try custom queries in both systems
-4. **Extend**: Add new node types or relationships
-5. **Scale**: Test with larger datasets
-
-## 🤝 Use Cases Beyond Staffing
-
-The patterns demonstrated here apply to:
-
-- **E-commerce**: Product recommendations with complex filters
-- **Healthcare**: Patient care coordination with medical relationships
-- **Finance**: Risk analysis with entity relationships
-- **Supply Chain**: Multi-hop dependency tracking
-- **Social Networks**: Influence and connection analysis
-
-## 📚 Key Learnings
+## 🎓 Key Learnings
 
 1. **GraphRAG excels** at structured queries requiring precise relationships
-2. **Naive RAG works better** for semantic text search and fuzzy matching
-3. **Hybrid approaches** can combine both strengths
-4. **Query complexity** determines the appropriate RAG architecture
-5. **Transparency** in GraphRAG enables debugging and validation
+2. **LLMGraphTransformer** enables real-world PDF-to-knowledge-graph workflows
+3. **Custom Cypher prompts** solve case sensitivity and result interpretation issues
+4. **GPT-5 ground truth** provides unbiased evaluation
+5. **Hybrid approaches** can combine both strengths for optimal results
+
+
+## 🔍 Advanced Usage
+
+### Browse Knowledge Graph
+Neo4j Browser: http://localhost:7474 (neo4j/password123)
+
+### Individual Components
+```bash
+# Test GraphRAG only
+uv run python 3_query_knowledge_graph.py
+
+# Test Naive RAG only
+uv run python 4_naive_rag_cv.py
+
+# Generate ground truth only
+uv run python utils/generate_ground_truth.py
+```
+
+## 🤝 Real-World Applications
+
+This approach applies to any domain with:
+- **Structured relationships** between entities
+- **Precise counting/filtering** requirements
+- **Multi-hop reasoning** needs
+- **Complex business queries**
+
+Examples: Staffing, inventory management, medical records, financial risk analysis.
 
 ---
 
-**🎉 Congratulations!** You've successfully implemented and compared both RAG architectures. The knowledge graph approach demonstrates clear advantages for structured business queries while maintaining the flexibility to handle natural language inputs.
+**🎉 Success!** You've demonstrated the clear advantages of GraphRAG for structured business queries while maintaining natural language accessibility.

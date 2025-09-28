@@ -1,9 +1,10 @@
+#!/usr/bin/env python3
 """
-System Comparison and Evaluation Framework
-=========================================
+GraphRAG vs Naive RAG Comparison System
+======================================
 
-Compares the performance of Naive RAG vs GraphRAG systems to demonstrate
-the advantages of graph-based retrieval for structured queries.
+Compares GraphRAG and Naive RAG performance using GPT-5 ground truth
+to demonstrate the advantages of graph-based retrieval for structured queries.
 """
 
 from dotenv import load_dotenv
@@ -11,484 +12,553 @@ load_dotenv(override=True)
 
 import json
 import time
-from typing import List, Dict, Any, Tuple
+import asyncio
+import importlib.util
+from pathlib import Path
+from typing import List, Dict, Any, Optional
 from datetime import datetime
-import statistics
+import logging
 
-from utils.models import QueryResult
-from utils.graph_schema import GraphSchema
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 class SystemComparator:
-    """Compares Naive RAG and GraphRAG systems."""
+    """Compares GraphRAG, Naive RAG, and Ground Truth systems."""
 
     def __init__(self):
         """Initialize the comparator."""
-        self.evaluation_queries = [
-            {
-                "id": "count_python_devs",
-                "query": "How many Python developers are available?",
-                "type": "counting",
-                "expected_approach": "Count nodes with specific relationships",
-                "graph_advantage": "Exact counting through graph traversal"
-            },
-            {
-                "id": "aws_certified_count",
-                "query": "How many developers have AWS certifications?",
-                "type": "counting",
-                "expected_approach": "Count programmers with AWS certifications",
-                "graph_advantage": "Precise relationship-based counting"
-            },
-            {
-                "id": "avg_react_rate",
-                "query": "What is the average hourly rate for React developers?",
-                "type": "aggregation",
-                "expected_approach": "Calculate average from matching programmers",
-                "graph_advantage": "Direct aggregation on filtered nodes"
-            },
-            {
-                "id": "top_developers_projects",
-                "query": "List the top 5 developers by number of completed projects",
-                "type": "ranking",
-                "expected_approach": "Count projects per developer and rank",
-                "graph_advantage": "Relationship counting with precise sorting"
-            },
-            {
-                "id": "fintech_experience",
-                "query": "Find developers who have worked on fintech projects",
-                "type": "filtering",
-                "expected_approach": "Filter by project domain",
-                "graph_advantage": "Graph traversal to find specific relationships"
-            },
-            {
-                "id": "skill_distribution",
-                "query": "Which skills are most common among our programmers?",
-                "type": "aggregation",
-                "expected_approach": "Group by skill and count",
-                "graph_advantage": "Aggregate across skill relationships"
-            },
-            {
-                "id": "senior_javascript_devs",
-                "query": "Who are the most experienced JavaScript developers?",
-                "type": "filtering_ranking",
-                "expected_approach": "Filter by skill, sort by experience",
-                "graph_advantage": "Multi-criteria filtering with relationship properties"
-            },
-            {
-                "id": "ml_projects",
-                "query": "What projects require machine learning skills?",
-                "type": "filtering",
-                "expected_approach": "Find projects with ML requirements",
-                "graph_advantage": "Direct relationship traversal"
-            },
-            {
-                "id": "immediate_availability",
-                "query": "Find developers available for immediate start",
-                "type": "filtering",
-                "expected_approach": "Filter by availability date",
-                "graph_advantage": "Temporal property filtering"
-            },
-            {
-                "id": "collaboration_network",
-                "query": "Find Python developers who worked with AWS-certified colleagues",
-                "type": "multi_hop",
-                "expected_approach": "Multi-hop graph traversal",
-                "graph_advantage": "Complex relationship reasoning impossible for naive RAG"
+        self.results_dir = Path("results")
+        self.results_dir.mkdir(exist_ok=True)
+
+        # Systems will be initialized when needed
+        self.graph_rag_system = None
+        self.naive_rag_system = None
+
+        logger.info("✓ System Comparator initialized")
+
+    def load_ground_truth(self) -> Dict[str, Any]:
+        """Load ground truth answers generated by GPT-5."""
+        ground_truth_file = self.results_dir / "ground_truth_answers.json"
+
+        if not ground_truth_file.exists():
+            logger.info(f"Ground truth file not found: {ground_truth_file}")
+            logger.info("Generating ground truth automatically...")
+
+            import subprocess
+            result = subprocess.run(
+                ["uv", "run", "python", "utils/generate_ground_truth.py"],
+                capture_output=True,
+                text=True
+            )
+
+            if result.returncode != 0:
+                raise RuntimeError(
+                    f"Failed to generate ground truth:\n"
+                    f"STDOUT: {result.stdout}\n"
+                    f"STDERR: {result.stderr}"
+                )
+
+            if not ground_truth_file.exists():
+                raise FileNotFoundError(
+                    f"Ground truth generation completed but file still not found: {ground_truth_file}"
+                )
+
+            logger.info("✓ Ground truth generated successfully")
+        else:
+            logger.info(f"✓ Using existing ground truth: {ground_truth_file}")
+
+        with open(ground_truth_file, 'r') as f:
+            data = json.load(f)
+
+        logger.info(f"✓ Loaded ground truth with {len(data['ground_truth_answers'])} questions")
+        return data
+
+    def initialize_graph_rag_system(self):
+        """Initialize the GraphRAG system from file 3."""
+        try:
+            # Import the GraphRAG system dynamically
+            spec = importlib.util.spec_from_file_location(
+                "graph_rag_module", "3_query_knowledge_graph.py"
+            )
+            graph_rag_module = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(graph_rag_module)
+
+            self.graph_rag_system = graph_rag_module.CVGraphRAGSystem()
+            logger.info("✓ GraphRAG system initialized")
+            return True
+
+        except Exception as e:
+            logger.error(f"Failed to initialize GraphRAG system: {e}")
+            return False
+
+    def initialize_naive_rag_system(self):
+        """Initialize the Naive RAG system from file 4."""
+        try:
+            # Import the Naive RAG system dynamically
+            spec = importlib.util.spec_from_file_location(
+                "naive_rag_module", "4_naive_rag_cv.py"
+            )
+            naive_rag_module = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(naive_rag_module)
+
+            self.naive_rag_system = naive_rag_module.NaiveRAGSystem()
+
+            # Initialize the system
+            if self.naive_rag_system.initialize_system():
+                logger.info("✓ Naive RAG system initialized")
+                return True
+            else:
+                logger.error("Failed to initialize Naive RAG system")
+                return False
+
+        except Exception as e:
+            logger.error(f"Failed to initialize Naive RAG system: {e}")
+            return False
+
+    def run_graph_rag_query(self, question: str) -> Dict[str, Any]:
+        """Run a query through the GraphRAG system."""
+        try:
+            start_time = time.time()
+            result = self.graph_rag_system.query_graph(question)
+            execution_time = time.time() - start_time
+
+            return {
+                "question": question,
+                "answer": result.get("answer", "No answer"),
+                "cypher_query": result.get("cypher_query", ""),
+                "execution_time": execution_time,
+                "success": result.get("success", False),
+                "system": "graphrag"
             }
-        ]
 
-    def load_existing_results(self) -> Tuple[List[QueryResult], List[QueryResult]]:
-        """Load existing results from both systems."""
+        except Exception as e:
+            logger.error(f"GraphRAG query failed for '{question}': {e}")
+            return {
+                "question": question,
+                "answer": f"Error: {str(e)}",
+                "cypher_query": "",
+                "execution_time": 0,
+                "success": False,
+                "system": "graphrag",
+                "error": str(e)
+            }
+
+    def run_naive_rag_query(self, question: str) -> Dict[str, Any]:
+        """Run a query through the Naive RAG system."""
         try:
-            with open("results/naive_rag_results.json", "r") as f:
-                naive_data = json.load(f)
-                naive_results = [QueryResult.model_validate(item) for item in naive_data]
-        except FileNotFoundError:
-            print("❌ Naive RAG results not found. Run 3_naive_rag_baseline.py first.")
-            naive_results = []
+            result = self.naive_rag_system.query(question)
 
-        try:
-            with open("results/graph_rag_results.json", "r") as f:
-                graph_data = json.load(f)
-                graph_results = [QueryResult.model_validate(item) for item in graph_data]
-        except FileNotFoundError:
-            print("❌ GraphRAG results not found. Run 4_graph_rag_system.py first.")
-            graph_results = []
+            return {
+                "question": question,
+                "answer": result.get("answer", "No answer"),
+                "execution_time": result.get("execution_time", 0),
+                "num_chunks_retrieved": result.get("num_chunks_retrieved", 0),
+                "success": result.get("success", False),
+                "system": "naive_rag"
+            }
 
-        return naive_results, graph_results
+        except Exception as e:
+            logger.error(f"Naive RAG query failed for '{question}': {e}")
+            return {
+                "question": question,
+                "answer": f"Error: {str(e)}",
+                "execution_time": 0,
+                "num_chunks_retrieved": 0,
+                "success": False,
+                "system": "naive_rag",
+                "error": str(e)
+            }
 
-    def analyze_query_capabilities(self, naive_results: List[QueryResult], graph_results: List[QueryResult]) -> Dict[str, Any]:
-        """Analyze the capabilities of each system for different query types."""
-        analysis = {
-            "query_type_performance": {},
-            "accuracy_assessment": {},
-            "execution_time_comparison": {},
-            "response_quality": {}
+    def evaluate_answer_quality(self, ground_truth: str, system_answer: str, question_type: str) -> Dict[str, Any]:
+        """Evaluate how well a system answer matches the ground truth."""
+
+        # Simple evaluation criteria
+        evaluation = {
+            "exact_match": ground_truth.strip().lower() == system_answer.strip().lower(),
+            "contains_key_info": False,
+            "numerical_accuracy": None,
+            "completeness_score": 0.0,  # 0-1 scale
+            "quality_score": 0.0  # 0-1 scale
         }
 
-        # Group results by query type
-        for eval_query in self.evaluation_queries:
-            query_text = eval_query["query"]
-            query_type = eval_query["type"]
+        # Extract key information based on question type
+        if question_type == "counting":
+            # Look for numbers in both answers
+            import re
+            gt_numbers = re.findall(r'\d+', ground_truth)
+            sys_numbers = re.findall(r'\d+', system_answer)
 
-            # Find matching results
-            naive_result = next((r for r in naive_results if r.query == query_text), None)
-            graph_result = next((r for r in graph_results if r.query == query_text), None)
+            if gt_numbers and sys_numbers:
+                try:
+                    gt_num = int(gt_numbers[0])
+                    sys_num = int(sys_numbers[0])
+                    evaluation["numerical_accuracy"] = abs(gt_num - sys_num) == 0
+                    evaluation["contains_key_info"] = True
+                    evaluation["quality_score"] = 1.0 if gt_num == sys_num else 0.0
+                except ValueError:
+                    pass
 
-            if naive_result and graph_result:
-                comparison = {
-                    "query": query_text,
-                    "type": query_type,
-                    "naive_rag": {
-                        "answer": naive_result.answer,
-                        "execution_time": naive_result.execution_time,
-                        "context_chunks": len(naive_result.context)
-                    },
-                    "graph_rag": {
-                        "answer": graph_result.answer,
-                        "execution_time": graph_result.execution_time,
-                        "cypher_query": graph_result.cypher_query,
-                        "context_chunks": len(graph_result.context)
-                    },
-                    "graph_advantage": eval_query["graph_advantage"]
-                }
+        elif question_type in ["filtering", "listing"]:
+            # Check if system answer contains key entities from ground truth
+            gt_words = set(ground_truth.lower().split())
+            sys_words = set(system_answer.lower().split())
 
-                analysis["query_type_performance"][eval_query["id"]] = comparison
+            # Look for name-like words (capitalized in original)
+            gt_names = set(word for word in ground_truth.split() if word and word[0].isupper())
+            sys_names = set(word for word in system_answer.split() if word and word[0].isupper())
 
-        return analysis
+            if gt_names:
+                name_overlap = len(gt_names.intersection(sys_names)) / len(gt_names)
+                evaluation["completeness_score"] = name_overlap
+                evaluation["quality_score"] = name_overlap
+                evaluation["contains_key_info"] = name_overlap > 0
 
-    def assess_answer_quality(self, naive_results: List[QueryResult], graph_results: List[QueryResult]) -> Dict[str, Any]:
-        """Assess the quality and accuracy of answers."""
-        quality_metrics = {
-            "specificity": {},
-            "quantitative_accuracy": {},
-            "completeness": {},
-            "interpretability": {}
-        }
+        elif question_type == "aggregation":
+            # Similar to counting for numerical results
+            import re
+            gt_nums = re.findall(r'\d+\.?\d*', ground_truth)
+            sys_nums = re.findall(r'\d+\.?\d*', system_answer)
 
-        for eval_query in self.evaluation_queries:
-            query_text = eval_query["query"]
-            query_id = eval_query["id"]
+            if gt_nums and sys_nums:
+                try:
+                    gt_val = float(gt_nums[0])
+                    sys_val = float(sys_nums[0])
+                    # Allow small differences for averages
+                    diff = abs(gt_val - sys_val) / max(gt_val, 1)
+                    evaluation["numerical_accuracy"] = diff < 0.1  # 10% tolerance
+                    evaluation["quality_score"] = max(0, 1.0 - diff)
+                    evaluation["contains_key_info"] = True
+                except ValueError:
+                    pass
 
-            naive_result = next((r for r in naive_results if r.query == query_text), None)
-            graph_result = next((r for r in graph_results if r.query == query_text), None)
+        else:
+            # General text comparison
+            gt_words = set(ground_truth.lower().split())
+            sys_words = set(system_answer.lower().split())
 
-            if naive_result and graph_result:
-                # Specificity: Does the answer include specific numbers/names?
-                naive_has_numbers = any(char.isdigit() for char in naive_result.answer)
-                graph_has_numbers = any(char.isdigit() for char in graph_result.answer)
+            if gt_words:
+                word_overlap = len(gt_words.intersection(sys_words)) / len(gt_words)
+                evaluation["completeness_score"] = word_overlap
+                evaluation["quality_score"] = word_overlap
+                evaluation["contains_key_info"] = word_overlap > 0.3
 
-                # Quantitative analysis for counting/aggregation queries
-                quantitative_assessment = "N/A"
-                if eval_query["type"] in ["counting", "aggregation"]:
-                    if graph_has_numbers and not naive_has_numbers:
-                        quantitative_assessment = "GraphRAG provides specific numbers, NaiveRAG does not"
-                    elif both_have_numbers := (graph_has_numbers and naive_has_numbers):
-                        quantitative_assessment = "Both provide quantitative answers"
-                    else:
-                        quantitative_assessment = "Neither provides clear quantitative answers"
+        return evaluation
 
-                quality_metrics["specificity"][query_id] = {
-                    "naive_specific": naive_has_numbers,
-                    "graph_specific": graph_has_numbers,
-                    "advantage": "GraphRAG" if graph_has_numbers and not naive_has_numbers else "Equal" if both_have_numbers else "Neither"
-                }
+    async def run_full_comparison(self) -> Dict[str, Any]:
+        """Run complete comparison between all systems."""
+        # Load ground truth
+        ground_truth_data = self.load_ground_truth()
+        questions = ground_truth_data["ground_truth_answers"]
 
-                quality_metrics["quantitative_accuracy"][query_id] = quantitative_assessment
+        # Initialize systems
+        if not self.initialize_graph_rag_system():
+            raise Exception("Failed to initialize GraphRAG system")
 
-                # Completeness: Length and detail of answers
-                quality_metrics["completeness"][query_id] = {
-                    "naive_length": len(naive_result.answer),
-                    "graph_length": len(graph_result.answer),
-                    "naive_context_sources": len(naive_result.context),
-                    "graph_context_sources": len(graph_result.context)
-                }
+        if not self.initialize_naive_rag_system():
+            raise Exception("Failed to initialize Naive RAG system")
 
-                # Interpretability: Can we understand how the answer was derived?
-                quality_metrics["interpretability"][query_id] = {
-                    "naive_interpretable": "semantic similarity" in naive_result.answer.lower(),
-                    "graph_interpretable": graph_result.cypher_query is not None,
-                    "cypher_provided": graph_result.cypher_query is not None
-                }
+        logger.info(f"Starting comparison with {len(questions)} questions...")
 
-        return quality_metrics
+        # Run all comparisons
+        results = []
+        for i, ground_truth_item in enumerate(questions):
+            question = ground_truth_item["question"]
+            category = ground_truth_item["category"]
+            ground_truth_answer = ground_truth_item["ground_truth_answer"]
 
-    def calculate_performance_metrics(self, naive_results: List[QueryResult], graph_results: List[QueryResult]) -> Dict[str, Any]:
-        """Calculate performance metrics for both systems."""
-        naive_times = [r.execution_time for r in naive_results]
-        graph_times = [r.execution_time for r in graph_results]
+            logger.info(f"\n[{i+1}/{len(questions)}] Processing: {question[:50]}...")
 
-        metrics = {
-            "execution_time": {
-                "naive_rag": {
-                    "mean": statistics.mean(naive_times) if naive_times else 0,
-                    "median": statistics.median(naive_times) if naive_times else 0,
-                    "min": min(naive_times) if naive_times else 0,
-                    "max": max(naive_times) if naive_times else 0,
-                    "total_queries": len(naive_times)
+            # Run GraphRAG query
+            logger.info("  Running GraphRAG...")
+            graph_result = self.run_graph_rag_query(question)
+
+            # Run Naive RAG query
+            logger.info("  Running Naive RAG...")
+            naive_result = self.run_naive_rag_query(question)
+
+            # Evaluate both answers
+            graph_evaluation = self.evaluate_answer_quality(
+                ground_truth_answer, graph_result["answer"], category
+            )
+            naive_evaluation = self.evaluate_answer_quality(
+                ground_truth_answer, naive_result["answer"], category
+            )
+
+            # Compile comparison
+            comparison = {
+                "question_index": i + 1,
+                "question": question,
+                "category": category,
+                "ground_truth": ground_truth_answer,
+
+                "graphrag": {
+                    "answer": graph_result["answer"],
+                    "cypher_query": graph_result.get("cypher_query", ""),
+                    "execution_time": graph_result["execution_time"],
+                    "success": graph_result["success"],
+                    "evaluation": graph_evaluation
                 },
-                "graph_rag": {
-                    "mean": statistics.mean(graph_times) if graph_times else 0,
-                    "median": statistics.median(graph_times) if graph_times else 0,
-                    "min": min(graph_times) if graph_times else 0,
-                    "max": max(graph_times) if graph_times else 0,
-                    "total_queries": len(graph_times)
+
+                "naive_rag": {
+                    "answer": naive_result["answer"],
+                    "chunks_retrieved": naive_result.get("num_chunks_retrieved", 0),
+                    "execution_time": naive_result["execution_time"],
+                    "success": naive_result["success"],
+                    "evaluation": naive_evaluation
                 }
-            },
-            "query_success_rate": {
-                "naive_rag": len([r for r in naive_results if "error" not in r.answer.lower()]) / max(len(naive_results), 1),
-                "graph_rag": len([r for r in graph_results if "error" not in r.answer.lower()]) / max(len(graph_results), 1)
-            },
-            "average_context_length": {
-                "naive_rag": statistics.mean([len(r.context) for r in naive_results]) if naive_results else 0,
-                "graph_rag": statistics.mean([len(r.context) for r in graph_results]) if graph_results else 0
             }
+
+            results.append(comparison)
+
+            # Small delay to be nice to APIs
+            await asyncio.sleep(0.5)
+
+        # Compile final comparison data
+        comparison_data = {
+            "metadata": {
+                "comparison_date": datetime.now().isoformat(),
+                "total_questions": len(results),
+                "ground_truth_source": "GPT-5",
+                "systems_compared": ["GraphRAG", "Naive RAG"]
+            },
+            "results": results,
+            "summary": self.generate_summary(results)
         }
 
-        return metrics
+        return comparison_data
 
-    def generate_comparison_report(self, analysis: Dict[str, Any], quality_metrics: Dict[str, Any], performance_metrics: Dict[str, Any]) -> str:
-        """Generate a comprehensive comparison report."""
-        report_lines = []
+    def generate_summary(self, results: List[Dict[str, Any]]) -> Dict[str, Any]:
+        """Generate summary statistics for the comparison."""
+        graph_wins = 0
+        naive_wins = 0
+        ties = 0
 
-        # Header
-        report_lines.extend([
-            "# GraphRAG vs Naive RAG Comparison Report",
-            f"Generated on: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
-            "",
-            "## Executive Summary",
-            "",
-            "This report compares the performance of Naive RAG (vector similarity) vs GraphRAG (knowledge graph)",
-            "systems for structured queries in a programmer staffing scenario.",
-            ""
-        ])
+        graph_quality_scores = []
+        naive_quality_scores = []
 
-        # Performance Overview
-        naive_perf = performance_metrics["execution_time"]["naive_rag"]
-        graph_perf = performance_metrics["execution_time"]["graph_rag"]
+        category_stats = {}
 
-        report_lines.extend([
-            "## Performance Overview",
-            "",
-            f"**Naive RAG:**",
-            f"- Queries processed: {naive_perf['total_queries']}",
-            f"- Average execution time: {naive_perf['mean']:.3f}s",
-            f"- Success rate: {performance_metrics['query_success_rate']['naive_rag']:.1%}",
-            "",
-            f"**GraphRAG:**",
-            f"- Queries processed: {graph_perf['total_queries']}",
-            f"- Average execution time: {graph_perf['mean']:.3f}s",
-            f"- Success rate: {performance_metrics['query_success_rate']['graph_rag']:.1%}",
-            ""
-        ])
+        for result in results:
+            category = result["category"]
+            graph_score = result["graphrag"]["evaluation"]["quality_score"]
+            naive_score = result["naive_rag"]["evaluation"]["quality_score"]
 
-        # Query Type Analysis
-        report_lines.extend([
-            "## Query Type Analysis",
-            ""
-        ])
+            graph_quality_scores.append(graph_score)
+            naive_quality_scores.append(naive_score)
 
-        query_types = {}
-        for query_id, comparison in analysis["query_type_performance"].items():
-            query_type = comparison["type"]
-            if query_type not in query_types:
-                query_types[query_type] = []
-            query_types[query_type].append(comparison)
+            # Track category performance
+            if category not in category_stats:
+                category_stats[category] = {
+                    "total": 0,
+                    "graph_wins": 0,
+                    "naive_wins": 0,
+                    "ties": 0
+                }
 
-        for query_type, comparisons in query_types.items():
-            report_lines.extend([
-                f"### {query_type.replace('_', ' ').title()} Queries",
-                ""
-            ])
+            category_stats[category]["total"] += 1
 
-            for comp in comparisons:
-                report_lines.extend([
-                    f"**Query:** {comp['query']}",
-                    f"- GraphRAG Advantage: {comp['graph_advantage']}",
-                    f"- Naive RAG Answer: {comp['naive_rag']['answer'][:150]}...",
-                    f"- GraphRAG Answer: {comp['graph_rag']['answer'][:150]}...",
-                    f"- Execution Time: Naive {comp['naive_rag']['execution_time']:.3f}s vs Graph {comp['graph_rag']['execution_time']:.3f}s",
-                    ""
-                ])
+            # Determine winner
+            if graph_score > naive_score:
+                graph_wins += 1
+                category_stats[category]["graph_wins"] += 1
+            elif naive_score > graph_score:
+                naive_wins += 1
+                category_stats[category]["naive_wins"] += 1
+            else:
+                ties += 1
+                category_stats[category]["ties"] += 1
 
-        # Quality Assessment
-        report_lines.extend([
-            "## Answer Quality Assessment",
-            ""
-        ])
+        import statistics
 
-        specific_advantages = sum(1 for metrics in quality_metrics["specificity"].values()
-                                if metrics["advantage"] == "GraphRAG")
-        total_queries = len(quality_metrics["specificity"])
-
-        report_lines.extend([
-            f"**Specificity:** GraphRAG provided more specific answers in {specific_advantages}/{total_queries} queries",
-            "",
-            f"**Interpretability:** GraphRAG provides Cypher queries for transparency, Naive RAG relies on semantic similarity",
-            ""
-        ])
-
-        # Key Findings
-        report_lines.extend([
-            "## Key Findings",
-            "",
-            "### GraphRAG Advantages:",
-            "1. **Exact Counting:** Provides precise counts through graph traversal",
-            "2. **Complex Filtering:** Multi-criteria filtering with relationship properties",
-            "3. **Aggregations:** Direct mathematical operations on graph data",
-            "4. **Multi-hop Reasoning:** Complex relationship traversals impossible for vector search",
-            "5. **Temporal Logic:** Precise date-based filtering and arithmetic",
-            "6. **Transparency:** Cypher queries show exact reasoning path",
-            "",
-            "### Naive RAG Strengths:",
-            "1. **Semantic Similarity:** Good for fuzzy text matching",
-            "2. **Setup Simplicity:** Easier to implement for basic use cases",
-            "3. **Flexibility:** Handles diverse query types without schema knowledge",
-            "",
-            "### Use Case Recommendations:",
-            "",
-            "**Use GraphRAG for:**",
-            "- Structured data with clear relationships",
-            "- Counting, aggregation, and ranking queries",
-            "- Multi-criteria filtering",
-            "- Temporal reasoning",
-            "- Complex business logic",
-            "",
-            "**Use Naive RAG for:**",
-            "- Unstructured text search",
-            "- Semantic similarity queries",
-            "- Simple question-answering",
-            "- Rapid prototyping",
-            ""
-        ])
-
-        return "\n".join(report_lines)
-
-    def save_detailed_analysis(self, analysis: Dict[str, Any], quality_metrics: Dict[str, Any], performance_metrics: Dict[str, Any]):
-        """Save detailed analysis data."""
-        detailed_analysis = {
-            "generation_timestamp": datetime.now().isoformat(),
-            "query_type_performance": analysis["query_type_performance"],
-            "quality_metrics": quality_metrics,
-            "performance_metrics": performance_metrics,
-            "evaluation_queries": self.evaluation_queries
+        summary = {
+            "overall_performance": {
+                "graphrag_wins": graph_wins,
+                "naive_rag_wins": naive_wins,
+                "ties": ties,
+                "graphrag_win_rate": graph_wins / len(results),
+                "naive_rag_win_rate": naive_wins / len(results)
+            },
+            "quality_scores": {
+                "graphrag_avg": statistics.mean(graph_quality_scores),
+                "naive_rag_avg": statistics.mean(naive_quality_scores),
+                "graphrag_median": statistics.median(graph_quality_scores),
+                "naive_rag_median": statistics.median(naive_quality_scores)
+            },
+            "category_breakdown": category_stats
         }
 
-        with open("results/detailed_comparison_analysis.json", "w") as f:
-            json.dump(detailed_analysis, f, indent=2, default=str)
+        return summary
 
-def create_summary_dashboard():
-    """Create a simple text-based dashboard of results."""
-    print("\n" + "="*80)
-    print("GRAPHRAG vs NAIVE RAG - SUMMARY DASHBOARD")
-    print("="*80)
+    def save_comparison_results(self, comparison_data: Dict[str, Any]) -> Path:
+        """Save comparison results to file."""
+        output_file = self.results_dir / "system_comparison_results.json"
+
+        with open(output_file, 'w', encoding='utf-8') as f:
+            json.dump(comparison_data, f, indent=2, ensure_ascii=False)
+
+        logger.info(f"✓ Comparison results saved to: {output_file}")
+        return output_file
+
+    def generate_comparison_table(self, comparison_data: Dict[str, Any]) -> str:
+        """Generate a readable comparison table."""
+        results = comparison_data["results"]
+        summary = comparison_data["summary"]
+
+        table_lines = []
+        table_lines.append("# GraphRAG vs Naive RAG Comparison Results")
+        table_lines.append("")
+        table_lines.append("## Summary")
+        table_lines.append(f"- **GraphRAG Wins**: {summary['overall_performance']['graphrag_wins']}")
+        table_lines.append(f"- **Naive RAG Wins**: {summary['overall_performance']['naive_rag_wins']}")
+        table_lines.append(f"- **Ties**: {summary['overall_performance']['ties']}")
+        table_lines.append(f"- **GraphRAG Win Rate**: {summary['overall_performance']['graphrag_win_rate']:.1%}")
+        table_lines.append("")
+        table_lines.append(f"- **GraphRAG Avg Quality**: {summary['quality_scores']['graphrag_avg']:.2f}")
+        table_lines.append(f"- **Naive RAG Avg Quality**: {summary['quality_scores']['naive_rag_avg']:.2f}")
+        table_lines.append("")
+
+        # Category breakdown
+        table_lines.append("## Performance by Category")
+        table_lines.append("")
+        for category, stats in summary["category_breakdown"].items():
+            win_rate = stats["graph_wins"] / stats["total"]
+            table_lines.append(f"### {category.title()}")
+            table_lines.append(f"- GraphRAG: {stats['graph_wins']}/{stats['total']} ({win_rate:.1%})")
+            table_lines.append("")
+
+        # Detailed results table
+        table_lines.append("## Detailed Results")
+        table_lines.append("")
+        table_lines.append("| # | Question | Category | GraphRAG Answer | Naive RAG Answer | Ground Truth | Winner |")
+        table_lines.append("|---|----------|----------|-----------------|------------------|--------------|--------|")
+
+        for result in results:
+            idx = result["question_index"]
+            question = result["question"][:50] + "..." if len(result["question"]) > 50 else result["question"]
+            category = result["category"]
+
+            graph_answer = result["graphrag"]["answer"][:30] + "..." if len(result["graphrag"]["answer"]) > 30 else result["graphrag"]["answer"]
+            naive_answer = result["naive_rag"]["answer"][:30] + "..." if len(result["naive_rag"]["answer"]) > 30 else result["naive_rag"]["answer"]
+            ground_truth = result["ground_truth"][:30] + "..." if len(result["ground_truth"]) > 30 else result["ground_truth"]
+
+            graph_score = result["graphrag"]["evaluation"]["quality_score"]
+            naive_score = result["naive_rag"]["evaluation"]["quality_score"]
+
+            if graph_score > naive_score:
+                winner = "GraphRAG ✅"
+            elif naive_score > graph_score:
+                winner = "Naive RAG ✅"
+            else:
+                winner = "Tie ⚖️"
+
+            # Escape pipes in text
+            question = question.replace("|", "\\|")
+            graph_answer = graph_answer.replace("|", "\\|")
+            naive_answer = naive_answer.replace("|", "\\|")
+            ground_truth = ground_truth.replace("|", "\\|")
+
+            table_lines.append(f"| {idx} | {question} | {category} | {graph_answer} | {naive_answer} | {ground_truth} | {winner} |")
+
+        return "\n".join(table_lines)
+
+    def display_results(self, comparison_data: Dict[str, Any]) -> None:
+        """Display comparison results."""
+        summary = comparison_data["summary"]
+
+        print("\n" + "="*80)
+        print("GRAPHRAG vs NAIVE RAG COMPARISON RESULTS")
+        print("="*80)
+
+        print(f"\n📊 OVERALL PERFORMANCE:")
+        print(f"GraphRAG Wins: {summary['overall_performance']['graphrag_wins']}")
+        print(f"Naive RAG Wins: {summary['overall_performance']['naive_rag_wins']}")
+        print(f"Ties: {summary['overall_performance']['ties']}")
+        print(f"GraphRAG Win Rate: {summary['overall_performance']['graphrag_win_rate']:.1%}")
+
+        print(f"\n🎯 QUALITY SCORES:")
+        print(f"GraphRAG Average: {summary['quality_scores']['graphrag_avg']:.2f}")
+        print(f"Naive RAG Average: {summary['quality_scores']['naive_rag_avg']:.2f}")
+
+        print(f"\n📋 PERFORMANCE BY CATEGORY:")
+        for category, stats in summary["category_breakdown"].items():
+            win_rate = stats["graph_wins"] / stats["total"]
+            print(f"{category.title()}: GraphRAG {stats['graph_wins']}/{stats['total']} ({win_rate:.1%})")
+
+
+async def main():
+    """Main comparison function with enhanced output."""
+    print("🚀 GraphRAG vs Naive RAG Complete Comparison Workflow")
+    print("=" * 60)
 
     try:
-        # Load graph database stats
-        graph = GraphSchema()
-        stats = graph.get_database_stats()
+        # Check if CV data exists
+        data_dir = Path("data/programmers")
+        if not data_dir.exists() or not list(data_dir.glob("*.pdf")):
+            print(f"\n⚠️  No CV PDFs found in {data_dir}")
+            print("Please run: uv run python 1_generate_data.py")
+            print("Then run: uv run python 2_data_to_knowledge_graph.py")
+            return False
 
-        print("\n📊 Knowledge Graph Statistics:")
-        print(f"   Programmers: {stats['programmers']:>6} | Skills: {stats['skills']:>6} | Projects: {stats['projects']:>6}")
-        print(f"   Relationships: {stats['has_skill'] + stats['worked_on'] + stats['has_certification']:>6} total")
+        print("\n✅ CV data found successfully!")
 
-        graph.close()
+        # Step 1: Ground Truth (handled automatically by SystemComparator)
+        print("\n" + "="*60)
+        print("STEP 1: Load/Generate Ground Truth using GPT-5")
+        print("="*60)
+
+        comparator = SystemComparator()
+
+        # Step 2: System Initialization and Comparison
+        print("\n" + "="*60)
+        print("STEP 2: Run Complete System Comparison")
+        print("="*60)
+
+        # Run full comparison
+        print("\nStarting comprehensive comparison...")
+        comparison_data = await comparator.run_full_comparison()
+
+        # Save results
+        output_file = comparator.save_comparison_results(comparison_data)
+
+        # Generate markdown table
+        markdown_table = comparator.generate_comparison_table(comparison_data)
+        table_file = Path("results") / "comparison_table.md"
+        with open(table_file, 'w') as f:
+            f.write(markdown_table)
+
+        # Display results
+        comparator.display_results(comparison_data)
+
+        # Final results summary
+        print("\n" + "="*60)
+        print("🎉 COMPARISON WORKFLOW COMPLETED SUCCESSFULLY!")
+        print("="*60)
+
+        print("\n📁 Generated Files:")
+        results_dir = Path("results")
+        if results_dir.exists():
+            for file in sorted(results_dir.glob("*")):
+                print(f"  • {file}")
+
+        print("\n📊 Key Results:")
+        print(f"  • Ground Truth: {results_dir}/ground_truth_answers.json")
+        print(f"  • Comparison Data: {output_file}")
+        print(f"  • Comparison Table: {table_file}")
+
+        print("\n🔗 Next Steps:")
+        print(f"  1. Review the comparison table: cat {table_file}")
+        print(f"  2. Analyze detailed results: cat {output_file}")
+        print("  3. Browse Neo4j graph: http://localhost:7474 (neo4j/password123)")
+
+        return True
 
     except Exception as e:
-        print(f"\n❌ Could not load graph statistics: {e}")
+        logger.error(f"Comparison failed: {e}")
+        print(f"\n💥 Workflow failed: {e}")
+        print("Check the errors above for details.")
+        return False
 
-    # Load comparison results
-    try:
-        with open("results/detailed_comparison_analysis.json", "r") as f:
-            analysis = json.load(f)
-
-        naive_perf = analysis["performance_metrics"]["execution_time"]["naive_rag"]
-        graph_perf = analysis["performance_metrics"]["execution_time"]["graph_rag"]
-
-        print("\n⚡ Performance Comparison:")
-        print(f"   Naive RAG:  {naive_perf['mean']:.3f}s avg | {naive_perf['total_queries']} queries")
-        print(f"   GraphRAG:   {graph_perf['mean']:.3f}s avg | {graph_perf['total_queries']} queries")
-
-        # Count advantages
-        graph_advantages = 0
-        total_comparisons = len(analysis["quality_metrics"]["specificity"])
-
-        for metrics in analysis["quality_metrics"]["specificity"].values():
-            if metrics["advantage"] == "GraphRAG":
-                graph_advantages += 1
-
-        print(f"\n🎯 Answer Quality:")
-        print(f"   GraphRAG more specific: {graph_advantages}/{total_comparisons} queries")
-        print(f"   GraphRAG transparency: ✓ (Cypher queries) | Naive RAG: ✗ (black box)")
-
-    except Exception as e:
-        print(f"\n❌ Could not load analysis results: {e}")
-
-    print("\n" + "="*80)
-
-def main():
-    """Main comparison function."""
-    print("System Comparison and Evaluation")
-    print("=" * 40)
-
-    # Ensure results directory exists
-    import os
-    os.makedirs("results", exist_ok=True)
-
-    comparator = SystemComparator()
-
-    print("Loading results from both systems...")
-    naive_results, graph_results = comparator.load_existing_results()
-
-    if not naive_results:
-        print("❌ No Naive RAG results found. Please run 3_naive_rag_baseline.py first.")
-        return
-
-    if not graph_results:
-        print("❌ No GraphRAG results found. Please run 4_graph_rag_system.py first.")
-        return
-
-    print(f"✓ Loaded {len(naive_results)} Naive RAG results")
-    print(f"✓ Loaded {len(graph_results)} GraphRAG results")
-
-    print("\nAnalyzing query capabilities...")
-    analysis = comparator.analyze_query_capabilities(naive_results, graph_results)
-
-    print("Assessing answer quality...")
-    quality_metrics = comparator.assess_answer_quality(naive_results, graph_results)
-
-    print("Calculating performance metrics...")
-    performance_metrics = comparator.calculate_performance_metrics(naive_results, graph_results)
-
-    print("Generating comparison report...")
-    report = comparator.generate_comparison_report(analysis, quality_metrics, performance_metrics)
-
-    # Save report
-    with open("results/comparison_report.md", "w") as f:
-        f.write(report)
-
-    # Save detailed analysis
-    comparator.save_detailed_analysis(analysis, quality_metrics, performance_metrics)
-
-    print("✓ Comparison completed!")
-    print("\nFiles generated:")
-    print("- results/comparison_report.md")
-    print("- results/detailed_comparison_analysis.json")
-
-    # Show summary dashboard
-    create_summary_dashboard()
-
-    print("\n" + "="*80)
-    print("🎉 GraphRAG Implementation Complete!")
-    print("="*80)
-    print("\nKey Achievements:")
-    print("✓ Neo4j knowledge graph with 50 programmers, skills, and projects")
-    print("✓ Naive RAG baseline with ChromaDB vector search")
-    print("✓ GraphRAG system with natural language to Cypher translation")
-    print("✓ Comprehensive comparison demonstrating GraphRAG advantages")
-    print("\nNext Steps:")
-    print("• Review results/comparison_report.md for detailed analysis")
-    print("• Explore Neo4j Browser at http://localhost:7474")
-    print("• Experiment with custom queries in both systems")
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())
