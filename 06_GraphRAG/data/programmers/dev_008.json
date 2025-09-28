@@ -1,0 +1,190 @@
+{
+  "id": "dev_008",
+  "name": "Ethan Robinson",
+  "email": "jtaylor@example.com",
+  "phone": "+1-344-660-0920x90977",
+  "location": "Jacksonport, RI",
+  "hourly_rate": 177.09,
+  "availability_start": "2025-09-28",
+  "bio": "Ten in miss.",
+  "linkedin_url": "https://linkedin.com/in/brianayala",
+  "github_url": "https://github.com/josephsnyder",
+  "skills": [
+    {
+      "name": "Swift",
+      "category": "Programming Language",
+      "proficiency": 3,
+      "years_experience": 6
+    },
+    {
+      "name": "Kotlin",
+      "category": "Programming Language",
+      "proficiency": 5,
+      "years_experience": 3
+    },
+    {
+      "name": "TypeScript",
+      "category": "Programming Language",
+      "proficiency": 5,
+      "years_experience": 2
+    },
+    {
+      "name": "Express.js",
+      "category": "Framework",
+      "proficiency": 4,
+      "years_experience": 1
+    },
+    {
+      "name": "Angular",
+      "category": "Framework",
+      "proficiency": 4,
+      "years_experience": 1
+    },
+    {
+      "name": "Oracle",
+      "category": "Database",
+      "proficiency": 3,
+      "years_experience": 3
+    },
+    {
+      "name": "MySQL",
+      "category": "Database",
+      "proficiency": 4,
+      "years_experience": 7
+    },
+    {
+      "name": "RDS",
+      "category": "Cloud",
+      "proficiency": 3,
+      "years_experience": 2
+    },
+    {
+      "name": "Google Cloud",
+      "category": "Cloud",
+      "proficiency": 4,
+      "years_experience": 5
+    },
+    {
+      "name": "Ansible",
+      "category": "DevOps",
+      "proficiency": 3,
+      "years_experience": 4
+    },
+    {
+      "name": "Grafana",
+      "category": "DevOps",
+      "proficiency": 3,
+      "years_experience": 7
+    },
+    {
+      "name": "Prometheus",
+      "category": "DevOps",
+      "proficiency": 4,
+      "years_experience": 5
+    },
+    {
+      "name": "scikit-learn",
+      "category": "Data Science",
+      "proficiency": 4,
+      "years_experience": 3
+    }
+  ],
+  "certifications": [],
+  "project_experience": [
+    {
+      "project_name": "API Gateway for EduTech Solutions",
+      "client": "Cybersecurity Inc",
+      "role": "Principal Engineer",
+      "start_date": "2024-04-30",
+      "end_date": null,
+      "allocation_percentage": 80,
+      "description": "Add later describe rich save. Recent each tonight sense.",
+      "technologies_used": [
+        "Swift",
+        "Express.js",
+        "TypeScript",
+        "Kotlin"
+      ],
+      "team_size": 8
+    },
+    {
+      "project_name": "Mobile App for Gaming Studios",
+      "client": "Social Media Platform",
+      "role": "Lead Developer",
+      "start_date": "2023-05-12",
+      "end_date": "2024-04-06",
+      "allocation_percentage": 100,
+      "description": "Local agree though watch great available. Budget result approach green. Tell thought speech forget region citizen. Inside help represent mission then science.",
+      "technologies_used": [
+        "Angular",
+        "Kotlin"
+      ],
+      "team_size": 6
+    },
+    {
+      "project_name": "Analytics Dashboard for Gaming Studios",
+      "client": "Blockchain Ventures",
+      "role": "Tech Lead",
+      "start_date": "2021-09-28",
+      "end_date": "2023-03-22",
+      "allocation_percentage": 100,
+      "description": "Best evening unit color every customer. Her view science high between value. Which fast perform drug forward mouth.",
+      "technologies_used": [
+        "Express.js",
+        "Swift",
+        "Oracle",
+        "TypeScript",
+        "Angular"
+      ],
+      "team_size": 8
+    },
+    {
+      "project_name": "API Gateway for IoT Devices Corp",
+      "client": "Blockchain Ventures",
+      "role": "Senior Developer",
+      "start_date": "2020-06-28",
+      "end_date": "2021-08-22",
+      "allocation_percentage": 50,
+      "description": "Program executive response approach. World or leader on administration something church rate.",
+      "technologies_used": [
+        "Oracle",
+        "Angular",
+        "TypeScript",
+        "MySQL",
+        "Express.js"
+      ],
+      "team_size": 4
+    },
+    {
+      "project_name": "Machine Learning Platform for EduTech Solutions",
+      "client": "Logistics Tech",
+      "role": "Senior Developer",
+      "start_date": "2019-08-10",
+      "end_date": "2020-05-06",
+      "allocation_percentage": 100,
+      "description": "Large sound discussion anyone dinner. Make else total about order. Treatment girl hit magazine.",
+      "technologies_used": [
+        "Swift",
+        "Oracle",
+        "Angular",
+        "Kotlin"
+      ],
+      "team_size": 12
+    },
+    {
+      "project_name": "E-commerce System for Gaming Studios",
+      "client": "Cybersecurity Inc",
+      "role": "Mid-level Developer",
+      "start_date": "2018-06-21",
+      "end_date": "2019-06-16",
+      "allocation_percentage": 80,
+      "description": "Face food report stage rise evidence activity major. Performance environment computer test meeting. Other chair how turn challenge.",
+      "technologies_used": [
+        "MySQL",
+        "Kotlin"
+      ],
+      "team_size": 3
+    }
+  ],
+  "created_at": "2025-09-28T09:36:21.835456"
+}

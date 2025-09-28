@@ -1,0 +1,182 @@
+{
+  "id": "dev_036",
+  "name": "Melissa Campos",
+  "email": "rickey56@example.com",
+  "phone": "(630)856-2506x27565",
+  "location": "East Heidi, HI",
+  "hourly_rate": 150.38,
+  "availability_start": "2025-09-28",
+  "bio": "Agent police family might. High subject foot relationship fight. Against investment resource class bank last.",
+  "linkedin_url": "https://linkedin.com/in/nicholas95",
+  "github_url": "https://github.com/rodgersshannon",
+  "skills": [
+    {
+      "name": "Rust",
+      "category": "Programming Language",
+      "proficiency": 4,
+      "years_experience": 5
+    },
+    {
+      "name": "PHP",
+      "category": "Programming Language",
+      "proficiency": 4,
+      "years_experience": 6
+    },
+    {
+      "name": "Kotlin",
+      "category": "Programming Language",
+      "proficiency": 3,
+      "years_experience": 8
+    },
+    {
+      "name": "PostgreSQL",
+      "category": "Database",
+      "proficiency": 4,
+      "years_experience": 7
+    },
+    {
+      "name": "SQL Server",
+      "category": "Database",
+      "proficiency": 4,
+      "years_experience": 6
+    },
+    {
+      "name": "SQLite",
+      "category": "Database",
+      "proficiency": 4,
+      "years_experience": 2
+    },
+    {
+      "name": "Serverless",
+      "category": "Cloud",
+      "proficiency": 2,
+      "years_experience": 2
+    },
+    {
+      "name": "CircleCI",
+      "category": "DevOps",
+      "proficiency": 2,
+      "years_experience": 1
+    }
+  ],
+  "certifications": [],
+  "project_experience": [
+    {
+      "project_name": "DevOps Pipeline for CloudNative Solutions",
+      "client": "CloudNative Solutions",
+      "role": "Lead Developer",
+      "start_date": "2024-11-05",
+      "end_date": null,
+      "allocation_percentage": 100,
+      "description": "Event page still through week. During game because to conference save those south. Many standard trouble hold hold write.",
+      "technologies_used": [
+        "SQL Server",
+        "Kotlin",
+        "SQLite"
+      ],
+      "team_size": 9
+    },
+    {
+      "project_name": "Cloud Migration for Social Media Platform",
+      "client": "FinTech Innovations",
+      "role": "Lead Developer",
+      "start_date": "2023-08-31",
+      "end_date": "2024-09-24",
+      "allocation_percentage": 50,
+      "description": "Social on environmental lead receive news people research. Congress exist benefit.",
+      "technologies_used": [
+        "SQL Server",
+        "PostgreSQL",
+        "Rust",
+        "Kotlin"
+      ],
+      "team_size": 5
+    },
+    {
+      "project_name": "E-commerce System for Cybersecurity Inc",
+      "client": "Social Media Platform",
+      "role": "Senior Developer",
+      "start_date": "2023-01-20",
+      "end_date": "2023-07-19",
+      "allocation_percentage": 80,
+      "description": "Treatment arrive growth possible rise true land. Dinner daughter play appear talk vote good. Cultural travel pattern relationship visit modern four.",
+      "technologies_used": [
+        "SQL Server",
+        "Rust"
+      ],
+      "team_size": 10
+    },
+    {
+      "project_name": "Analytics Dashboard for E-commerce Giants",
+      "client": "Mobile First",
+      "role": "Junior Developer",
+      "start_date": "2021-06-16",
+      "end_date": "2022-12-08",
+      "allocation_percentage": 80,
+      "description": "Whom knowledge show better strategy. Debate section let doctor.",
+      "technologies_used": [
+        "PHP",
+        "Kotlin"
+      ],
+      "team_size": 8
+    },
+    {
+      "project_name": "E-commerce System for Cybersecurity Inc",
+      "client": "TechCorp",
+      "role": "Senior Developer",
+      "start_date": "2020-06-30",
+      "end_date": "2021-04-26",
+      "allocation_percentage": 80,
+      "description": "Common away I green foreign. Step project major central conference everything option.",
+      "technologies_used": [
+        "SQLite",
+        "PostgreSQL"
+      ],
+      "team_size": 7
+    },
+    {
+      "project_name": "E-commerce System for Streaming Services",
+      "client": "AI Research Labs",
+      "role": "Senior Developer",
+      "start_date": "2018-12-14",
+      "end_date": "2020-06-06",
+      "allocation_percentage": 100,
+      "description": "Catch whole above TV in cause. Police sea he only quite effect recent.",
+      "technologies_used": [
+        "PHP",
+        "SQLite"
+      ],
+      "team_size": 9
+    },
+    {
+      "project_name": "DevOps Pipeline for Logistics Tech",
+      "client": "Cybersecurity Inc",
+      "role": "Principal Engineer",
+      "start_date": "2018-06-02",
+      "end_date": "2018-10-30",
+      "allocation_percentage": 50,
+      "description": "Although dog threat employee hand population evidence. Machine left operation energy it. Someone car offer.",
+      "technologies_used": [
+        "PostgreSQL",
+        "PHP",
+        "SQLite"
+      ],
+      "team_size": 11
+    },
+    {
+      "project_name": "Analytics Dashboard for E-commerce Giants",
+      "client": "TechCorp",
+      "role": "Mid-level Developer",
+      "start_date": "2017-08-09",
+      "end_date": "2018-04-06",
+      "allocation_percentage": 50,
+      "description": "Help sign major per down. Agency perhaps involve economy. Deal peace admit best very weight. Chance artist stay exist.",
+      "technologies_used": [
+        "Kotlin",
+        "SQL Server"
+      ],
+      "team_size": 6
+    }
+  ],
+  "created_at": "2025-09-28T09:36:21.848506"
+}

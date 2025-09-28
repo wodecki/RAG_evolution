@@ -1,0 +1,184 @@
+{
+  "id": "dev_010",
+  "name": "Victoria Holder",
+  "email": "xford@example.org",
+  "phone": "8425061013",
+  "location": "New David, NY",
+  "hourly_rate": 192.71,
+  "availability_start": null,
+  "bio": "Total politics send goal evidence. Main place go member police. Personal sport how north charge organization.",
+  "linkedin_url": "https://linkedin.com/in/bortega",
+  "github_url": "https://github.com/zacharypeters",
+  "skills": [
+    {
+      "name": "Go",
+      "category": "Programming Language",
+      "proficiency": 4,
+      "years_experience": 9
+    },
+    {
+      "name": "Neo4j",
+      "category": "Database",
+      "proficiency": 4,
+      "years_experience": 1
+    },
+    {
+      "name": "DynamoDB",
+      "category": "Database",
+      "proficiency": 3,
+      "years_experience": 1
+    },
+    {
+      "name": "Kubernetes",
+      "category": "Cloud",
+      "proficiency": 2,
+      "years_experience": 7
+    },
+    {
+      "name": "Terraform",
+      "category": "Cloud",
+      "proficiency": 3,
+      "years_experience": 7
+    },
+    {
+      "name": "Jenkins",
+      "category": "DevOps",
+      "proficiency": 3,
+      "years_experience": 1
+    },
+    {
+      "name": "Prometheus",
+      "category": "DevOps",
+      "proficiency": 2,
+      "years_experience": 5
+    },
+    {
+      "name": "Nagios",
+      "category": "DevOps",
+      "proficiency": 3,
+      "years_experience": 5
+    }
+  ],
+  "certifications": [],
+  "project_experience": [
+    {
+      "project_name": "API Gateway for Logistics Tech",
+      "client": "FinTech Innovations",
+      "role": "Junior Developer",
+      "start_date": "2025-04-03",
+      "end_date": null,
+      "allocation_percentage": 100,
+      "description": "Organization wear wife action fish real think. North step owner role role feel. Investment together marriage paper rich.",
+      "technologies_used": [
+        "Neo4j",
+        "Go",
+        "DynamoDB"
+      ],
+      "team_size": 12
+    },
+    {
+      "project_name": "Mobile App for Gaming Studios",
+      "client": "FinTech Innovations",
+      "role": "Lead Developer",
+      "start_date": "2024-04-10",
+      "end_date": "2025-02-04",
+      "allocation_percentage": 50,
+      "description": "Low them fear record crime. Wide few crime describe.",
+      "technologies_used": [
+        "Neo4j",
+        "Go",
+        "DynamoDB"
+      ],
+      "team_size": 5
+    },
+    {
+      "project_name": "Machine Learning Platform for Streaming Services",
+      "client": "E-commerce Giants",
+      "role": "Lead Developer",
+      "start_date": "2023-03-09",
+      "end_date": "2024-03-03",
+      "allocation_percentage": 50,
+      "description": "Not stand though fine most possible. Number feeling site project artist. Crime color size main its where statement.",
+      "technologies_used": [
+        "Neo4j",
+        "DynamoDB",
+        "Go"
+      ],
+      "team_size": 12
+    },
+    {
+      "project_name": "CRM Solution for IoT Devices Corp",
+      "client": "TechCorp",
+      "role": "Senior Developer",
+      "start_date": "2022-07-03",
+      "end_date": "2023-01-29",
+      "allocation_percentage": 100,
+      "description": "Heavy explain individual. Miss heart face foreign prevent. High such whole thus.",
+      "technologies_used": [
+        "Neo4j",
+        "DynamoDB"
+      ],
+      "team_size": 7
+    },
+    {
+      "project_name": "CRM Solution for Mobile First",
+      "client": "Streaming Services",
+      "role": "Senior Developer",
+      "start_date": "2020-11-10",
+      "end_date": "2022-05-04",
+      "allocation_percentage": 50,
+      "description": "Everything agency most capital your machine. Catch goal father near. His drive across over improve.",
+      "technologies_used": [
+        "Neo4j",
+        "DynamoDB",
+        "Go"
+      ],
+      "team_size": 6
+    },
+    {
+      "project_name": "DevOps Pipeline for Logistics Tech",
+      "client": "Mobile First",
+      "role": "Lead Developer",
+      "start_date": "2019-07-06",
+      "end_date": "2020-09-28",
+      "allocation_percentage": 100,
+      "description": "Old world how their name. Career radio third watch despite reflect different must. Affect free according ten cup smile.",
+      "technologies_used": [
+        "Neo4j",
+        "Go",
+        "DynamoDB"
+      ],
+      "team_size": 5
+    },
+    {
+      "project_name": "API Gateway for FinTech Innovations",
+      "client": "Streaming Services",
+      "role": "Junior Developer",
+      "start_date": "2019-01-29",
+      "end_date": "2019-05-29",
+      "allocation_percentage": 100,
+      "description": "Herself to base first next. Never order impact discuss specific fact.",
+      "technologies_used": [
+        "DynamoDB",
+        "Neo4j",
+        "Go"
+      ],
+      "team_size": 5
+    },
+    {
+      "project_name": "CRM Solution for Mobile First",
+      "client": "CloudNative Solutions",
+      "role": "Principal Engineer",
+      "start_date": "2018-05-31",
+      "end_date": "2018-12-27",
+      "allocation_percentage": 80,
+      "description": "Opportunity end last employee may stuff. Sell challenge sit affect candidate.",
+      "technologies_used": [
+        "Neo4j",
+        "DynamoDB"
+      ],
+      "team_size": 11
+    }
+  ],
+  "created_at": "2025-09-28T09:36:21.836316"
+}

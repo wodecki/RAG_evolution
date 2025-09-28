@@ -1,0 +1,186 @@
+{
+  "id": "dev_002",
+  "name": "Robin Guzman",
+  "email": "lori56@example.org",
+  "phone": "001-523-885-9539x18019",
+  "location": "East Isaac, AZ",
+  "hourly_rate": 149.31,
+  "availability_start": "2025-12-25",
+  "bio": "Wife sister station air light dog class. Factor certain from top cover standard.",
+  "linkedin_url": "https://linkedin.com/in/garciahector",
+  "github_url": "https://github.com/amyholland",
+  "skills": [
+    {
+      "name": "Swift",
+      "category": "Programming Language",
+      "proficiency": 5,
+      "years_experience": 7
+    },
+    {
+      "name": "PHP",
+      "category": "Programming Language",
+      "proficiency": 3,
+      "years_experience": 5
+    },
+    {
+      "name": "TypeScript",
+      "category": "Programming Language",
+      "proficiency": 3,
+      "years_experience": 7
+    },
+    {
+      "name": "Angular",
+      "category": "Framework",
+      "proficiency": 3,
+      "years_experience": 5
+    },
+    {
+      "name": "React",
+      "category": "Framework",
+      "proficiency": 4,
+      "years_experience": 2
+    },
+    {
+      "name": "Oracle",
+      "category": "Database",
+      "proficiency": 2,
+      "years_experience": 3
+    },
+    {
+      "name": "DynamoDB",
+      "category": "Database",
+      "proficiency": 2,
+      "years_experience": 2
+    },
+    {
+      "name": "InfluxDB",
+      "category": "Database",
+      "proficiency": 4,
+      "years_experience": 5
+    },
+    {
+      "name": "Kubernetes",
+      "category": "Cloud",
+      "proficiency": 4,
+      "years_experience": 4
+    },
+    {
+      "name": "EC2",
+      "category": "Cloud",
+      "proficiency": 3,
+      "years_experience": 2
+    },
+    {
+      "name": "CloudFormation",
+      "category": "Cloud",
+      "proficiency": 2,
+      "years_experience": 5
+    },
+    {
+      "name": "GitLab CI",
+      "category": "DevOps",
+      "proficiency": 2,
+      "years_experience": 2
+    },
+    {
+      "name": "Jenkins",
+      "category": "DevOps",
+      "proficiency": 4,
+      "years_experience": 2
+    }
+  ],
+  "certifications": [],
+  "project_experience": [
+    {
+      "project_name": "Microservices Migration for TechCorp",
+      "client": "FinTech Innovations",
+      "role": "Tech Lead",
+      "start_date": "2025-02-22",
+      "end_date": null,
+      "allocation_percentage": 100,
+      "description": "Change beyond notice PM bed. Day between service. She specific exist laugh.",
+      "technologies_used": [
+        "DynamoDB",
+        "React",
+        "Angular",
+        "InfluxDB",
+        "TypeScript"
+      ],
+      "team_size": 7
+    },
+    {
+      "project_name": "Data Pipeline for Streaming Services",
+      "client": "TechCorp",
+      "role": "Tech Lead",
+      "start_date": "2023-12-04",
+      "end_date": "2024-12-28",
+      "allocation_percentage": 100,
+      "description": "Notice computer get including business believe work husband. Voice account police speech likely nation thing low. Science firm indeed tree.",
+      "technologies_used": [
+        "React",
+        "Angular"
+      ],
+      "team_size": 7
+    },
+    {
+      "project_name": "Security Audit for EduTech Solutions",
+      "client": "E-commerce Giants",
+      "role": "Senior Developer",
+      "start_date": "2023-02-28",
+      "end_date": "2023-10-26",
+      "allocation_percentage": 50,
+      "description": "Today reveal training American whose force. Great bit author. Inside beat as effort expect.",
+      "technologies_used": [
+        "React",
+        "DynamoDB"
+      ],
+      "team_size": 11
+    },
+    {
+      "project_name": "E-commerce System for Gaming Studios",
+      "client": "DataSystems Inc",
+      "role": "Mid-level Developer",
+      "start_date": "2022-10-05",
+      "end_date": "2023-01-03",
+      "allocation_percentage": 100,
+      "description": "Close send send describe statement list mean. Everybody such early.",
+      "technologies_used": [
+        "InfluxDB",
+        "Swift",
+        "DynamoDB",
+        "TypeScript"
+      ],
+      "team_size": 4
+    },
+    {
+      "project_name": "Security Audit for Logistics Tech",
+      "client": "Healthcare Systems",
+      "role": "Senior Developer",
+      "start_date": "2021-04-01",
+      "end_date": "2022-09-23",
+      "allocation_percentage": 100,
+      "description": "Guy tell huge them. Ball administration stand.",
+      "technologies_used": [
+        "TypeScript",
+        "PHP"
+      ],
+      "team_size": 12
+    },
+    {
+      "project_name": "Security Audit for Cybersecurity Inc",
+      "client": "Streaming Services",
+      "role": "Architect",
+      "start_date": "2020-06-01",
+      "end_date": "2021-02-26",
+      "allocation_percentage": 80,
+      "description": "Avoid door officer class dinner recognize foot. Crime have new purpose whom give. Child general us interview. Street often risk medical tell perhaps also letter.",
+      "technologies_used": [
+        "React",
+        "Angular",
+        "Oracle"
+      ],
+      "team_size": 4
+    }
+  ],
+  "created_at": "2025-09-28T09:36:21.833094"
+}

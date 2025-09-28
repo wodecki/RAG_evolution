@@ -1,0 +1,179 @@
+{
+  "id": "dev_004",
+  "name": "Lindsey Reilly",
+  "email": "andrea84@example.org",
+  "phone": "285-549-3529x230",
+  "location": "Willismouth, FM",
+  "hourly_rate": 187.5,
+  "availability_start": "2025-12-07",
+  "bio": "Wait kitchen value radio none clearly policy. Work herself particular section common thing among. Behavior argue thought. Sign class maybe during wonder property write.",
+  "linkedin_url": "https://linkedin.com/in/jonathan20",
+  "github_url": "https://github.com/gserrano",
+  "skills": [
+    {
+      "name": "TypeScript",
+      "category": "Programming Language",
+      "proficiency": 3,
+      "years_experience": 3
+    },
+    {
+      "name": "Ruby",
+      "category": "Programming Language",
+      "proficiency": 4,
+      "years_experience": 10
+    },
+    {
+      "name": "Swift",
+      "category": "Programming Language",
+      "proficiency": 4,
+      "years_experience": 6
+    },
+    {
+      "name": "Angular",
+      "category": "Framework",
+      "proficiency": 3,
+      "years_experience": 3
+    },
+    {
+      "name": "MongoDB",
+      "category": "Database",
+      "proficiency": 4,
+      "years_experience": 3
+    },
+    {
+      "name": "Neo4j",
+      "category": "Database",
+      "proficiency": 3,
+      "years_experience": 3
+    },
+    {
+      "name": "AWS",
+      "category": "Cloud",
+      "proficiency": 3,
+      "years_experience": 5
+    },
+    {
+      "name": "GitLab CI",
+      "category": "DevOps",
+      "proficiency": 2,
+      "years_experience": 5
+    },
+    {
+      "name": "ELK Stack",
+      "category": "DevOps",
+      "proficiency": 3,
+      "years_experience": 2
+    },
+    {
+      "name": "Prometheus",
+      "category": "DevOps",
+      "proficiency": 3,
+      "years_experience": 1
+    }
+  ],
+  "certifications": [
+    {
+      "name": "AWS Developer",
+      "provider": "Amazon Web Services",
+      "obtained_date": "2024-08-04",
+      "expiry_date": "2027-08-04",
+      "credential_id": "8250be23-cc7"
+    }
+  ],
+  "project_experience": [
+    {
+      "project_name": "E-commerce System for FinTech Innovations",
+      "client": "E-commerce Giants",
+      "role": "Senior Developer",
+      "start_date": "2024-07-12",
+      "end_date": null,
+      "allocation_percentage": 50,
+      "description": "Half mission answer hear seem third these. Race take receive. Every clearly amount garden. To give short big.",
+      "technologies_used": [
+        "Neo4j",
+        "MongoDB"
+      ],
+      "team_size": 4
+    },
+    {
+      "project_name": "CRM Solution for EduTech Solutions",
+      "client": "IoT Devices Corp",
+      "role": "Architect",
+      "start_date": "2023-10-22",
+      "end_date": "2024-05-19",
+      "allocation_percentage": 80,
+      "description": "Color bed benefit. Teach treat choice need.",
+      "technologies_used": [
+        "Swift",
+        "MongoDB",
+        "Ruby",
+        "Neo4j"
+      ],
+      "team_size": 7
+    },
+    {
+      "project_name": "Security Audit for IoT Devices Corp",
+      "client": "Healthcare Systems",
+      "role": "Tech Lead",
+      "start_date": "2023-05-15",
+      "end_date": "2023-10-12",
+      "allocation_percentage": 80,
+      "description": "Miss politics reason station very call will. Store million could determine.",
+      "technologies_used": [
+        "Swift",
+        "TypeScript",
+        "MongoDB",
+        "Ruby",
+        "Angular"
+      ],
+      "team_size": 11
+    },
+    {
+      "project_name": "DevOps Pipeline for E-commerce Giants",
+      "client": "DataSystems Inc",
+      "role": "Principal Engineer",
+      "start_date": "2021-11-29",
+      "end_date": "2023-03-24",
+      "allocation_percentage": 80,
+      "description": "Add agent in. Final but discussion south my fly husband. During available which democratic you site.",
+      "technologies_used": [
+        "TypeScript",
+        "Neo4j"
+      ],
+      "team_size": 12
+    },
+    {
+      "project_name": "CRM Solution for EduTech Solutions",
+      "client": "Gaming Studios",
+      "role": "Tech Lead",
+      "start_date": "2021-03-22",
+      "end_date": "2021-10-18",
+      "allocation_percentage": 50,
+      "description": "Rate national financial quality to instead not.",
+      "technologies_used": [
+        "Ruby",
+        "TypeScript",
+        "Swift",
+        "Neo4j",
+        "MongoDB"
+      ],
+      "team_size": 8
+    },
+    {
+      "project_name": "Analytics Dashboard for TechCorp",
+      "client": "Healthcare Systems",
+      "role": "Tech Lead",
+      "start_date": "2019-10-03",
+      "end_date": "2021-01-25",
+      "allocation_percentage": 80,
+      "description": "Trip who likely through part do. Interview sense whole good.",
+      "technologies_used": [
+        "Ruby",
+        "Neo4j",
+        "MongoDB"
+      ],
+      "team_size": 9
+    }
+  ],
+  "created_at": "2025-09-28T09:36:21.833869"
+}

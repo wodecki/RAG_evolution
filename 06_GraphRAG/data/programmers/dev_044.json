@@ -1,0 +1,185 @@
+{
+  "id": "dev_044",
+  "name": "Paula Lopez",
+  "email": "wterry@example.org",
+  "phone": "261.481.4979",
+  "location": "Port Susantown, DE",
+  "hourly_rate": 179.09,
+  "availability_start": "2025-11-06",
+  "bio": "Space eat describe lose official. Run contain similar election fight. Theory me whatever exist with opportunity.",
+  "linkedin_url": "https://linkedin.com/in/wesleyperez",
+  "github_url": "https://github.com/gjohnson",
+  "skills": [
+    {
+      "name": "Go",
+      "category": "Programming Language",
+      "proficiency": 5,
+      "years_experience": 3
+    },
+    {
+      "name": "Neo4j",
+      "category": "Database",
+      "proficiency": 4,
+      "years_experience": 1
+    },
+    {
+      "name": "Elasticsearch",
+      "category": "Database",
+      "proficiency": 3,
+      "years_experience": 7
+    },
+    {
+      "name": "CloudFormation",
+      "category": "Cloud",
+      "proficiency": 4,
+      "years_experience": 1
+    },
+    {
+      "name": "RDS",
+      "category": "Cloud",
+      "proficiency": 3,
+      "years_experience": 2
+    },
+    {
+      "name": "CircleCI",
+      "category": "DevOps",
+      "proficiency": 4,
+      "years_experience": 3
+    },
+    {
+      "name": "GitHub Actions",
+      "category": "DevOps",
+      "proficiency": 4,
+      "years_experience": 2
+    },
+    {
+      "name": "Puppet",
+      "category": "DevOps",
+      "proficiency": 3,
+      "years_experience": 6
+    }
+  ],
+  "certifications": [],
+  "project_experience": [
+    {
+      "project_name": "Mobile App for DataSystems Inc",
+      "client": "TechCorp",
+      "role": "Architect",
+      "start_date": "2024-05-25",
+      "end_date": null,
+      "allocation_percentage": 100,
+      "description": "Light describe suddenly entire western. War so conference behind.",
+      "technologies_used": [
+        "Elasticsearch",
+        "Go"
+      ],
+      "team_size": 9
+    },
+    {
+      "project_name": "Analytics Dashboard for E-commerce Giants",
+      "client": "Healthcare Systems",
+      "role": "Mid-level Developer",
+      "start_date": "2023-11-16",
+      "end_date": "2024-04-14",
+      "allocation_percentage": 50,
+      "description": "Pass since sea accept. Small actually give like kitchen keep figure identify. Various coach leg.",
+      "technologies_used": [
+        "Go",
+        "Neo4j",
+        "Elasticsearch"
+      ],
+      "team_size": 12
+    },
+    {
+      "project_name": "Microservices Migration for Streaming Services",
+      "client": "CloudNative Solutions",
+      "role": "Senior Developer",
+      "start_date": "2022-10-22",
+      "end_date": "2023-09-17",
+      "allocation_percentage": 100,
+      "description": "Toward green go arm cell season. Car rest country mention against figure.",
+      "technologies_used": [
+        "Go",
+        "Elasticsearch",
+        "Neo4j"
+      ],
+      "team_size": 4
+    },
+    {
+      "project_name": "CRM Solution for E-commerce Giants",
+      "client": "Gaming Studios",
+      "role": "Junior Developer",
+      "start_date": "2022-04-02",
+      "end_date": "2022-09-29",
+      "allocation_percentage": 80,
+      "description": "Ready rule defense month recently medical process. Crime military report. Seem reduce trouble.",
+      "technologies_used": [
+        "Elasticsearch",
+        "Neo4j",
+        "Go"
+      ],
+      "team_size": 12
+    },
+    {
+      "project_name": "Cloud Migration for Blockchain Ventures",
+      "client": "E-commerce Giants",
+      "role": "Architect",
+      "start_date": "2021-06-25",
+      "end_date": "2022-03-22",
+      "allocation_percentage": 100,
+      "description": "Part wait manager gas understand. When woman on cover. Describe head process land.",
+      "technologies_used": [
+        "Neo4j",
+        "Elasticsearch",
+        "Go"
+      ],
+      "team_size": 8
+    },
+    {
+      "project_name": "Machine Learning Platform for Gaming Studios",
+      "client": "Social Media Platform",
+      "role": "Senior Developer",
+      "start_date": "2020-04-03",
+      "end_date": "2021-04-28",
+      "allocation_percentage": 80,
+      "description": "Will show by report including road family. Under huge suggest such late. Star artist skin offer bring human. Line certain lay adult citizen machine feeling.",
+      "technologies_used": [
+        "Go",
+        "Elasticsearch",
+        "Neo4j"
+      ],
+      "team_size": 5
+    },
+    {
+      "project_name": "E-commerce System for Logistics Tech",
+      "client": "FinTech Innovations",
+      "role": "Mid-level Developer",
+      "start_date": "2019-01-19",
+      "end_date": "2020-02-13",
+      "allocation_percentage": 100,
+      "description": "And project some check join recognize. Not than pressure other military. Clearly that usually heart man yet. Too could fast PM.",
+      "technologies_used": [
+        "Neo4j",
+        "Elasticsearch",
+        "Go"
+      ],
+      "team_size": 12
+    },
+    {
+      "project_name": "DevOps Pipeline for CloudNative Solutions",
+      "client": "CloudNative Solutions",
+      "role": "Junior Developer",
+      "start_date": "2018-02-11",
+      "end_date": "2019-01-07",
+      "allocation_percentage": 100,
+      "description": "Gas right beat truth relationship those mean dream. Almost ask husband that benefit travel. Several property environmental throughout everything.",
+      "technologies_used": [
+        "Elasticsearch",
+        "Go",
+        "Neo4j"
+      ],
+      "team_size": 3
+    }
+  ],
+  "created_at": "2025-09-28T09:36:21.852816"
+}

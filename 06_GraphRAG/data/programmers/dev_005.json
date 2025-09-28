@@ -1,0 +1,162 @@
+{
+  "id": "dev_005",
+  "name": "Jocelyn Jennings",
+  "email": "wallerkristina@example.net",
+  "phone": "822.372.2385x700",
+  "location": "Alanland, NJ",
+  "hourly_rate": 155.91,
+  "availability_start": null,
+  "bio": "Current bar collection professional occur short. Tax somebody tonight explain star scientist through.",
+  "linkedin_url": "https://linkedin.com/in/beltranjason",
+  "github_url": "https://github.com/mayergeorge",
+  "skills": [
+    {
+      "name": "JavaScript",
+      "category": "Programming Language",
+      "proficiency": 4,
+      "years_experience": 5
+    },
+    {
+      "name": "Rust",
+      "category": "Programming Language",
+      "proficiency": 3,
+      "years_experience": 9
+    },
+    {
+      "name": "Python",
+      "category": "Programming Language",
+      "proficiency": 4,
+      "years_experience": 6
+    },
+    {
+      "name": "Django",
+      "category": "Framework",
+      "proficiency": 2,
+      "years_experience": 4
+    },
+    {
+      "name": "Angular",
+      "category": "Framework",
+      "proficiency": 2,
+      "years_experience": 3
+    },
+    {
+      "name": "Vue.js",
+      "category": "Framework",
+      "proficiency": 4,
+      "years_experience": 6
+    },
+    {
+      "name": "DynamoDB",
+      "category": "Database",
+      "proficiency": 3,
+      "years_experience": 1
+    },
+    {
+      "name": "Neo4j",
+      "category": "Database",
+      "proficiency": 2,
+      "years_experience": 3
+    },
+    {
+      "name": "SQL Server",
+      "category": "Database",
+      "proficiency": 2,
+      "years_experience": 5
+    },
+    {
+      "name": "AWS",
+      "category": "Cloud",
+      "proficiency": 4,
+      "years_experience": 4
+    },
+    {
+      "name": "Azure",
+      "category": "Cloud",
+      "proficiency": 3,
+      "years_experience": 6
+    },
+    {
+      "name": "Puppet",
+      "category": "DevOps",
+      "proficiency": 4,
+      "years_experience": 1
+    },
+    {
+      "name": "Grafana",
+      "category": "DevOps",
+      "proficiency": 3,
+      "years_experience": 5
+    },
+    {
+      "name": "Machine Learning",
+      "category": "Data Science",
+      "proficiency": 5,
+      "years_experience": 7
+    },
+    {
+      "name": "Statistics",
+      "category": "Data Science",
+      "proficiency": 5,
+      "years_experience": 7
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Azure Security Engineer",
+      "provider": "Microsoft",
+      "obtained_date": "2024-01-29",
+      "expiry_date": "2026-01-28",
+      "credential_id": "d33e3630-4b4"
+    }
+  ],
+  "project_experience": [
+    {
+      "project_name": "Security Audit for Social Media Platform",
+      "client": "AI Research Labs",
+      "role": "Lead Developer",
+      "start_date": "2024-06-05",
+      "end_date": null,
+      "allocation_percentage": 100,
+      "description": "Determine environmental method financial training culture three able. Pretty might eat box social music.",
+      "technologies_used": [
+        "Rust",
+        "Angular",
+        "Neo4j",
+        "Python"
+      ],
+      "team_size": 7
+    },
+    {
+      "project_name": "DevOps Pipeline for Healthcare Systems",
+      "client": "Blockchain Ventures",
+      "role": "Lead Developer",
+      "start_date": "2023-09-27",
+      "end_date": "2024-04-24",
+      "allocation_percentage": 100,
+      "description": "Board still knowledge at perhaps nor movie. Know of important man day me line. Growth crime difficult moment future.",
+      "technologies_used": [
+        "DynamoDB",
+        "SQL Server",
+        "Vue.js"
+      ],
+      "team_size": 3
+    },
+    {
+      "project_name": "API Gateway for Streaming Services",
+      "client": "EduTech Solutions",
+      "role": "Architect",
+      "start_date": "2022-09-06",
+      "end_date": "2023-09-01",
+      "allocation_percentage": 80,
+      "description": "Including bill animal station. Deep money into increase to give phone ago.",
+      "technologies_used": [
+        "DynamoDB",
+        "Vue.js",
+        "Django"
+      ],
+      "team_size": 5
+    }
+  ],
+  "created_at": "2025-09-28T09:36:21.834286"
+}

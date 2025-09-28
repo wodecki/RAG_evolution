@@ -1,0 +1,122 @@
+[
+  {
+    "query": "How many Python developers are available?",
+    "answer": "There are currently 9 Python developers available. If you need further details about their specific skills or experience, please let me know!",
+    "source_type": "graph_rag",
+    "context": [
+      "Result: 9"
+    ],
+    "cypher_query": "MATCH (p:Programmer)-[:HAS_SKILL]->(s:Skill {name: 'Python'})\nRETURN count(p) as programmer_count",
+    "execution_time": 0.9440608024597168,
+    "confidence_score": null,
+    "timestamp": "2025-09-28T09:38:07.983641"
+  },
+  {
+    "query": "List developers with AWS certifications",
+    "answer": "Here is the list of developers with AWS certifications based on the query results:\n\n1. **Lindsey Reilly**\n   - **ID:** dev_004\n   - **Email:** andrea84@example.org\n   - **Location:** Willismouth, FM\n   - **Hourly Rate:** $187.50\n   - **Availability Start:** 2025-12-07\n   - **Bio:** Wait kitchen value radio none clearly policy. Work herself particular section common thing among. Behavior argue thought. Sign class maybe during wonder property write.\n\n2. **Lisa Baker**\n   - **ID:** dev_037\n   - **Email:** epalmer@example.com\n   - **Location:** South Justinchester, PW\n   - **Hourly Rate:** $181.38\n   - **Availability Start:** None\n   - **Bio:** Stop hair message bank worry study simply. Knowledge turn garden behind own president.\n\n3. **Marvin Vazquez**\n   - **ID:** dev_031\n   - **Email:** vwells@example.com\n   - **Location:** Marshallborough, NC\n   - **Hourly Rate:** $160.09\n   - **Availability Start:** None\n   - **Bio:** Pattern likely father follow account nor. Power job just day. Could itself wonder well really future song. Tell other all involve wind.\n\n4. **Travis Moore**\n   - **ID:** dev_009\n   - **Email:** scott31@example.com\n   - **Location:** Hayneston, FL\n   - **Hourly Rate:** $155.26\n   - **Availability Start:** None\n   - **Bio:** Purpose around top. Treatment get three trip go. Feel set building when spend. Wrong call city.\n\n5. **Zachary Long**\n   - **ID:** dev_034\n   - **Email:** flawrence@example.com\n   - **Location:** Dickersonville, CT\n   - **Hourly Rate:** $164.44\n   - **Availability Start:** 2025-09-28\n   - **Bio:** Economy fine grow series rest beautiful lose. Majority card land another level manager. Enough red develop bit energy could billion. Age pretty energy today cause light thought.\n\nIn total, there are **5 developers** with AWS certifications listed above. If you need further assistance or details, feel free to ask!",
+    "source_type": "graph_rag",
+    "context": [
+      "p.id | p.name | p.email | p.location | p.hourly_rate | p.availability_start | p.bio\n-----------------------------------------------------------------------------------\ndev_004 | Lindsey Reilly | andrea84@example.org | Willismouth, FM | 187.50 | 2025-12-07 | Wait kitchen value radio none clearly policy. Work herself particular section common thing among. Behavior argue thought. Sign class maybe during wonder property write.\ndev_037 | Lisa Baker | epalmer@example.com | South Justinchester, PW | 181.38 | None | Stop hair message bank worry study simply. Knowledge turn garden behind own president.\ndev_031 | Marvin Vazquez | vwells@example.com | Marshallborough, NC | 160.09 | None | Pattern likely father follow account nor. Power job just day. Could itself wonder well really future song. Tell other all involve wind.\ndev_009 | Travis Moore | scott31@example.com | Hayneston, FL | 155.26 | None | Purpose around top. Treatment get three trip go. Feel set building when spend. Wrong call city.\ndev_034 | Zachary Long | flawrence@example.com | Dickersonville, CT | 164.44 | 2025-09-28 | Economy fine grow series rest beautiful lose. Majority card land another level manager. Enough red develop bit energy could billion. Age pretty energy today cause light thought."
+    ],
+    "cypher_query": "MATCH (p:Programmer)-[:HAS_CERTIFICATION]->(c:Certification)\nWHERE c.name CONTAINS 'AWS'\nRETURN p.id, p.name, p.email, p.location, p.hourly_rate, p.availability_start, p.bio\nORDER BY p.name\nLIMIT 100",
+    "execution_time": 13.594285011291504,
+    "confidence_score": null,
+    "timestamp": "2025-09-28T09:38:21.577976"
+  },
+  {
+    "query": "What is the average hourly rate for React developers?",
+    "answer": "The average hourly rate for React developers is $172.53. This figure is based on data from 8 programmers who possess React skills. If you have any further questions or need additional information, feel free to ask!",
+    "source_type": "graph_rag",
+    "context": [
+      "average_rate | programmer_count\n-------------------------------\n172.53 | 8"
+    ],
+    "cypher_query": "MATCH (p:Programmer)-[:HAS_SKILL]->(s:Skill {name: 'React'})\nRETURN avg(p.hourly_rate) as average_rate, count(p) as programmer_count",
+    "execution_time": 1.5584561824798584,
+    "confidence_score": null,
+    "timestamp": "2025-09-28T09:38:23.136550"
+  },
+  {
+    "query": "Find developers who have worked on fintech projects",
+    "answer": "Unfortunately, the query executed to find developers who have worked on fintech projects returned no results. This indicates that there are currently no programmers in the database who have experience with projects specifically labeled as fintech. If you have any other criteria or specific areas of expertise in mind, please let me know, and I can assist you further!",
+    "source_type": "graph_rag",
+    "context": [
+      "No results found."
+    ],
+    "cypher_query": "MATCH (p:Programmer)-[:WORKED_ON]->(proj:Project)\nWHERE proj.client CONTAINS 'fintech'\nRETURN p.id, p.name, p.email, p.location, p.hourly_rate, p.availability_start, p.bio, count(proj) AS projects_worked_on\nORDER BY projects_worked_on DESC\nLIMIT 10",
+    "execution_time": 3.4391679763793945,
+    "confidence_score": null,
+    "timestamp": "2025-09-28T09:38:26.575744"
+  },
+  {
+    "query": "Which skills are most common among our programmers?",
+    "answer": "The most common skills among our programmers, based on the query results, are as follows:\n\n1. **GitLab CI** (DevOps) - 18 programmers\n2. **Neo4j** (Database) - 16 programmers\n3. **CloudFormation** (Cloud) - 14 programmers\n4. **Oracle** (Database) - 13 programmers\n5. **Swift** (Programming Language) - 13 programmers\n6. **PHP** (Programming Language) - 13 programmers\n7. **InfluxDB** (Database) - 12 programmers\n8. **GitHub Actions** (DevOps) - 12 programmers\n9. **TypeScript** (Programming Language) - 11 programmers\n10. **Grafana** (DevOps) - 11 programmers\n11. **ELK Stack** (DevOps) - 10 programmers\n12. **Kotlin** (Mobile) - 10 programmers\n13. **Angular** (Framework) - 10 programmers\n14. **DynamoDB** (Database) - 10 programmers\n15. **CircleCI** (DevOps) - 10 programmers\n16. **Serverless** (Cloud) - 10 programmers\n17. **SQL Server** (Database) - 10 programmers\n18. **Terraform** (Cloud) - 10 programmers\n19. **RDS** (Cloud) - 10 programmers\n20. **Python** (Programming Language) - 9 programmers\n\nIn summary, the top skill is **GitLab CI** with 18 programmers, followed closely by **Neo4j** with 16 programmers. The results highlight a strong presence of skills in DevOps, Database, and Programming Languages among our programming staff.",
+    "source_type": "graph_rag",
+    "context": [
+      "skill | category | programmer_count\n-----------------------------------\nGitLab CI | DevOps | 18\nNeo4j | Database | 16\nCloudFormation | Cloud | 14\nOracle | Database | 13\nSwift | Programming Language | 13\nPHP | Programming Language | 13\nInfluxDB | Database | 12\nGitHub Actions | DevOps | 12\nTypeScript | Programming Language | 11\nGrafana | DevOps | 11\nELK Stack | DevOps | 10\nKotlin | Mobile | 10\nAngular | Framework | 10\nDynamoDB | Database | 10\nCircleCI | DevOps | 10\nServerless | Cloud | 10\nSQL Server | Database | 10\nTerraform | Cloud | 10\nRDS | Cloud | 10\nPython | Programming Language | 9"
+    ],
+    "cypher_query": "MATCH (p:Programmer)-[:HAS_SKILL]->(s:Skill)\nRETURN s.name as skill, s.category as category, count(p) as programmer_count\nORDER BY programmer_count DESC\nLIMIT 20",
+    "execution_time": 8.308223962783813,
+    "confidence_score": null,
+    "timestamp": "2025-09-28T09:38:34.884016"
+  },
+  {
+    "query": "Who are the most experienced JavaScript developers?",
+    "answer": "The most experienced JavaScript developers, based on the query results, are as follows:\n\n1. **David Grant**\n   - Email: anthonycarter@example.org\n   - Location: North Lesliemouth, RI\n   - Hourly Rate: $189.25\n   - Average Experience: 8.00 years\n\n2. **Jon Martin**\n   - Email: kimberlypowers@example.com\n   - Location: North Victoriafort, WA\n   - Hourly Rate: $175.52\n   - Average Experience: 7.00 years\n\n3. **Matthew Gay**\n   - Email: stephanielawson@example.net\n   - Location: East Kylietown, KS\n   - Hourly Rate: $141.53\n   - Average Experience: 6.00 years\n\n4. **Cathy Campbell**\n   - Email: mccoyandrew@example.org\n   - Location: New Stacy, IL\n   - Hourly Rate: $178.12\n   - Average Experience: 5.00 years\n\n5. **Jocelyn Jennings**\n   - Email: wallerkristina@example.net\n   - Location: Alanland, NJ\n   - Hourly Rate: $155.91\n   - Average Experience: 5.00 years\n\n6. **Christopher Cortez**\n   - Email: andrew25@example.net\n   - Location: Anthonyville, VA\n   - Hourly Rate: $187.11\n   - Average Experience: 5.00 years\n\n7. **Paul Williams**\n   - Email: alexandria09@example.net\n   - Location: Port Richardburgh, OK\n   - Hourly Rate: $143.69\n   - Average Experience: 3.00 years\n\n8. **Nicholas Vaughan**\n   - Email: isaac18@example.net\n   - Location: Kelseyhaven, ID\n   - Hourly Rate: $165.44\n   - Average Experience: 2.00 years\n\n9. **Henry Owens**\n   - Email: larsonnicholas@example.org\n   - Location: Hallshire, GA\n   - Hourly Rate: $198.78\n   - Average Experience: 2.00 years\n\nIn summary, David Grant leads with the highest average experience of 8 years, followed by Jon Martin with 7 years. The list includes a total of 10 developers, with varying levels of experience and hourly rates. If you need further details or assistance, feel free to ask!",
+    "source_type": "graph_rag",
+    "context": [
+      "p.name | p.email | p.location | p.hourly_rate | avg_experience\n--------------------------------------------------------------\nDavid Grant | anthonycarter@example.org | North Lesliemouth, RI | 189.25 | 8.00\nJon Martin | kimberlypowers@example.com | North Victoriafort, WA | 175.52 | 7.00\nMatthew Gay | stephanielawson@example.net | East Kylietown, KS | 141.53 | 6.00\nCathy Campbell | mccoyandrew@example.org | New Stacy, IL | 178.12 | 5.00\nJocelyn Jennings | wallerkristina@example.net | Alanland, NJ | 155.91 | 5.00\nChristopher Cortez | andrew25@example.net | Anthonyville, VA | 187.11 | 5.00\nPaul Williams | alexandria09@example.net | Port Richardburgh, OK | 143.69 | 3.00\nNicholas Vaughan | isaac18@example.net | Kelseyhaven, ID | 165.44 | 2.00\nHenry Owens | larsonnicholas@example.org | Hallshire, GA | 198.78 | 2.00"
+    ],
+    "cypher_query": "MATCH (p:Programmer)-[HAS_SKILL]->(s:Skill)\nWHERE s.name = 'JavaScript'\nRETURN p.name, p.email, p.location, p.hourly_rate, avg(HAS_SKILL.years_experience) AS avg_experience\nORDER BY avg_experience DESC\nLIMIT 10",
+    "execution_time": 12.945246934890747,
+    "confidence_score": null,
+    "timestamp": "2025-09-28T09:38:47.829333"
+  },
+  {
+    "query": "What projects require machine learning skills?",
+    "answer": "Based on the executed query, there are currently no projects that require machine learning skills. The results returned no entries, indicating that there are no active projects in the database that list machine learning as a required skill. If you have any further questions or need assistance with other skills or projects, please let me know!",
+    "source_type": "graph_rag",
+    "context": [
+      "No results found."
+    ],
+    "cypher_query": "MATCH (p:Project)-[:REQUIRES_SKILL]->(s:Skill)\nWHERE s.name CONTAINS 'machine learning'\nRETURN p.id, p.name, p.client, p.start_date, p.end_date, p.status, p.budget, p.team_size\nORDER BY p.start_date\nLIMIT 10",
+    "execution_time": 4.246997117996216,
+    "confidence_score": null,
+    "timestamp": "2025-09-28T09:38:52.076411"
+  },
+  {
+    "query": "Find developers available for immediate start",
+    "answer": "Here are the developers available for immediate start based on the query results:\n\n### Developers Available for Immediate Start:\n\n1. **Melissa Campos**\n   - Location: East Heidi, HI\n   - Hourly Rate: $150.38\n   - Availability Start: 2025-09-28\n\n2. **Matthew Baker**\n   - Location: Gonzalezmouth, ND\n   - Hourly Rate: $182.95\n   - Availability Start: 2025-09-28\n\n3. **Christopher Cortez**\n   - Location: Anthonyville, VA\n   - Hourly Rate: $187.11\n   - Availability Start: 2025-09-28\n\n4. **Matthew Gay**\n   - Location: East Kylietown, KS\n   - Hourly Rate: $141.53\n   - Availability Start: 2025-09-28\n\n5. **Tiffany Diaz**\n   - Location: Nicholsland, MI\n   - Hourly Rate: $171.84\n   - Availability Start: 2025-09-28\n\n6. **Jillian Hart**\n   - Location: East Walter, WY\n   - Hourly Rate: $198.98\n   - Availability Start: 2025-09-28\n\n7. **Lisa Cross**\n   - Location: Lake Kristyhaven, SD\n   - Hourly Rate: $158.44\n   - Availability Start: 2025-09-28\n\n8. **Chelsea Williams**\n   - Location: Stephaniechester, HI\n   - Hourly Rate: $194.57\n   - Availability Start: 2025-09-28\n\n9. **Matthew Young**\n   - Location: North Jessica, IA\n   - Hourly Rate: $188.91\n   - Availability Start: 2025-09-28\n\n10. **Ethan Robinson**\n    - Location: Jacksonport, RI\n    - Hourly Rate: $177.09\n    - Availability Start: 2025-09-28\n\n11. **Robin Andrews**\n    - Location: New Lisa, ME\n    - Hourly Rate: $170.33\n    - Availability Start: 2025-09-28\n\n12. **Zachary Long**\n    - Location: Dickersonville, CT\n    - Hourly Rate: $164.44\n    - Availability Start: 2025-09-28\n\n13. **Sherry Robles**\n    - Location: Emilyburgh, OR\n    - Hourly Rate: $197.29\n    - Availability Start: 2025-09-28\n\n### Additional Developers with No Specified Availability Start:\n- **Christian Bishop** - Hourly Rate: $182.33 (Availability Start: None)\n- **Amanda Elliott** - Hourly Rate: $161.12 (Availability Start: None)\n- **Lisa Baker** - Hourly Rate: $181.38 (Availability Start: None)\n- **Victoria Holder** - Hourly Rate: $192.71 (Availability Start: None)\n- **John Santiago** - Hourly Rate: $147.07 (Availability Start: None)\n- **Marvin Vazquez** - Hourly Rate: $160.09 (Availability Start: None)\n- **Michael Hart** - Hourly Rate: $145.04 (Availability Start: None)\n\n### Summary:\nThere are **13 developers** available for immediate start on **2025-09-28**. Additionally, there are **6 developers** whose availability start date is unspecified. If you need further assistance or details about any specific developer, feel free to ask!",
+    "source_type": "graph_rag",
+    "context": [
+      "p.name | p.location | p.hourly_rate | p.availability_start\n----------------------------------------------------------\nMelissa Campos | East Heidi, HI | 150.38 | 2025-09-28\nMatthew Baker | Gonzalezmouth, ND | 182.95 | 2025-09-28\nChristopher Cortez | Anthonyville, VA | 187.11 | 2025-09-28\nMatthew Gay | East Kylietown, KS | 141.53 | 2025-09-28\nTiffany Diaz | Nicholsland, MI | 171.84 | 2025-09-28\nJillian Hart | East Walter, WY | 198.98 | 2025-09-28\nLisa Cross | Lake Kristyhaven, SD | 158.44 | 2025-09-28\nChelsea Williams | Stephaniechester, HI | 194.57 | 2025-09-28\nMatthew Young | North Jessica, IA | 188.91 | 2025-09-28\nEthan Robinson | Jacksonport, RI | 177.09 | 2025-09-28\nRobin Andrews | New Lisa, ME | 170.33 | 2025-09-28\nZachary Long | Dickersonville, CT | 164.44 | 2025-09-28\nSherry Robles | Emilyburgh, OR | 197.29 | 2025-09-28\nChristian Bishop | South Deannaland, MP | 182.33 | None\nAmanda Elliott | Aprilfurt, LA | 161.12 | None\nLisa Baker | South Justinchester, PW | 181.38 | None\nVictoria Holder | New David, NY | 192.71 | None\nJohn Santiago | Jonesport, MP | 147.07 | None\nMarvin Vazquez | Marshallborough, NC | 160.09 | None\nMichael Hart | Port Tim, RI | 145.04 | None\n... and 10 more results"
+    ],
+    "cypher_query": "MATCH (p:Programmer)\nWHERE p.availability_start <= date('2025-09-28') OR p.availability_start IS NULL\nRETURN p.name, p.location, p.hourly_rate, p.availability_start\nORDER BY p.availability_start",
+    "execution_time": 13.346611022949219,
+    "confidence_score": null,
+    "timestamp": "2025-09-28T09:39:05.423137"
+  },
+  {
+    "query": "Show me the top 5 developers by number of projects completed",
+    "answer": "The top 5 developers by the number of projects completed are as follows:\n\n1. **Victoria Holder** - 7 completed projects\n2. **Christian Bishop** - 7 completed projects\n3. **Melissa Campos** - 7 completed projects\n4. **Kevin Wang** - 7 completed projects\n5. **Matthew Young** - 7 completed projects\n\nAll five developers have completed an equal number of projects, with each having successfully completed **7 projects**.",
+    "source_type": "graph_rag",
+    "context": [
+      "developer | completed_projects\n------------------------------\nVictoria Holder | 7\nChristian Bishop | 7\nMelissa Campos | 7\nKevin Wang | 7\nMatthew Young | 7"
+    ],
+    "cypher_query": "MATCH (p:Programmer)-[w:WORKED_ON]->(proj:Project)\nWHERE proj.status = 'completed'\nRETURN p.name AS developer, count(proj) AS completed_projects\nORDER BY completed_projects DESC\nLIMIT 5",
+    "execution_time": 3.6133549213409424,
+    "confidence_score": null,
+    "timestamp": "2025-09-28T09:39:09.036524"
+  },
+  {
+    "query": "What is the collaboration network around Python developers?",
+    "answer": "The query executed to retrieve information about the collaboration network around Python developers returned no results. This indicates that there are currently no Python developers in the database who have collaborated with other programmers, or that the data may not be available or properly linked.\n\nIf you have any further questions or need assistance with a different query, please let me know!",
+    "source_type": "graph_rag",
+    "context": [
+      "No results found."
+    ],
+    "cypher_query": "MATCH (p:Programmer)-[WORKED_WITH]->(collab:Programmer)\nWHERE p.id IN (\n    MATCH (p:Programmer)-[:HAS_SKILL]->(s:Skill)\n    WHERE s.name CONTAINS 'Python'\n    RETURN p.id\n)\nRETURN p.name AS Python_Developer, \n       collect(collab.name) AS Collaborators, \n       count(collab) AS Collaboration_Count\nORDER BY Collaboration_Count DESC\nLIMIT 10",
+    "execution_time": 5.05275297164917,
+    "confidence_score": null,
+    "timestamp": "2025-09-28T09:39:14.089327"
+  }
+]

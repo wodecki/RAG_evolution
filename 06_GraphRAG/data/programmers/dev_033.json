@@ -1,0 +1,141 @@
+{
+  "id": "dev_033",
+  "name": "David Grant",
+  "email": "anthonycarter@example.org",
+  "phone": "001-594-453-5079x1758",
+  "location": "North Lesliemouth, RI",
+  "hourly_rate": 189.25,
+  "availability_start": "2025-11-07",
+  "bio": "Century theory develop begin. Occur never prove government social. Spend daughter political article movement.",
+  "linkedin_url": "https://linkedin.com/in/darryl80",
+  "github_url": "https://github.com/pdiaz",
+  "skills": [
+    {
+      "name": "JavaScript",
+      "category": "Programming Language",
+      "proficiency": 5,
+      "years_experience": 8
+    },
+    {
+      "name": "PHP",
+      "category": "Programming Language",
+      "proficiency": 3,
+      "years_experience": 2
+    },
+    {
+      "name": "Java",
+      "category": "Programming Language",
+      "proficiency": 4,
+      "years_experience": 4
+    },
+    {
+      "name": "Angular",
+      "category": "Framework",
+      "proficiency": 4,
+      "years_experience": 3
+    },
+    {
+      "name": "InfluxDB",
+      "category": "Database",
+      "proficiency": 3,
+      "years_experience": 4
+    },
+    {
+      "name": "Cassandra",
+      "category": "Database",
+      "proficiency": 3,
+      "years_experience": 2
+    },
+    {
+      "name": "Docker",
+      "category": "Cloud",
+      "proficiency": 2,
+      "years_experience": 7
+    },
+    {
+      "name": "GitLab CI",
+      "category": "DevOps",
+      "proficiency": 2,
+      "years_experience": 4
+    },
+    {
+      "name": "GitHub Actions",
+      "category": "DevOps",
+      "proficiency": 3,
+      "years_experience": 3
+    },
+    {
+      "name": "ELK Stack",
+      "category": "DevOps",
+      "proficiency": 3,
+      "years_experience": 1
+    }
+  ],
+  "certifications": [],
+  "project_experience": [
+    {
+      "project_name": "DevOps Pipeline for DataSystems Inc",
+      "client": "EduTech Solutions",
+      "role": "Principal Engineer",
+      "start_date": "2024-08-06",
+      "end_date": null,
+      "allocation_percentage": 80,
+      "description": "On method pay key language recent. Very air laugh personal lawyer stop. Animal minute through price too condition control human.",
+      "technologies_used": [
+        "Java",
+        "JavaScript",
+        "InfluxDB",
+        "Angular",
+        "PHP"
+      ],
+      "team_size": 5
+    },
+    {
+      "project_name": "E-commerce System for IoT Devices Corp",
+      "client": "Healthcare Systems",
+      "role": "Junior Developer",
+      "start_date": "2023-09-29",
+      "end_date": "2024-07-25",
+      "allocation_percentage": 80,
+      "description": "Manage trade high board. Research house situation hundred order. Which whole store allow.",
+      "technologies_used": [
+        "Angular",
+        "InfluxDB",
+        "JavaScript",
+        "Java"
+      ],
+      "team_size": 10
+    },
+    {
+      "project_name": "Data Pipeline for FinTech Innovations",
+      "client": "TechCorp",
+      "role": "Junior Developer",
+      "start_date": "2022-10-22",
+      "end_date": "2023-08-18",
+      "allocation_percentage": 50,
+      "description": "Operation book describe mouth suggest.",
+      "technologies_used": [
+        "Angular",
+        "JavaScript"
+      ],
+      "team_size": 5
+    },
+    {
+      "project_name": "Web Application for CloudNative Solutions",
+      "client": "EduTech Solutions",
+      "role": "Tech Lead",
+      "start_date": "2021-07-10",
+      "end_date": "2022-10-03",
+      "allocation_percentage": 80,
+      "description": "Various again during. Leg work opportunity west statement.",
+      "technologies_used": [
+        "Cassandra",
+        "JavaScript",
+        "Java",
+        "InfluxDB"
+      ],
+      "team_size": 5
+    }
+  ],
+  "created_at": "2025-09-28T09:36:21.846101"
+}

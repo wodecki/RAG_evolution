@@ -1,0 +1,52 @@
+{
+  "id": "proj_006",
+  "name": "Microservices Migration - Cline-Brewer",
+  "client": "Stone Ltd",
+  "description": "Five as now major production always experience modern. Possible physical floor bit concern.",
+  "start_date": "2025-09-27",
+  "end_date": "2026-03-26",
+  "estimated_duration_months": 6,
+  "budget": 242472.0,
+  "status": "on_hold",
+  "team_size": 2,
+  "requirements": [
+    {
+      "skill_name": "Serverless",
+      "min_proficiency": 4,
+      "min_years": 4,
+      "is_mandatory": true
+    },
+    {
+      "skill_name": "Objective-C",
+      "min_proficiency": 4,
+      "min_years": 4,
+      "is_mandatory": true
+    },
+    {
+      "skill_name": "Flask",
+      "min_proficiency": 2,
+      "min_years": 5,
+      "is_mandatory": true
+    },
+    {
+      "skill_name": "DynamoDB",
+      "min_proficiency": 4,
+      "min_years": 4,
+      "is_mandatory": true
+    },
+    {
+      "skill_name": "Go",
+      "min_proficiency": 4,
+      "min_years": 5,
+      "is_mandatory": true
+    },
+    {
+      "skill_name": "CSS3",
+      "min_proficiency": 4,
+      "min_years": 2,
+      "is_mandatory": true
+    }
+  ],
+  "assigned_programmers": [],
+  "created_at": "2025-09-28T09:36:21.856690"
+}

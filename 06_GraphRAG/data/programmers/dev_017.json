@@ -1,0 +1,187 @@
+{
+  "id": "dev_017",
+  "name": "Kevin Wang",
+  "email": "mbryant@example.com",
+  "phone": "+1-851-652-8255x907",
+  "location": "Pachecoburgh, VI",
+  "hourly_rate": 176.45,
+  "availability_start": "2025-11-16",
+  "bio": "Yet purpose report fill own three success single. War series pattern theory explain last.",
+  "linkedin_url": "https://linkedin.com/in/mcampbell",
+  "github_url": "https://github.com/kimberly84",
+  "skills": [
+    {
+      "name": "PHP",
+      "category": "Programming Language",
+      "proficiency": 4,
+      "years_experience": 3
+    },
+    {
+      "name": "SQL Server",
+      "category": "Database",
+      "proficiency": 4,
+      "years_experience": 1
+    },
+    {
+      "name": "InfluxDB",
+      "category": "Database",
+      "proficiency": 3,
+      "years_experience": 7
+    },
+    {
+      "name": "Neo4j",
+      "category": "Database",
+      "proficiency": 3,
+      "years_experience": 1
+    },
+    {
+      "name": "CloudFormation",
+      "category": "Cloud",
+      "proficiency": 4,
+      "years_experience": 1
+    },
+    {
+      "name": "Terraform",
+      "category": "Cloud",
+      "proficiency": 3,
+      "years_experience": 7
+    },
+    {
+      "name": "Kubernetes",
+      "category": "Cloud",
+      "proficiency": 2,
+      "years_experience": 3
+    },
+    {
+      "name": "ELK Stack",
+      "category": "DevOps",
+      "proficiency": 4,
+      "years_experience": 1
+    }
+  ],
+  "certifications": [],
+  "project_experience": [
+    {
+      "project_name": "Security Audit for Healthcare Systems",
+      "client": "Streaming Services",
+      "role": "Tech Lead",
+      "start_date": "2024-06-17",
+      "end_date": null,
+      "allocation_percentage": 80,
+      "description": "Him measure teach stage see. Amount hundred phone describe. Home daughter exactly.",
+      "technologies_used": [
+        "PHP",
+        "SQL Server",
+        "InfluxDB"
+      ],
+      "team_size": 5
+    },
+    {
+      "project_name": "E-commerce System for EduTech Solutions",
+      "client": "DataSystems Inc",
+      "role": "Principal Engineer",
+      "start_date": "2023-09-23",
+      "end_date": "2024-04-20",
+      "allocation_percentage": 50,
+      "description": "So rock that attention. Miss almost glass third beyond. Walk month example decade security wait inside.",
+      "technologies_used": [
+        "Neo4j",
+        "PHP"
+      ],
+      "team_size": 3
+    },
+    {
+      "project_name": "E-commerce System for Cybersecurity Inc",
+      "client": "DataSystems Inc",
+      "role": "Principal Engineer",
+      "start_date": "2022-09-01",
+      "end_date": "2023-08-27",
+      "allocation_percentage": 100,
+      "description": "Evidence likely drive good yes news. Model serve black teach performance. Decade federal scientist north. Later community teach worry heavy.",
+      "technologies_used": [
+        "Neo4j",
+        "SQL Server",
+        "PHP",
+        "InfluxDB"
+      ],
+      "team_size": 8
+    },
+    {
+      "project_name": "CRM Solution for Healthcare Systems",
+      "client": "Logistics Tech",
+      "role": "Tech Lead",
+      "start_date": "2022-02-09",
+      "end_date": "2022-08-08",
+      "allocation_percentage": 80,
+      "description": "Occur itself miss leg effort.",
+      "technologies_used": [
+        "Neo4j",
+        "SQL Server",
+        "InfluxDB",
+        "PHP"
+      ],
+      "team_size": 8
+    },
+    {
+      "project_name": "Analytics Dashboard for Healthcare Systems",
+      "client": "Blockchain Ventures",
+      "role": "Senior Developer",
+      "start_date": "2021-01-17",
+      "end_date": "2021-12-13",
+      "allocation_percentage": 50,
+      "description": "Stop account area fish back generation. College along space high late structure.",
+      "technologies_used": [
+        "Neo4j",
+        "PHP"
+      ],
+      "team_size": 4
+    },
+    {
+      "project_name": "DevOps Pipeline for Streaming Services",
+      "client": "Cybersecurity Inc",
+      "role": "Lead Developer",
+      "start_date": "2019-12-27",
+      "end_date": "2020-12-21",
+      "allocation_percentage": 50,
+      "description": "Hit system born age past run pattern.",
+      "technologies_used": [
+        "Neo4j",
+        "InfluxDB",
+        "SQL Server",
+        "PHP"
+      ],
+      "team_size": 8
+    },
+    {
+      "project_name": "Microservices Migration for Healthcare Systems",
+      "client": "TechCorp",
+      "role": "Mid-level Developer",
+      "start_date": "2018-07-19",
+      "end_date": "2019-11-11",
+      "allocation_percentage": 100,
+      "description": "Should she food specific Mr. Popular key experience care laugh up. Either laugh particular.",
+      "technologies_used": [
+        "PHP",
+        "Neo4j",
+        "SQL Server",
+        "InfluxDB"
+      ],
+      "team_size": 10
+    },
+    {
+      "project_name": "CRM Solution for Cybersecurity Inc",
+      "client": "Mobile First",
+      "role": "Architect",
+      "start_date": "2017-12-12",
+      "end_date": "2018-07-10",
+      "allocation_percentage": 50,
+      "description": "Business doctor herself ask here return number. Maybe lay seem safe leader although. Catch their too leader affect of media.",
+      "technologies_used": [
+        "SQL Server",
+        "InfluxDB"
+      ],
+      "team_size": 12
+    }
+  ],
+  "created_at": "2025-09-28T09:36:21.839208"
+}

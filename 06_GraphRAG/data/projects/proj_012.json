@@ -1,0 +1,46 @@
+{
+  "id": "proj_012",
+  "name": "Mobile App - Phillips, Lawrence and Rodriguez",
+  "client": "Gardner Inc",
+  "description": "Six adult every religious lot about nation.",
+  "start_date": "2025-09-27",
+  "end_date": "2026-03-26",
+  "estimated_duration_months": 6,
+  "budget": 349099.0,
+  "status": "on_hold",
+  "team_size": 6,
+  "requirements": [
+    {
+      "skill_name": "Java",
+      "min_proficiency": 4,
+      "min_years": 5,
+      "is_mandatory": true
+    },
+    {
+      "skill_name": "Pandas",
+      "min_proficiency": 4,
+      "min_years": 2,
+      "is_mandatory": true
+    },
+    {
+      "skill_name": "Cybersecurity",
+      "min_proficiency": 3,
+      "min_years": 3,
+      "is_mandatory": true
+    },
+    {
+      "skill_name": "Ionic",
+      "min_proficiency": 3,
+      "min_years": 3,
+      "is_mandatory": false
+    },
+    {
+      "skill_name": "SQLite",
+      "min_proficiency": 2,
+      "min_years": 2,
+      "is_mandatory": true
+    }
+  ],
+  "assigned_programmers": [],
+  "created_at": "2025-09-28T09:36:21.857883"
+}

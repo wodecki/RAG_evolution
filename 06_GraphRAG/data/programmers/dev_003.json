@@ -1,0 +1,160 @@
+{
+  "id": "dev_003",
+  "name": "Jon Martin",
+  "email": "kimberlypowers@example.com",
+  "phone": "001-393-836-0485x57809",
+  "location": "North Victoriafort, WA",
+  "hourly_rate": 175.52,
+  "availability_start": "2025-11-27",
+  "bio": "Could allow up much material. Pull series cover environmental might.",
+  "linkedin_url": "https://linkedin.com/in/robert08",
+  "github_url": "https://github.com/melissa94",
+  "skills": [
+    {
+      "name": "TypeScript",
+      "category": "Programming Language",
+      "proficiency": 5,
+      "years_experience": 2
+    },
+    {
+      "name": "Python",
+      "category": "Programming Language",
+      "proficiency": 3,
+      "years_experience": 3
+    },
+    {
+      "name": "JavaScript",
+      "category": "Programming Language",
+      "proficiency": 3,
+      "years_experience": 7
+    },
+    {
+      "name": "FastAPI",
+      "category": "Framework",
+      "proficiency": 3,
+      "years_experience": 5
+    },
+    {
+      "name": "Express.js",
+      "category": "Framework",
+      "proficiency": 5,
+      "years_experience": 2
+    },
+    {
+      "name": "React",
+      "category": "Framework",
+      "proficiency": 5,
+      "years_experience": 4
+    },
+    {
+      "name": "Angular",
+      "category": "Framework",
+      "proficiency": 3,
+      "years_experience": 1
+    },
+    {
+      "name": "Neo4j",
+      "category": "Database",
+      "proficiency": 3,
+      "years_experience": 3
+    },
+    {
+      "name": "CloudFormation",
+      "category": "Cloud",
+      "proficiency": 4,
+      "years_experience": 1
+    },
+    {
+      "name": "Serverless",
+      "category": "Cloud",
+      "proficiency": 4,
+      "years_experience": 6
+    },
+    {
+      "name": "GitLab CI",
+      "category": "DevOps",
+      "proficiency": 4,
+      "years_experience": 3
+    },
+    {
+      "name": "Jenkins",
+      "category": "DevOps",
+      "proficiency": 2,
+      "years_experience": 2
+    },
+    {
+      "name": "Puppet",
+      "category": "DevOps",
+      "proficiency": 2,
+      "years_experience": 2
+    }
+  ],
+  "certifications": [],
+  "project_experience": [
+    {
+      "project_name": "Microservices Migration for FinTech Innovations",
+      "client": "DataSystems Inc",
+      "role": "Tech Lead",
+      "start_date": "2024-12-05",
+      "end_date": null,
+      "allocation_percentage": 100,
+      "description": "Happy street whether perform economy exist break talk. Research owner education for thing.",
+      "technologies_used": [
+        "Neo4j",
+        "Python",
+        "TypeScript",
+        "FastAPI"
+      ],
+      "team_size": 3
+    },
+    {
+      "project_name": "Machine Learning Platform for Mobile First",
+      "client": "DataSystems Inc",
+      "role": "Mid-level Developer",
+      "start_date": "2024-01-28",
+      "end_date": "2024-11-23",
+      "allocation_percentage": 80,
+      "description": "Cell important computer result account cup home. Attorney statement society establish available campaign mission. Some century coach nation visit dinner final. Big image suddenly site join never standard near.",
+      "technologies_used": [
+        "Angular",
+        "FastAPI",
+        "Neo4j"
+      ],
+      "team_size": 3
+    },
+    {
+      "project_name": "Data Pipeline for EduTech Solutions",
+      "client": "Blockchain Ventures",
+      "role": "Mid-level Developer",
+      "start_date": "2023-02-01",
+      "end_date": "2023-12-28",
+      "allocation_percentage": 50,
+      "description": "A mother hundred finish join great environmental data. Box fine whatever why without foreign.",
+      "technologies_used": [
+        "Express.js",
+        "FastAPI",
+        "React",
+        "Neo4j",
+        "Angular"
+      ],
+      "team_size": 12
+    },
+    {
+      "project_name": "Microservices Migration for Healthcare Systems",
+      "client": "DataSystems Inc",
+      "role": "Architect",
+      "start_date": "2022-08-11",
+      "end_date": "2022-12-09",
+      "allocation_percentage": 50,
+      "description": "Book live through evening together force. Material left rise subject piece give. Worker remain nothing culture reality.",
+      "technologies_used": [
+        "TypeScript",
+        "Neo4j",
+        "Express.js",
+        "FastAPI"
+      ],
+      "team_size": 5
+    }
+  ],
+  "created_at": "2025-09-28T09:36:21.833437"
+}

@@ -14,9 +14,20 @@
       "Bash(brew install:*)",
       "Bash(find:*)",
       "Read(//Users/wodecki/Offline Docs/GitHub/GenAI - edu/**)",
-      "Bash(timeout 120 uv run:*)"
+      "Bash(timeout 120 uv run:*)",
+      "WebFetch(domain:docs.ragas.io)",
+      "WebSearch",
+      "Bash(mkdir:*)",
+      "mcp__zen__listmodels",
+      "mcp__context7__resolve-library-id",
+      "mcp__context7__get-library-docs",
+      "mcp__zen__planner"
     ],
     "deny": [],
     "ask": []
-  }
+  },
+  "enabledMcpjsonServers": [
+    "zen",
+    "context7"
+  ]
 }

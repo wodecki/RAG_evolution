@@ -1,0 +1,199 @@
+{
+  "id": "dev_013",
+  "name": "Cathy Campbell",
+  "email": "mccoyandrew@example.org",
+  "phone": "(828)730-2047x746",
+  "location": "New Stacy, IL",
+  "hourly_rate": 178.12,
+  "availability_start": "2025-12-13",
+  "bio": "Western fire environment American next white capital. Case best into network simply account. Gun Republican enter remember face but. Hotel quality interest mean four.",
+  "linkedin_url": "https://linkedin.com/in/jamie35",
+  "github_url": "https://github.com/meyerjonathan",
+  "skills": [
+    {
+      "name": "C#",
+      "category": "Programming Language",
+      "proficiency": 5,
+      "years_experience": 2
+    },
+    {
+      "name": "Java",
+      "category": "Programming Language",
+      "proficiency": 3,
+      "years_experience": 2
+    },
+    {
+      "name": "JavaScript",
+      "category": "Programming Language",
+      "proficiency": 4,
+      "years_experience": 5
+    },
+    {
+      "name": "Angular",
+      "category": "Framework",
+      "proficiency": 4,
+      "years_experience": 1
+    },
+    {
+      "name": "React",
+      "category": "Framework",
+      "proficiency": 3,
+      "years_experience": 6
+    },
+    {
+      "name": "Express.js",
+      "category": "Framework",
+      "proficiency": 5,
+      "years_experience": 5
+    },
+    {
+      "name": "InfluxDB",
+      "category": "Database",
+      "proficiency": 2,
+      "years_experience": 4
+    },
+    {
+      "name": "Terraform",
+      "category": "Cloud",
+      "proficiency": 4,
+      "years_experience": 1
+    },
+    {
+      "name": "Lambda",
+      "category": "Cloud",
+      "proficiency": 3,
+      "years_experience": 5
+    },
+    {
+      "name": "Grafana",
+      "category": "DevOps",
+      "proficiency": 2,
+      "years_experience": 6
+    }
+  ],
+  "certifications": [],
+  "project_experience": [
+    {
+      "project_name": "Analytics Dashboard for FinTech Innovations",
+      "client": "Logistics Tech",
+      "role": "Tech Lead",
+      "start_date": "2024-08-01",
+      "end_date": null,
+      "allocation_percentage": 80,
+      "description": "Still recognize or. Model college walk kind down. Skill worker system red detail trade important citizen. Now seven soldier side different well hundred.",
+      "technologies_used": [
+        "Express.js",
+        "C#",
+        "InfluxDB",
+        "Angular",
+        "Java"
+      ],
+      "team_size": 4
+    },
+    {
+      "project_name": "Cloud Migration for AI Research Labs",
+      "client": "Mobile First",
+      "role": "Architect",
+      "start_date": "2023-06-26",
+      "end_date": "2024-07-20",
+      "allocation_percentage": 100,
+      "description": "Economic edge air surface floor thing four. Choose show follow space sure represent. As no near situation season. Include year even over.",
+      "technologies_used": [
+        "C#",
+        "Java",
+        "JavaScript"
+      ],
+      "team_size": 7
+    },
+    {
+      "project_name": "Mobile App for EduTech Solutions",
+      "client": "Social Media Platform",
+      "role": "Lead Developer",
+      "start_date": "2022-01-26",
+      "end_date": "2023-05-21",
+      "allocation_percentage": 50,
+      "description": "Small itself example arrive build. Instead nation race artist record collection.",
+      "technologies_used": [
+        "InfluxDB",
+        "Express.js"
+      ],
+      "team_size": 9
+    },
+    {
+      "project_name": "CRM Solution for IoT Devices Corp",
+      "client": "Cybersecurity Inc",
+      "role": "Mid-level Developer",
+      "start_date": "2020-08-06",
+      "end_date": "2021-12-29",
+      "allocation_percentage": 100,
+      "description": "Might structure hope exactly make accept morning. From stand them say teach race. Article or water push other science rich. While have show state.",
+      "technologies_used": [
+        "Angular",
+        "Express.js",
+        "C#",
+        "JavaScript",
+        "Java"
+      ],
+      "team_size": 10
+    },
+    {
+      "project_name": "Mobile App for Cybersecurity Inc",
+      "client": "E-commerce Giants",
+      "role": "Architect",
+      "start_date": "2020-02-27",
+      "end_date": "2020-07-26",
+      "allocation_percentage": 50,
+      "description": "Final us history situation. Theory business risk career gas soon. Choose hard bank material tough.",
+      "technologies_used": [
+        "C#",
+        "Angular"
+      ],
+      "team_size": 12
+    },
+    {
+      "project_name": "Security Audit for Social Media Platform",
+      "client": "DataSystems Inc",
+      "role": "Senior Developer",
+      "start_date": "2018-12-22",
+      "end_date": "2020-01-16",
+      "allocation_percentage": 100,
+      "description": "Tonight especially box. Air while society war turn summer action.",
+      "technologies_used": [
+        "Angular",
+        "JavaScript"
+      ],
+      "team_size": 7
+    },
+    {
+      "project_name": "Machine Learning Platform for FinTech Innovations",
+      "client": "Cybersecurity Inc",
+      "role": "Principal Engineer",
+      "start_date": "2018-05-27",
+      "end_date": "2018-11-23",
+      "allocation_percentage": 100,
+      "description": "Entire assume foreign guess local main help. Marriage remain remain southern store kitchen. City leg meeting never seem.",
+      "technologies_used": [
+        "Java",
+        "Express.js",
+        "Angular"
+      ],
+      "team_size": 8
+    },
+    {
+      "project_name": "Cloud Migration for TechCorp",
+      "client": "IoT Devices Corp",
+      "role": "Junior Developer",
+      "start_date": "2017-06-17",
+      "end_date": "2018-05-13",
+      "allocation_percentage": 50,
+      "description": "Family difficult clearly. Financial travel very low decade seat.",
+      "technologies_used": [
+        "InfluxDB",
+        "Angular",
+        "React"
+      ],
+      "team_size": 7
+    }
+  ],
+  "created_at": "2025-09-28T09:36:21.837542"
+}

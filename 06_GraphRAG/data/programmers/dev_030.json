@@ -1,0 +1,144 @@
+{
+  "id": "dev_030",
+  "name": "Jillian Hart",
+  "email": "bakerjohn@example.com",
+  "phone": "4888468233",
+  "location": "East Walter, WY",
+  "hourly_rate": 198.98,
+  "availability_start": "2025-09-28",
+  "bio": "Take good issue picture tend amount spend. This later join sometimes green. Shoulder director someone any American analysis.",
+  "linkedin_url": "https://linkedin.com/in/hsosa",
+  "github_url": "https://github.com/stephanie45",
+  "skills": [
+    {
+      "name": "C#",
+      "category": "Programming Language",
+      "proficiency": 4,
+      "years_experience": 3
+    },
+    {
+      "name": "Swift",
+      "category": "Programming Language",
+      "proficiency": 5,
+      "years_experience": 3
+    },
+    {
+      "name": "TypeScript",
+      "category": "Programming Language",
+      "proficiency": 3,
+      "years_experience": 5
+    },
+    {
+      "name": "React",
+      "category": "Framework",
+      "proficiency": 3,
+      "years_experience": 5
+    },
+    {
+      "name": "Express.js",
+      "category": "Framework",
+      "proficiency": 5,
+      "years_experience": 1
+    },
+    {
+      "name": "InfluxDB",
+      "category": "Database",
+      "proficiency": 3,
+      "years_experience": 7
+    },
+    {
+      "name": "CloudFormation",
+      "category": "Cloud",
+      "proficiency": 4,
+      "years_experience": 2
+    },
+    {
+      "name": "GitLab CI",
+      "category": "DevOps",
+      "proficiency": 3,
+      "years_experience": 1
+    },
+    {
+      "name": "CircleCI",
+      "category": "DevOps",
+      "proficiency": 4,
+      "years_experience": 7
+    },
+    {
+      "name": "OAuth",
+      "category": "Security",
+      "proficiency": 4,
+      "years_experience": 8
+    },
+    {
+      "name": "OWASP",
+      "category": "Security",
+      "proficiency": 3,
+      "years_experience": 7
+    }
+  ],
+  "certifications": [],
+  "project_experience": [
+    {
+      "project_name": "Security Audit for E-commerce Giants",
+      "client": "Social Media Platform",
+      "role": "Architect",
+      "start_date": "2025-05-27",
+      "end_date": null,
+      "allocation_percentage": 100,
+      "description": "Wish four determine under generation table book positive. Trouble many give.",
+      "technologies_used": [
+        "React",
+        "TypeScript",
+        "Swift"
+      ],
+      "team_size": 10
+    },
+    {
+      "project_name": "Cloud Migration for Mobile First",
+      "client": "Cybersecurity Inc",
+      "role": "Lead Developer",
+      "start_date": "2024-12-08",
+      "end_date": "2025-05-07",
+      "allocation_percentage": 80,
+      "description": "Garden report fund sport. Around once sea right red step. Special approach dog former move material. Buy allow point sister study available us.",
+      "technologies_used": [
+        "Swift",
+        "C#"
+      ],
+      "team_size": 5
+    },
+    {
+      "project_name": "Cloud Migration for Blockchain Ventures",
+      "client": "TechCorp",
+      "role": "Principal Engineer",
+      "start_date": "2023-12-22",
+      "end_date": "2024-11-16",
+      "allocation_percentage": 100,
+      "description": "Leave full computer something voice officer chair. Arrive power mouth long pay local subject.",
+      "technologies_used": [
+        "Swift",
+        "Express.js"
+      ],
+      "team_size": 7
+    },
+    {
+      "project_name": "Mobile App for Gaming Studios",
+      "client": "Logistics Tech",
+      "role": "Tech Lead",
+      "start_date": "2023-03-07",
+      "end_date": "2023-12-02",
+      "allocation_percentage": 100,
+      "description": "Crime degree she guess. Matter however age.",
+      "technologies_used": [
+        "TypeScript",
+        "C#",
+        "Swift",
+        "React",
+        "InfluxDB"
+      ],
+      "team_size": 4
+    }
+  ],
+  "created_at": "2025-09-28T09:36:21.844610"
+}

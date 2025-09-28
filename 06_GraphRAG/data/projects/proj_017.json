@@ -1,0 +1,40 @@
+{
+  "id": "proj_017",
+  "name": "Data Pipeline - Sanford-Campbell",
+  "client": "Wilson, Huff and Smith",
+  "description": "Common only forward act. Congress charge simple level. Reflect before must information.",
+  "start_date": "2025-09-27",
+  "end_date": "2026-04-25",
+  "estimated_duration_months": 7,
+  "budget": 447270.0,
+  "status": "planned",
+  "team_size": 2,
+  "requirements": [
+    {
+      "skill_name": "Docker",
+      "min_proficiency": 2,
+      "min_years": 3,
+      "is_mandatory": true
+    },
+    {
+      "skill_name": "CloudFormation",
+      "min_proficiency": 3,
+      "min_years": 5,
+      "is_mandatory": false
+    },
+    {
+      "skill_name": "Event Sourcing",
+      "min_proficiency": 3,
+      "min_years": 5,
+      "is_mandatory": true
+    },
+    {
+      "skill_name": "iOS Development",
+      "min_proficiency": 2,
+      "min_years": 2,
+      "is_mandatory": true
+    }
+  ],
+  "assigned_programmers": [],
+  "created_at": "2025-09-28T09:36:21.858843"
+}

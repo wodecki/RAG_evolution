@@ -1,0 +1,124 @@
+{
+  "id": "dev_046",
+  "name": "Deanna Schmidt",
+  "email": "howardnicholas@example.org",
+  "phone": "(436)831-3976x90472",
+  "location": "North Erin, CO",
+  "hourly_rate": 148.63,
+  "availability_start": "2026-03-16",
+  "bio": "Address hope throw else look support newspaper.",
+  "linkedin_url": "https://linkedin.com/in/dylanperez",
+  "github_url": "https://github.com/angie73",
+  "skills": [
+    {
+      "name": "Python",
+      "category": "Programming Language",
+      "proficiency": 3,
+      "years_experience": 6
+    },
+    {
+      "name": "FastAPI",
+      "category": "Framework",
+      "proficiency": 5,
+      "years_experience": 1
+    },
+    {
+      "name": "InfluxDB",
+      "category": "Database",
+      "proficiency": 2,
+      "years_experience": 2
+    },
+    {
+      "name": "Neo4j",
+      "category": "Database",
+      "proficiency": 3,
+      "years_experience": 5
+    },
+    {
+      "name": "Elasticsearch",
+      "category": "Database",
+      "proficiency": 3,
+      "years_experience": 7
+    },
+    {
+      "name": "Google Cloud",
+      "category": "Cloud",
+      "proficiency": 3,
+      "years_experience": 5
+    },
+    {
+      "name": "Docker",
+      "category": "Cloud",
+      "proficiency": 2,
+      "years_experience": 7
+    },
+    {
+      "name": "GitHub Actions",
+      "category": "DevOps",
+      "proficiency": 3,
+      "years_experience": 2
+    },
+    {
+      "name": "Grafana",
+      "category": "DevOps",
+      "proficiency": 4,
+      "years_experience": 6
+    },
+    {
+      "name": "Prometheus",
+      "category": "DevOps",
+      "proficiency": 3,
+      "years_experience": 4
+    }
+  ],
+  "certifications": [],
+  "project_experience": [
+    {
+      "project_name": "Data Pipeline for FinTech Innovations",
+      "client": "Healthcare Systems",
+      "role": "Lead Developer",
+      "start_date": "2024-05-22",
+      "end_date": null,
+      "allocation_percentage": 100,
+      "description": "I return company door worry able. Visit member check into.",
+      "technologies_used": [
+        "FastAPI",
+        "Python",
+        "Neo4j",
+        "InfluxDB",
+        "Elasticsearch"
+      ],
+      "team_size": 12
+    },
+    {
+      "project_name": "Cloud Migration for TechCorp",
+      "client": "Social Media Platform",
+      "role": "Architect",
+      "start_date": "2023-11-15",
+      "end_date": "2024-05-13",
+      "allocation_percentage": 80,
+      "description": "On election level finally increase possible. Take service same image ten of use. Able central check pattern.",
+      "technologies_used": [
+        "Neo4j",
+        "FastAPI"
+      ],
+      "team_size": 8
+    },
+    {
+      "project_name": "Cloud Migration for FinTech Innovations",
+      "client": "Social Media Platform",
+      "role": "Mid-level Developer",
+      "start_date": "2022-07-14",
+      "end_date": "2023-11-06",
+      "allocation_percentage": 80,
+      "description": "Friend brother reach hour. Develop tonight help necessary machine line beautiful. Save focus during take. Behavior ago perhaps.",
+      "technologies_used": [
+        "Neo4j",
+        "Elasticsearch",
+        "FastAPI"
+      ],
+      "team_size": 10
+    }
+  ],
+  "created_at": "2025-09-28T09:36:21.853677"
+}

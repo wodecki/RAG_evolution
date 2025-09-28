@@ -1,0 +1,178 @@
+{
+  "id": "dev_016",
+  "name": "Amanda Elliott",
+  "email": "shawndalton@example.org",
+  "phone": "809.533.8766x06416",
+  "location": "Aprilfurt, LA",
+  "hourly_rate": 161.12,
+  "availability_start": null,
+  "bio": "Season need agent probably owner write read. Turn voice until significant. Financial rate exactly low while after high. Black along garden long when certainly work.",
+  "linkedin_url": "https://linkedin.com/in/catherine87",
+  "github_url": "https://github.com/thomasjenkins",
+  "skills": [
+    {
+      "name": "Python",
+      "category": "Programming Language",
+      "proficiency": 5,
+      "years_experience": 4
+    },
+    {
+      "name": "Kotlin",
+      "category": "Programming Language",
+      "proficiency": 5,
+      "years_experience": 8
+    },
+    {
+      "name": "Go",
+      "category": "Programming Language",
+      "proficiency": 3,
+      "years_experience": 4
+    },
+    {
+      "name": "FastAPI",
+      "category": "Framework",
+      "proficiency": 3,
+      "years_experience": 8
+    },
+    {
+      "name": "DynamoDB",
+      "category": "Database",
+      "proficiency": 3,
+      "years_experience": 6
+    },
+    {
+      "name": "Docker",
+      "category": "Cloud",
+      "proficiency": 3,
+      "years_experience": 7
+    },
+    {
+      "name": "Serverless",
+      "category": "Cloud",
+      "proficiency": 4,
+      "years_experience": 7
+    },
+    {
+      "name": "EC2",
+      "category": "Cloud",
+      "proficiency": 3,
+      "years_experience": 2
+    },
+    {
+      "name": "CircleCI",
+      "category": "DevOps",
+      "proficiency": 2,
+      "years_experience": 3
+    },
+    {
+      "name": "Ansible",
+      "category": "DevOps",
+      "proficiency": 4,
+      "years_experience": 5
+    },
+    {
+      "name": "Nagios",
+      "category": "DevOps",
+      "proficiency": 3,
+      "years_experience": 4
+    }
+  ],
+  "certifications": [],
+  "project_experience": [
+    {
+      "project_name": "Web Application for Logistics Tech",
+      "client": "Cybersecurity Inc",
+      "role": "Architect",
+      "start_date": "2024-04-04",
+      "end_date": null,
+      "allocation_percentage": 50,
+      "description": "Voice knowledge simple fact management. Cut send agree easy. Main only minute. Really million mouth.",
+      "technologies_used": [
+        "Kotlin",
+        "DynamoDB",
+        "FastAPI"
+      ],
+      "team_size": 11
+    },
+    {
+      "project_name": "API Gateway for E-commerce Giants",
+      "client": "Social Media Platform",
+      "role": "Junior Developer",
+      "start_date": "2023-03-27",
+      "end_date": "2024-03-21",
+      "allocation_percentage": 50,
+      "description": "Choose open light drug arm firm official note. Whom me instead important his enjoy. Medical attention respond third big body.",
+      "technologies_used": [
+        "Kotlin",
+        "Go"
+      ],
+      "team_size": 10
+    },
+    {
+      "project_name": "Analytics Dashboard for CloudNative Solutions",
+      "client": "Cybersecurity Inc",
+      "role": "Mid-level Developer",
+      "start_date": "2022-11-28",
+      "end_date": "2023-02-26",
+      "allocation_percentage": 50,
+      "description": "Across order relationship along thousand. Put space father commercial similar safe loss star. Long wrong result memory modern significant laugh.",
+      "technologies_used": [
+        "Python",
+        "FastAPI",
+        "Go",
+        "Kotlin",
+        "DynamoDB"
+      ],
+      "team_size": 8
+    },
+    {
+      "project_name": "API Gateway for E-commerce Giants",
+      "client": "Logistics Tech",
+      "role": "Lead Developer",
+      "start_date": "2021-10-21",
+      "end_date": "2022-11-15",
+      "allocation_percentage": 100,
+      "description": "Spring expert start develop. Race company kitchen two pretty anyone. Mr above such occur among guess.",
+      "technologies_used": [
+        "Kotlin",
+        "Python",
+        "DynamoDB"
+      ],
+      "team_size": 3
+    },
+    {
+      "project_name": "Mobile App for Blockchain Ventures",
+      "client": "Gaming Studios",
+      "role": "Senior Developer",
+      "start_date": "2021-07-11",
+      "end_date": "2021-10-09",
+      "allocation_percentage": 50,
+      "description": "Already us bank establish that. Soldier pick laugh. Reflect benefit goal research.",
+      "technologies_used": [
+        "Kotlin",
+        "DynamoDB",
+        "Go",
+        "FastAPI"
+      ],
+      "team_size": 3
+    },
+    {
+      "project_name": "DevOps Pipeline for E-commerce Giants",
+      "client": "Blockchain Ventures",
+      "role": "Lead Developer",
+      "start_date": "2020-02-25",
+      "end_date": "2021-06-19",
+      "allocation_percentage": 50,
+      "description": "Woman dream left room no street glass peace. Catch security window nation up option.",
+      "technologies_used": [
+        "Python",
+        "DynamoDB",
+        "Kotlin",
+        "FastAPI",
+        "Go"
+      ],
+      "team_size": 12
+    }
+  ],
+  "created_at": "2025-09-28T09:36:21.838793"
+}

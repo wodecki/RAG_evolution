@@ -1,0 +1,161 @@
+{
+  "id": "dev_019",
+  "name": "Ryan Clements",
+  "email": "reedsteven@example.net",
+  "phone": "632.875.0409",
+  "location": "Jacksonmouth, NH",
+  "hourly_rate": 175.79,
+  "availability_start": null,
+  "bio": "Computer pick two small piece discuss teach. Teacher girl piece cup.",
+  "linkedin_url": "https://linkedin.com/in/anne09",
+  "github_url": "https://github.com/thompsonjennifer",
+  "skills": [
+    {
+      "name": "Swift",
+      "category": "Programming Language",
+      "proficiency": 5,
+      "years_experience": 7
+    },
+    {
+      "name": "Go",
+      "category": "Programming Language",
+      "proficiency": 4,
+      "years_experience": 4
+    },
+    {
+      "name": "SQL Server",
+      "category": "Database",
+      "proficiency": 2,
+      "years_experience": 3
+    },
+    {
+      "name": "InfluxDB",
+      "category": "Database",
+      "proficiency": 2,
+      "years_experience": 4
+    },
+    {
+      "name": "Kubernetes",
+      "category": "Cloud",
+      "proficiency": 3,
+      "years_experience": 2
+    },
+    {
+      "name": "GitLab CI",
+      "category": "DevOps",
+      "proficiency": 2,
+      "years_experience": 3
+    }
+  ],
+  "certifications": [],
+  "project_experience": [
+    {
+      "project_name": "Machine Learning Platform for Healthcare Systems",
+      "client": "Logistics Tech",
+      "role": "Architect",
+      "start_date": "2024-10-07",
+      "end_date": null,
+      "allocation_percentage": 80,
+      "description": "Including shoulder water magazine manage theory nation off. Least individual mind.",
+      "technologies_used": [
+        "SQL Server",
+        "InfluxDB",
+        "Go"
+      ],
+      "team_size": 10
+    },
+    {
+      "project_name": "Microservices Migration for Streaming Services",
+      "client": "Gaming Studios",
+      "role": "Mid-level Developer",
+      "start_date": "2023-03-21",
+      "end_date": "2024-09-11",
+      "allocation_percentage": 100,
+      "description": "Media dinner serve apply continue. Nothing painting visit sign tree support seek. National quickly difference hear by.",
+      "technologies_used": [
+        "Swift",
+        "Go"
+      ],
+      "team_size": 8
+    },
+    {
+      "project_name": "Microservices Migration for TechCorp",
+      "client": "FinTech Innovations",
+      "role": "Lead Developer",
+      "start_date": "2022-11-11",
+      "end_date": "2023-03-11",
+      "allocation_percentage": 50,
+      "description": "Choose beautiful majority whatever writer sure. Food entire season others question. Sometimes evening home lawyer total rate.",
+      "technologies_used": [
+        "InfluxDB",
+        "SQL Server",
+        "Go",
+        "Swift"
+      ],
+      "team_size": 7
+    },
+    {
+      "project_name": "Cloud Migration for EduTech Solutions",
+      "client": "Cybersecurity Inc",
+      "role": "Architect",
+      "start_date": "2021-07-26",
+      "end_date": "2022-09-19",
+      "allocation_percentage": 80,
+      "description": "Raise sea tax. While car industry social alone fear. Worker food political person production audience door.",
+      "technologies_used": [
+        "SQL Server",
+        "Swift",
+        "Go",
+        "InfluxDB"
+      ],
+      "team_size": 4
+    },
+    {
+      "project_name": "CRM Solution for AI Research Labs",
+      "client": "Cybersecurity Inc",
+      "role": "Principal Engineer",
+      "start_date": "2020-02-01",
+      "end_date": "2021-06-25",
+      "allocation_percentage": 50,
+      "description": "Person near south speech ground. See certain action everything part manager reality actually. Already family finish structure generation sound wish. Street start base gun area feel thank.",
+      "technologies_used": [
+        "Swift",
+        "InfluxDB",
+        "SQL Server",
+        "Go"
+      ],
+      "team_size": 6
+    },
+    {
+      "project_name": "Data Pipeline for AI Research Labs",
+      "client": "Logistics Tech",
+      "role": "Architect",
+      "start_date": "2018-09-24",
+      "end_date": "2019-12-18",
+      "allocation_percentage": 80,
+      "description": "Share ok two boy practice food success through.",
+      "technologies_used": [
+        "Swift",
+        "InfluxDB"
+      ],
+      "team_size": 5
+    },
+    {
+      "project_name": "Cloud Migration for AI Research Labs",
+      "client": "Logistics Tech",
+      "role": "Tech Lead",
+      "start_date": "2018-01-12",
+      "end_date": "2018-08-10",
+      "allocation_percentage": 100,
+      "description": "Future true property song wait. Pass customer high public adult drop between.",
+      "technologies_used": [
+        "SQL Server",
+        "Swift",
+        "Go",
+        "InfluxDB"
+      ],
+      "team_size": 7
+    }
+  ],
+  "created_at": "2025-09-28T09:36:21.840061"
+}

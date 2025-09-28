@@ -1,0 +1,153 @@
+{
+  "id": "dev_011",
+  "name": "Michael Hart",
+  "email": "jennifer72@example.net",
+  "phone": "545-297-1610",
+  "location": "Port Tim, RI",
+  "hourly_rate": 145.04,
+  "availability_start": null,
+  "bio": "Effect need art Congress person deal design. Job war case hold send usually contain.",
+  "linkedin_url": "https://linkedin.com/in/dpalmer",
+  "github_url": "https://github.com/hmiller",
+  "skills": [
+    {
+      "name": "PHP",
+      "category": "Programming Language",
+      "proficiency": 5,
+      "years_experience": 3
+    },
+    {
+      "name": "Python",
+      "category": "Programming Language",
+      "proficiency": 3,
+      "years_experience": 6
+    },
+    {
+      "name": "FastAPI",
+      "category": "Framework",
+      "proficiency": 2,
+      "years_experience": 7
+    },
+    {
+      "name": "Neo4j",
+      "category": "Database",
+      "proficiency": 4,
+      "years_experience": 7
+    },
+    {
+      "name": "Serverless",
+      "category": "Cloud",
+      "proficiency": 2,
+      "years_experience": 6
+    },
+    {
+      "name": "Jenkins",
+      "category": "DevOps",
+      "proficiency": 3,
+      "years_experience": 7
+    },
+    {
+      "name": "ELK Stack",
+      "category": "DevOps",
+      "proficiency": 2,
+      "years_experience": 3
+    }
+  ],
+  "certifications": [],
+  "project_experience": [
+    {
+      "project_name": "Cloud Migration for Mobile First",
+      "client": "Gaming Studios",
+      "role": "Lead Developer",
+      "start_date": "2024-10-24",
+      "end_date": null,
+      "allocation_percentage": 100,
+      "description": "Manage anyone continue skill however marriage exist. President three walk success.",
+      "technologies_used": [
+        "Python",
+        "PHP",
+        "FastAPI",
+        "Neo4j"
+      ],
+      "team_size": 5
+    },
+    {
+      "project_name": "E-commerce System for Healthcare Systems",
+      "client": "CloudNative Solutions",
+      "role": "Lead Developer",
+      "start_date": "2023-05-12",
+      "end_date": "2024-10-03",
+      "allocation_percentage": 80,
+      "description": "Evening notice government read sometimes firm. Chance throw travel order. Tax choice seek sound everyone most very.",
+      "technologies_used": [
+        "Neo4j",
+        "Python",
+        "PHP",
+        "FastAPI"
+      ],
+      "team_size": 12
+    },
+    {
+      "project_name": "API Gateway for FinTech Innovations",
+      "client": "Gaming Studios",
+      "role": "Lead Developer",
+      "start_date": "2021-12-22",
+      "end_date": "2023-04-16",
+      "allocation_percentage": 100,
+      "description": "Here name price face debate specific material. Real recently range discover practice. Those effort capital.",
+      "technologies_used": [
+        "Neo4j",
+        "Python",
+        "PHP",
+        "FastAPI"
+      ],
+      "team_size": 8
+    },
+    {
+      "project_name": "Web Application for DataSystems Inc",
+      "client": "Logistics Tech",
+      "role": "Principal Engineer",
+      "start_date": "2020-11-14",
+      "end_date": "2021-11-09",
+      "allocation_percentage": 80,
+      "description": "So others hospital all. Thus writer tax impact owner federal. Within together red follow.",
+      "technologies_used": [
+        "PHP",
+        "FastAPI",
+        "Python",
+        "Neo4j"
+      ],
+      "team_size": 6
+    },
+    {
+      "project_name": "Security Audit for E-commerce Giants",
+      "client": "FinTech Innovations",
+      "role": "Tech Lead",
+      "start_date": "2019-08-07",
+      "end_date": "2020-09-30",
+      "allocation_percentage": 100,
+      "description": "Peace follow night until. Trial strategy point control return TV major. Side until and choose thus total event.",
+      "technologies_used": [
+        "Python",
+        "FastAPI",
+        "Neo4j"
+      ],
+      "team_size": 3
+    },
+    {
+      "project_name": "Data Pipeline for CloudNative Solutions",
+      "client": "Blockchain Ventures",
+      "role": "Senior Developer",
+      "start_date": "2018-02-17",
+      "end_date": "2019-07-12",
+      "allocation_percentage": 100,
+      "description": "Only consider put clearly official. Kid door environmental then hair.",
+      "technologies_used": [
+        "FastAPI",
+        "Neo4j"
+      ],
+      "team_size": 9
+    }
+  ],
+  "created_at": "2025-09-28T09:36:21.836677"
+}

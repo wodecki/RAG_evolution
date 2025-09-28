@@ -1,0 +1,195 @@
+{
+  "id": "dev_029",
+  "name": "Kimberly Boyer",
+  "email": "brownscott@example.net",
+  "phone": "665.600.7321x175",
+  "location": "West Heatherborough, IN",
+  "hourly_rate": 168.59,
+  "availability_start": "2026-02-06",
+  "bio": "Run religious training speech. He throw reach young such event magazine fly.",
+  "linkedin_url": "https://linkedin.com/in/cannonerin",
+  "github_url": "https://github.com/wilsonbrandy",
+  "skills": [
+    {
+      "name": "PHP",
+      "category": "Programming Language",
+      "proficiency": 3,
+      "years_experience": 3
+    },
+    {
+      "name": "Scala",
+      "category": "Programming Language",
+      "proficiency": 4,
+      "years_experience": 10
+    },
+    {
+      "name": "SQL Server",
+      "category": "Database",
+      "proficiency": 4,
+      "years_experience": 4
+    },
+    {
+      "name": "PostgreSQL",
+      "category": "Database",
+      "proficiency": 4,
+      "years_experience": 2
+    },
+    {
+      "name": "Azure",
+      "category": "Cloud",
+      "proficiency": 2,
+      "years_experience": 3
+    },
+    {
+      "name": "S3",
+      "category": "Cloud",
+      "proficiency": 2,
+      "years_experience": 4
+    },
+    {
+      "name": "Chef",
+      "category": "DevOps",
+      "proficiency": 3,
+      "years_experience": 7
+    },
+    {
+      "name": "GitLab CI",
+      "category": "DevOps",
+      "proficiency": 2,
+      "years_experience": 7
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Azure Administrator",
+      "provider": "Microsoft",
+      "obtained_date": "2024-10-06",
+      "expiry_date": "2026-10-06",
+      "credential_id": "bf5b50aa-1aa"
+    }
+  ],
+  "project_experience": [
+    {
+      "project_name": "Web Application for Cybersecurity Inc",
+      "client": "IoT Devices Corp",
+      "role": "Architect",
+      "start_date": "2024-03-28",
+      "end_date": null,
+      "allocation_percentage": 100,
+      "description": "Tend story over stay discussion art direction. Book detail computer evidence if military defense.",
+      "technologies_used": [
+        "Scala",
+        "PHP",
+        "SQL Server"
+      ],
+      "team_size": 5
+    },
+    {
+      "project_name": "Analytics Dashboard for DataSystems Inc",
+      "client": "IoT Devices Corp",
+      "role": "Principal Engineer",
+      "start_date": "2023-03-07",
+      "end_date": "2024-03-01",
+      "allocation_percentage": 100,
+      "description": "Sister security population.",
+      "technologies_used": [
+        "SQL Server",
+        "PostgreSQL",
+        "PHP",
+        "Scala"
+      ],
+      "team_size": 5
+    },
+    {
+      "project_name": "Machine Learning Platform for Mobile First",
+      "client": "Logistics Tech",
+      "role": "Mid-level Developer",
+      "start_date": "2022-06-19",
+      "end_date": "2023-01-15",
+      "allocation_percentage": 100,
+      "description": "Catch another star site among right usually. Human eye yeah near laugh hair.",
+      "technologies_used": [
+        "Scala",
+        "SQL Server",
+        "PostgreSQL"
+      ],
+      "team_size": 7
+    },
+    {
+      "project_name": "Microservices Migration for IoT Devices Corp",
+      "client": "Cybersecurity Inc",
+      "role": "Lead Developer",
+      "start_date": "2021-01-08",
+      "end_date": "2022-05-03",
+      "allocation_percentage": 80,
+      "description": "Question professor rock people let then. Tv home who value statement firm. History seek hand total wear artist happen out.",
+      "technologies_used": [
+        "PostgreSQL",
+        "PHP",
+        "SQL Server",
+        "Scala"
+      ],
+      "team_size": 8
+    },
+    {
+      "project_name": "Security Audit for Cybersecurity Inc",
+      "client": "CloudNative Solutions",
+      "role": "Principal Engineer",
+      "start_date": "2020-08-27",
+      "end_date": "2020-11-25",
+      "allocation_percentage": 100,
+      "description": "Speak true too network sit. Other tree bank remain. Quickly result investment manager science born detail.",
+      "technologies_used": [
+        "PostgreSQL",
+        "SQL Server"
+      ],
+      "team_size": 9
+    },
+    {
+      "project_name": "E-commerce System for AI Research Labs",
+      "client": "E-commerce Giants",
+      "role": "Architect",
+      "start_date": "2019-04-15",
+      "end_date": "2020-08-07",
+      "allocation_percentage": 80,
+      "description": "Anything it entire adult. Nature take provide lawyer. Deep pretty value end education just someone.",
+      "technologies_used": [
+        "PostgreSQL",
+        "Scala",
+        "SQL Server"
+      ],
+      "team_size": 8
+    },
+    {
+      "project_name": "API Gateway for TechCorp",
+      "client": "FinTech Innovations",
+      "role": "Principal Engineer",
+      "start_date": "2018-10-27",
+      "end_date": "2019-02-24",
+      "allocation_percentage": 50,
+      "description": "Class decision kind question sometimes put. Chance recent treatment thought look spend character how. Stage contain TV action capital.",
+      "technologies_used": [
+        "PHP",
+        "SQL Server"
+      ],
+      "team_size": 10
+    },
+    {
+      "project_name": "Data Pipeline for IoT Devices Corp",
+      "client": "CloudNative Solutions",
+      "role": "Tech Lead",
+      "start_date": "2018-06-23",
+      "end_date": "2018-09-21",
+      "allocation_percentage": 80,
+      "description": "Room lay seek do. Other history major order throw physical theory mean.",
+      "technologies_used": [
+        "Scala",
+        "SQL Server",
+        "PHP",
+        "PostgreSQL"
+      ],
+      "team_size": 7
+    }
+  ],
+  "created_at": "2025-09-28T09:36:21.844091"
+}

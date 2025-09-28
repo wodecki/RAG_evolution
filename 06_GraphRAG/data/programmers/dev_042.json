@@ -1,0 +1,174 @@
+{
+  "id": "dev_042",
+  "name": "Patrick Schmidt DVM",
+  "email": "cathymills@example.com",
+  "phone": "636-378-4801",
+  "location": "West Kathymouth, CO",
+  "hourly_rate": 194.97,
+  "availability_start": "2025-12-16",
+  "bio": "Know cup marriage enter fund speak officer. Country need my maybe all. Community town guess south walk cell.",
+  "linkedin_url": "https://linkedin.com/in/wrightrebecca",
+  "github_url": "https://github.com/qjefferson",
+  "skills": [
+    {
+      "name": "C++",
+      "category": "Programming Language",
+      "proficiency": 5,
+      "years_experience": 10
+    },
+    {
+      "name": "Kotlin",
+      "category": "Programming Language",
+      "proficiency": 3,
+      "years_experience": 9
+    },
+    {
+      "name": "SQL Server",
+      "category": "Database",
+      "proficiency": 4,
+      "years_experience": 1
+    },
+    {
+      "name": "CloudFormation",
+      "category": "Cloud",
+      "proficiency": 4,
+      "years_experience": 7
+    },
+    {
+      "name": "EC2",
+      "category": "Cloud",
+      "proficiency": 2,
+      "years_experience": 6
+    },
+    {
+      "name": "Serverless",
+      "category": "Cloud",
+      "proficiency": 4,
+      "years_experience": 2
+    },
+    {
+      "name": "GitHub Actions",
+      "category": "DevOps",
+      "proficiency": 4,
+      "years_experience": 5
+    },
+    {
+      "name": "GitLab CI",
+      "category": "DevOps",
+      "proficiency": 4,
+      "years_experience": 3
+    },
+    {
+      "name": "Puppet",
+      "category": "DevOps",
+      "proficiency": 4,
+      "years_experience": 4
+    }
+  ],
+  "certifications": [],
+  "project_experience": [
+    {
+      "project_name": "API Gateway for E-commerce Giants",
+      "client": "E-commerce Giants",
+      "role": "Lead Developer",
+      "start_date": "2024-09-05",
+      "end_date": null,
+      "allocation_percentage": 100,
+      "description": "Surface day car. Into realize star week after model commercial that.",
+      "technologies_used": [
+        "Kotlin",
+        "SQL Server",
+        "C++"
+      ],
+      "team_size": 11
+    },
+    {
+      "project_name": "Security Audit for Cybersecurity Inc",
+      "client": "E-commerce Giants",
+      "role": "Tech Lead",
+      "start_date": "2023-07-17",
+      "end_date": "2024-08-10",
+      "allocation_percentage": 100,
+      "description": "Myself many world enter up make reveal. Early doctor factor. Business staff girl job only plant.",
+      "technologies_used": [
+        "C++",
+        "SQL Server",
+        "Kotlin"
+      ],
+      "team_size": 5
+    },
+    {
+      "project_name": "Cloud Migration for Social Media Platform",
+      "client": "Blockchain Ventures",
+      "role": "Principal Engineer",
+      "start_date": "2022-05-14",
+      "end_date": "2023-06-08",
+      "allocation_percentage": 80,
+      "description": "Congress trade will. Decide should difference game front light medical room.",
+      "technologies_used": [
+        "Kotlin",
+        "SQL Server"
+      ],
+      "team_size": 3
+    },
+    {
+      "project_name": "Web Application for DataSystems Inc",
+      "client": "EduTech Solutions",
+      "role": "Senior Developer",
+      "start_date": "2021-10-06",
+      "end_date": "2022-04-04",
+      "allocation_percentage": 50,
+      "description": "Rather give Congress behind bar yard law. Capital hundred cell social argue.",
+      "technologies_used": [
+        "Kotlin",
+        "C++"
+      ],
+      "team_size": 7
+    },
+    {
+      "project_name": "Microservices Migration for DataSystems Inc",
+      "client": "Cybersecurity Inc",
+      "role": "Principal Engineer",
+      "start_date": "2020-09-21",
+      "end_date": "2021-08-17",
+      "allocation_percentage": 80,
+      "description": "Yard cold environmental wind seat. Church still teach claim but general customer.",
+      "technologies_used": [
+        "C++",
+        "Kotlin",
+        "SQL Server"
+      ],
+      "team_size": 4
+    },
+    {
+      "project_name": "Analytics Dashboard for Mobile First",
+      "client": "Social Media Platform",
+      "role": "Principal Engineer",
+      "start_date": "2019-10-11",
+      "end_date": "2020-08-06",
+      "allocation_percentage": 100,
+      "description": "Produce professor ground participant consumer. Become rule than such section society benefit.",
+      "technologies_used": [
+        "C++",
+        "Kotlin",
+        "SQL Server"
+      ],
+      "team_size": 8
+    },
+    {
+      "project_name": "Machine Learning Platform for Streaming Services",
+      "client": "Gaming Studios",
+      "role": "Tech Lead",
+      "start_date": "2019-05-02",
+      "end_date": "2019-08-30",
+      "allocation_percentage": 100,
+      "description": "Receive fall suffer like letter value or. Admit remember ask wall teacher doctor.",
+      "technologies_used": [
+        "SQL Server",
+        "Kotlin"
+      ],
+      "team_size": 8
+    }
+  ],
+  "created_at": "2025-09-28T09:36:21.851779"
+}

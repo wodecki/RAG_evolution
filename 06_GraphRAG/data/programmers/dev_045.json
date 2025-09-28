@@ -1,0 +1,159 @@
+{
+  "id": "dev_045",
+  "name": "Harold Jordan",
+  "email": "maryperry@example.com",
+  "phone": "309.498.2919x3526",
+  "location": "Port Dana, UT",
+  "hourly_rate": 153.4,
+  "availability_start": null,
+  "bio": "Even consumer environmental interview kind campaign. Card after age physical media war gun. Way daughter leave there music then relate. Impact surface worker.",
+  "linkedin_url": "https://linkedin.com/in/taylor74",
+  "github_url": "https://github.com/pricekatherine",
+  "skills": [
+    {
+      "name": "C#",
+      "category": "Programming Language",
+      "proficiency": 4,
+      "years_experience": 4
+    },
+    {
+      "name": "PHP",
+      "category": "Programming Language",
+      "proficiency": 4,
+      "years_experience": 8
+    },
+    {
+      "name": "Swift",
+      "category": "Programming Language",
+      "proficiency": 3,
+      "years_experience": 6
+    },
+    {
+      "name": "Oracle",
+      "category": "Database",
+      "proficiency": 4,
+      "years_experience": 5
+    },
+    {
+      "name": "CloudFormation",
+      "category": "Cloud",
+      "proficiency": 3,
+      "years_experience": 5
+    },
+    {
+      "name": "ELK Stack",
+      "category": "DevOps",
+      "proficiency": 2,
+      "years_experience": 7
+    }
+  ],
+  "certifications": [],
+  "project_experience": [
+    {
+      "project_name": "Cloud Migration for E-commerce Giants",
+      "client": "Logistics Tech",
+      "role": "Senior Developer",
+      "start_date": "2024-11-19",
+      "end_date": null,
+      "allocation_percentage": 50,
+      "description": "World score which environment night become civil. Natural prepare person involve add kitchen.",
+      "technologies_used": [
+        "Oracle",
+        "C#",
+        "Swift"
+      ],
+      "team_size": 6
+    },
+    {
+      "project_name": "Machine Learning Platform for DataSystems Inc",
+      "client": "EduTech Solutions",
+      "role": "Architect",
+      "start_date": "2023-04-04",
+      "end_date": "2024-09-25",
+      "allocation_percentage": 80,
+      "description": "Red manager social until trade happy voice. Difference on travel artist general participant. Mouth while Mrs artist sort gun company through. Beyond treat rise couple forward.",
+      "technologies_used": [
+        "C#",
+        "PHP",
+        "Swift"
+      ],
+      "team_size": 9
+    },
+    {
+      "project_name": "CRM Solution for FinTech Innovations",
+      "client": "IoT Devices Corp",
+      "role": "Principal Engineer",
+      "start_date": "2021-10-04",
+      "end_date": "2023-02-26",
+      "allocation_percentage": 100,
+      "description": "Family ago thank film travel far new. Evening leader want model determine feeling.",
+      "technologies_used": [
+        "C#",
+        "Swift"
+      ],
+      "team_size": 7
+    },
+    {
+      "project_name": "Analytics Dashboard for Gaming Studios",
+      "client": "Mobile First",
+      "role": "Senior Developer",
+      "start_date": "2020-12-24",
+      "end_date": "2021-08-21",
+      "allocation_percentage": 80,
+      "description": "College rise measure individual understand respond animal five. From plan people become purpose her Mrs. Walk western record building society matter since.",
+      "technologies_used": [
+        "Oracle",
+        "PHP",
+        "C#",
+        "Swift"
+      ],
+      "team_size": 10
+    },
+    {
+      "project_name": "Data Pipeline for Gaming Studios",
+      "client": "CloudNative Solutions",
+      "role": "Architect",
+      "start_date": "2019-05-07",
+      "end_date": "2020-10-28",
+      "allocation_percentage": 100,
+      "description": "Window focus wrong base research like. Who play course choice especially. Voice stand foot.",
+      "technologies_used": [
+        "PHP",
+        "Oracle"
+      ],
+      "team_size": 7
+    },
+    {
+      "project_name": "Security Audit for Gaming Studios",
+      "client": "Social Media Platform",
+      "role": "Principal Engineer",
+      "start_date": "2018-09-19",
+      "end_date": "2019-04-17",
+      "allocation_percentage": 80,
+      "description": "Professional hand recognize fear with. Particularly its street themselves.",
+      "technologies_used": [
+        "PHP",
+        "Oracle",
+        "C#"
+      ],
+      "team_size": 4
+    },
+    {
+      "project_name": "Web Application for Gaming Studios",
+      "client": "DataSystems Inc",
+      "role": "Mid-level Developer",
+      "start_date": "2017-02-19",
+      "end_date": "2018-08-13",
+      "allocation_percentage": 100,
+      "description": "Fund of live case. Need article energy paper group. Carry serious picture number foot forget. Evening thus second growth once those find.",
+      "technologies_used": [
+        "PHP",
+        "Swift",
+        "C#",
+        "Oracle"
+      ],
+      "team_size": 12
+    }
+  ],
+  "created_at": "2025-09-28T09:36:21.853319"
+}

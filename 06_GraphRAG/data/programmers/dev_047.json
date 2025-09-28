@@ -1,0 +1,159 @@
+{
+  "id": "dev_047",
+  "name": "Tiffany Diaz",
+  "email": "ojackson@example.com",
+  "phone": "226-631-8538x997",
+  "location": "Nicholsland, MI",
+  "hourly_rate": 171.84,
+  "availability_start": "2025-09-28",
+  "bio": "Ball under past goal. Call method show material. Offer note painting good wall.",
+  "linkedin_url": "https://linkedin.com/in/tracy46",
+  "github_url": "https://github.com/johnny58",
+  "skills": [
+    {
+      "name": "C#",
+      "category": "Programming Language",
+      "proficiency": 3,
+      "years_experience": 2
+    },
+    {
+      "name": "TypeScript",
+      "category": "Programming Language",
+      "proficiency": 5,
+      "years_experience": 10
+    },
+    {
+      "name": "React",
+      "category": "Framework",
+      "proficiency": 5,
+      "years_experience": 6
+    },
+    {
+      "name": "InfluxDB",
+      "category": "Database",
+      "proficiency": 3,
+      "years_experience": 4
+    },
+    {
+      "name": "Azure",
+      "category": "Cloud",
+      "proficiency": 3,
+      "years_experience": 6
+    },
+    {
+      "name": "Google Cloud",
+      "category": "Cloud",
+      "proficiency": 4,
+      "years_experience": 3
+    },
+    {
+      "name": "Prometheus",
+      "category": "DevOps",
+      "proficiency": 4,
+      "years_experience": 3
+    },
+    {
+      "name": "Puppet",
+      "category": "DevOps",
+      "proficiency": 4,
+      "years_experience": 3
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Azure Developer",
+      "provider": "Microsoft",
+      "obtained_date": "2024-12-17",
+      "expiry_date": "2026-12-17",
+      "credential_id": "27dfe4df-ec3"
+    }
+  ],
+  "project_experience": [
+    {
+      "project_name": "E-commerce System for Blockchain Ventures",
+      "client": "Cybersecurity Inc",
+      "role": "Principal Engineer",
+      "start_date": "2024-02-01",
+      "end_date": null,
+      "allocation_percentage": 100,
+      "description": "Drive decade investment film air offer. Edge trip environment listen kid.",
+      "technologies_used": [
+        "React",
+        "InfluxDB",
+        "TypeScript"
+      ],
+      "team_size": 9
+    },
+    {
+      "project_name": "DevOps Pipeline for Healthcare Systems",
+      "client": "FinTech Innovations",
+      "role": "Mid-level Developer",
+      "start_date": "2023-05-13",
+      "end_date": "2023-12-09",
+      "allocation_percentage": 100,
+      "description": "Why none note example along leave. Either city fire heavy agent.",
+      "technologies_used": [
+        "TypeScript",
+        "InfluxDB"
+      ],
+      "team_size": 9
+    },
+    {
+      "project_name": "Security Audit for TechCorp",
+      "client": "CloudNative Solutions",
+      "role": "Principal Engineer",
+      "start_date": "2022-02-20",
+      "end_date": "2023-03-17",
+      "allocation_percentage": 50,
+      "description": "Conference show rate defense senior ok thus color. Report require body five cost seat he.",
+      "technologies_used": [
+        "TypeScript",
+        "InfluxDB"
+      ],
+      "team_size": 10
+    },
+    {
+      "project_name": "Machine Learning Platform for Cybersecurity Inc",
+      "client": "CloudNative Solutions",
+      "role": "Architect",
+      "start_date": "2020-09-13",
+      "end_date": "2022-01-06",
+      "allocation_percentage": 50,
+      "description": "Guess activity management. Government teacher alone discuss military member stay. Draw trouble run state discussion push eight.",
+      "technologies_used": [
+        "C#",
+        "TypeScript"
+      ],
+      "team_size": 9
+    },
+    {
+      "project_name": "API Gateway for Streaming Services",
+      "client": "TechCorp",
+      "role": "Mid-level Developer",
+      "start_date": "2019-08-18",
+      "end_date": "2020-08-12",
+      "allocation_percentage": 100,
+      "description": "Second through laugh little if beat from popular. Computer once tend who court one. Rather table crime fear skill teacher.",
+      "technologies_used": [
+        "TypeScript",
+        "React"
+      ],
+      "team_size": 11
+    },
+    {
+      "project_name": "Data Pipeline for DataSystems Inc",
+      "client": "Cybersecurity Inc",
+      "role": "Mid-level Developer",
+      "start_date": "2018-10-27",
+      "end_date": "2019-07-24",
+      "allocation_percentage": 100,
+      "description": "Tree particularly sea fish car them Republican. Article purpose can front parent yeah purpose. Attention adult far of.",
+      "technologies_used": [
+        "TypeScript",
+        "React"
+      ],
+      "team_size": 3
+    }
+  ],
+  "created_at": "2025-09-28T09:36:21.854089"
+}

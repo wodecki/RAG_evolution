@@ -1,0 +1,52 @@
+{
+  "id": "proj_016",
+  "name": "Analytics Dashboard - Johnson, Berg and Adams",
+  "client": "Williams-Black",
+  "description": "Stuff box manage world free.",
+  "start_date": "2025-09-27",
+  "end_date": "2026-09-22",
+  "estimated_duration_months": 12,
+  "budget": 272057.0,
+  "status": "completed",
+  "team_size": 4,
+  "requirements": [
+    {
+      "skill_name": "Oracle",
+      "min_proficiency": 4,
+      "min_years": 2,
+      "is_mandatory": false
+    },
+    {
+      "skill_name": "Kotlin",
+      "min_proficiency": 3,
+      "min_years": 5,
+      "is_mandatory": true
+    },
+    {
+      "skill_name": "GitLab CI",
+      "min_proficiency": 3,
+      "min_years": 5,
+      "is_mandatory": true
+    },
+    {
+      "skill_name": "Webpack",
+      "min_proficiency": 4,
+      "min_years": 5,
+      "is_mandatory": true
+    },
+    {
+      "skill_name": "Chef",
+      "min_proficiency": 2,
+      "min_years": 3,
+      "is_mandatory": false
+    },
+    {
+      "skill_name": "NumPy",
+      "min_proficiency": 3,
+      "min_years": 5,
+      "is_mandatory": true
+    }
+  ],
+  "assigned_programmers": [],
+  "created_at": "2025-09-28T09:36:21.858616"
+}

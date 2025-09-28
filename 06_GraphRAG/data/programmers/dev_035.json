@@ -1,0 +1,219 @@
+{
+  "id": "dev_035",
+  "name": "Theresa Rocha",
+  "email": "rmorris@example.org",
+  "phone": "256.504.5081x03205",
+  "location": "New Lisaburgh, VI",
+  "hourly_rate": 186.87,
+  "availability_start": "2026-02-04",
+  "bio": "Main community base accept. Game either head short nothing.",
+  "linkedin_url": "https://linkedin.com/in/ahancock",
+  "github_url": "https://github.com/diane77",
+  "skills": [
+    {
+      "name": "Ruby",
+      "category": "Programming Language",
+      "proficiency": 3,
+      "years_experience": 4
+    },
+    {
+      "name": "Rust",
+      "category": "Programming Language",
+      "proficiency": 5,
+      "years_experience": 7
+    },
+    {
+      "name": "Scala",
+      "category": "Programming Language",
+      "proficiency": 5,
+      "years_experience": 5
+    },
+    {
+      "name": "SQLite",
+      "category": "Database",
+      "proficiency": 2,
+      "years_experience": 3
+    },
+    {
+      "name": "MySQL",
+      "category": "Database",
+      "proficiency": 4,
+      "years_experience": 1
+    },
+    {
+      "name": "Oracle",
+      "category": "Database",
+      "proficiency": 2,
+      "years_experience": 3
+    },
+    {
+      "name": "Google Cloud",
+      "category": "Cloud",
+      "proficiency": 2,
+      "years_experience": 7
+    },
+    {
+      "name": "S3",
+      "category": "Cloud",
+      "proficiency": 4,
+      "years_experience": 6
+    },
+    {
+      "name": "Chef",
+      "category": "DevOps",
+      "proficiency": 3,
+      "years_experience": 2
+    },
+    {
+      "name": "Nagios",
+      "category": "DevOps",
+      "proficiency": 2,
+      "years_experience": 6
+    },
+    {
+      "name": "Jenkins",
+      "category": "DevOps",
+      "proficiency": 2,
+      "years_experience": 3
+    },
+    {
+      "name": "Machine Learning",
+      "category": "Data Science",
+      "proficiency": 4,
+      "years_experience": 5
+    }
+  ],
+  "certifications": [],
+  "project_experience": [
+    {
+      "project_name": "Mobile App for Logistics Tech",
+      "client": "Gaming Studios",
+      "role": "Mid-level Developer",
+      "start_date": "2024-12-06",
+      "end_date": null,
+      "allocation_percentage": 80,
+      "description": "Nice brother out audience traditional exist. Federal identify data seat south require look service. Should quickly young.",
+      "technologies_used": [
+        "SQLite",
+        "Oracle",
+        "Scala",
+        "MySQL",
+        "Rust"
+      ],
+      "team_size": 4
+    },
+    {
+      "project_name": "Mobile App for AI Research Labs",
+      "client": "Healthcare Systems",
+      "role": "Lead Developer",
+      "start_date": "2024-06-11",
+      "end_date": "2024-10-09",
+      "allocation_percentage": 50,
+      "description": "Specific serve language scientist fall support brother. Responsibility experience international fight.",
+      "technologies_used": [
+        "Ruby",
+        "Scala",
+        "MySQL",
+        "Oracle"
+      ],
+      "team_size": 4
+    },
+    {
+      "project_name": "Web Application for Social Media Platform",
+      "client": "Healthcare Systems",
+      "role": "Architect",
+      "start_date": "2023-12-02",
+      "end_date": "2024-04-30",
+      "allocation_percentage": 80,
+      "description": "Heavy office consumer lot. Necessary factor live board two information. President represent about poor kind either.",
+      "technologies_used": [
+        "MySQL",
+        "Oracle",
+        "SQLite",
+        "Scala"
+      ],
+      "team_size": 5
+    },
+    {
+      "project_name": "Microservices Migration for IoT Devices Corp",
+      "client": "Blockchain Ventures",
+      "role": "Senior Developer",
+      "start_date": "2023-05-26",
+      "end_date": "2023-11-22",
+      "allocation_percentage": 50,
+      "description": "Inside accept a radio conference mean fish practice. Material class offer able. Institution when everybody lose soldier maintain effect.",
+      "technologies_used": [
+        "Rust",
+        "Oracle",
+        "SQLite",
+        "Scala"
+      ],
+      "team_size": 4
+    },
+    {
+      "project_name": "Mobile App for Blockchain Ventures",
+      "client": "Logistics Tech",
+      "role": "Mid-level Developer",
+      "start_date": "2022-02-20",
+      "end_date": "2023-05-16",
+      "allocation_percentage": 50,
+      "description": "New yeah herself forward can effort drop.",
+      "technologies_used": [
+        "Rust",
+        "Ruby",
+        "Scala",
+        "MySQL",
+        "Oracle"
+      ],
+      "team_size": 3
+    },
+    {
+      "project_name": "Analytics Dashboard for Logistics Tech",
+      "client": "Logistics Tech",
+      "role": "Tech Lead",
+      "start_date": "2021-06-05",
+      "end_date": "2022-01-31",
+      "allocation_percentage": 80,
+      "description": "True notice girl.",
+      "technologies_used": [
+        "Ruby",
+        "SQLite",
+        "Oracle",
+        "Rust"
+      ],
+      "team_size": 4
+    },
+    {
+      "project_name": "Data Pipeline for Streaming Services",
+      "client": "DataSystems Inc",
+      "role": "Senior Developer",
+      "start_date": "2020-01-24",
+      "end_date": "2021-04-18",
+      "allocation_percentage": 80,
+      "description": "Democratic worker avoid this strategy. Democrat consumer test network tree. Campaign time trade political.",
+      "technologies_used": [
+        "Scala",
+        "SQLite",
+        "Oracle"
+      ],
+      "team_size": 10
+    },
+    {
+      "project_name": "Security Audit for FinTech Innovations",
+      "client": "CloudNative Solutions",
+      "role": "Tech Lead",
+      "start_date": "2019-03-07",
+      "end_date": "2020-01-01",
+      "allocation_percentage": 80,
+      "description": "Medical charge between down account yet list. Again my site big tend sometimes. Shake hold visit least baby subject someone.",
+      "technologies_used": [
+        "MySQL",
+        "Ruby",
+        "Rust",
+        "Scala"
+      ],
+      "team_size": 11
+    }
+  ],
+  "created_at": "2025-09-28T09:36:21.847671"
+}

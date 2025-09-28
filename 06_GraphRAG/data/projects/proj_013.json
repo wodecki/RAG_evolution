@@ -1,0 +1,40 @@
+{
+  "id": "proj_013",
+  "name": "CRM Solution - Hart, White and Kelley",
+  "client": "Alexander and Sons",
+  "description": "Can always citizen heart impact loss car. Lose record sell view increase up skin. Couple television kind data trial.",
+  "start_date": "2025-09-27",
+  "end_date": "2025-11-26",
+  "estimated_duration_months": 2,
+  "budget": 232415.0,
+  "status": "on_hold",
+  "team_size": 5,
+  "requirements": [
+    {
+      "skill_name": "Machine Learning",
+      "min_proficiency": 3,
+      "min_years": 2,
+      "is_mandatory": true
+    },
+    {
+      "skill_name": "Ruby",
+      "min_proficiency": 4,
+      "min_years": 5,
+      "is_mandatory": false
+    },
+    {
+      "skill_name": "Objective-C",
+      "min_proficiency": 2,
+      "min_years": 5,
+      "is_mandatory": true
+    },
+    {
+      "skill_name": "Docker",
+      "min_proficiency": 2,
+      "min_years": 5,
+      "is_mandatory": true
+    }
+  ],
+  "assigned_programmers": [],
+  "created_at": "2025-09-28T09:36:21.858079"
+}

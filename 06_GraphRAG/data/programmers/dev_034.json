@@ -1,0 +1,203 @@
+{
+  "id": "dev_034",
+  "name": "Zachary Long",
+  "email": "flawrence@example.com",
+  "phone": "001-516-831-4745",
+  "location": "Dickersonville, CT",
+  "hourly_rate": 164.44,
+  "availability_start": "2025-09-28",
+  "bio": "Economy fine grow series rest beautiful lose. Majority card land another level manager. Enough red develop bit energy could billion. Age pretty energy today cause light thought.",
+  "linkedin_url": "https://linkedin.com/in/bmitchell",
+  "github_url": "https://github.com/bgoodman",
+  "skills": [
+    {
+      "name": "Python",
+      "category": "Programming Language",
+      "proficiency": 5,
+      "years_experience": 8
+    },
+    {
+      "name": "Java",
+      "category": "Programming Language",
+      "proficiency": 5,
+      "years_experience": 8
+    },
+    {
+      "name": "Django",
+      "category": "Framework",
+      "proficiency": 5,
+      "years_experience": 3
+    },
+    {
+      "name": "Flask",
+      "category": "Framework",
+      "proficiency": 4,
+      "years_experience": 4
+    },
+    {
+      "name": "Elasticsearch",
+      "category": "Database",
+      "proficiency": 3,
+      "years_experience": 4
+    },
+    {
+      "name": "AWS",
+      "category": "Cloud",
+      "proficiency": 4,
+      "years_experience": 5
+    },
+    {
+      "name": "CircleCI",
+      "category": "DevOps",
+      "proficiency": 3,
+      "years_experience": 5
+    },
+    {
+      "name": "Ansible",
+      "category": "DevOps",
+      "proficiency": 3,
+      "years_experience": 1
+    },
+    {
+      "name": "Nagios",
+      "category": "DevOps",
+      "proficiency": 2,
+      "years_experience": 3
+    }
+  ],
+  "certifications": [
+    {
+      "name": "AWS Developer",
+      "provider": "Amazon Web Services",
+      "obtained_date": "2024-10-04",
+      "expiry_date": "2027-10-04",
+      "credential_id": "706b7fe9-98d"
+    }
+  ],
+  "project_experience": [
+    {
+      "project_name": "Cloud Migration for AI Research Labs",
+      "client": "Mobile First",
+      "role": "Senior Developer",
+      "start_date": "2025-04-10",
+      "end_date": null,
+      "allocation_percentage": 50,
+      "description": "Guy individual improve hit. Available bring important southern south boy. During respond allow establish service.",
+      "technologies_used": [
+        "Django",
+        "Flask",
+        "Elasticsearch",
+        "Java",
+        "Python"
+      ],
+      "team_size": 3
+    },
+    {
+      "project_name": "API Gateway for Cybersecurity Inc",
+      "client": "Gaming Studios",
+      "role": "Mid-level Developer",
+      "start_date": "2024-05-18",
+      "end_date": "2025-03-14",
+      "allocation_percentage": 50,
+      "description": "Off people economy assume bag lawyer might. Per color star no building detail visit. Full church ahead chance management process television information. Tree front discuss true sea side.",
+      "technologies_used": [
+        "Django",
+        "Python"
+      ],
+      "team_size": 6
+    },
+    {
+      "project_name": "CRM Solution for Healthcare Systems",
+      "client": "Healthcare Systems",
+      "role": "Mid-level Developer",
+      "start_date": "2023-06-04",
+      "end_date": "2024-03-30",
+      "allocation_percentage": 100,
+      "description": "Data suffer medical once decade land notice. Just idea race now.",
+      "technologies_used": [
+        "Elasticsearch",
+        "Python",
+        "Flask",
+        "Java"
+      ],
+      "team_size": 8
+    },
+    {
+      "project_name": "Cloud Migration for EduTech Solutions",
+      "client": "Logistics Tech",
+      "role": "Architect",
+      "start_date": "2022-02-11",
+      "end_date": "2023-04-07",
+      "allocation_percentage": 80,
+      "description": "Commercial anyone rest friend they condition investment. Quite mean reach year accept.",
+      "technologies_used": [
+        "Django",
+        "Java"
+      ],
+      "team_size": 5
+    },
+    {
+      "project_name": "Cloud Migration for Gaming Studios",
+      "client": "TechCorp",
+      "role": "Architect",
+      "start_date": "2021-09-06",
+      "end_date": "2022-01-04",
+      "allocation_percentage": 80,
+      "description": "Together since continue cause. Data I ten film perhaps feeling company. Outside important visit foot board.",
+      "technologies_used": [
+        "Python",
+        "Java"
+      ],
+      "team_size": 3
+    },
+    {
+      "project_name": "Web Application for TechCorp",
+      "client": "E-commerce Giants",
+      "role": "Architect",
+      "start_date": "2020-11-12",
+      "end_date": "2021-08-09",
+      "allocation_percentage": 100,
+      "description": "Through main hotel care people tax strategy. Attack it beautiful face.",
+      "technologies_used": [
+        "Django",
+        "Java",
+        "Flask"
+      ],
+      "team_size": 5
+    },
+    {
+      "project_name": "Cloud Migration for FinTech Innovations",
+      "client": "AI Research Labs",
+      "role": "Senior Developer",
+      "start_date": "2020-03-21",
+      "end_date": "2020-09-17",
+      "allocation_percentage": 80,
+      "description": "Note Mrs free drug big eat. Alone respond school issue positive contain vote. House continue dog so.",
+      "technologies_used": [
+        "Python",
+        "Django",
+        "Flask",
+        "Java"
+      ],
+      "team_size": 5
+    },
+    {
+      "project_name": "Security Audit for Healthcare Systems",
+      "client": "Mobile First",
+      "role": "Senior Developer",
+      "start_date": "2018-11-10",
+      "end_date": "2020-03-04",
+      "allocation_percentage": 100,
+      "description": "Option thing end sort think almost popular. Bank plant which fact put government. Say instead another.",
+      "technologies_used": [
+        "Django",
+        "Java",
+        "Elasticsearch",
+        "Flask",
+        "Python"
+      ],
+      "team_size": 7
+    }
+  ],
+  "created_at": "2025-09-28T09:36:21.846782"
+}

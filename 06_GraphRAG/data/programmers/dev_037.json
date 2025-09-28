@@ -1,0 +1,140 @@
+{
+  "id": "dev_037",
+  "name": "Lisa Baker",
+  "email": "epalmer@example.com",
+  "phone": "8817764155",
+  "location": "South Justinchester, PW",
+  "hourly_rate": 181.38,
+  "availability_start": null,
+  "bio": "Stop hair message bank worry study simply. Knowledge turn garden behind own president.",
+  "linkedin_url": "https://linkedin.com/in/samuelcoleman",
+  "github_url": "https://github.com/stephanieanderson",
+  "skills": [
+    {
+      "name": "Go",
+      "category": "Programming Language",
+      "proficiency": 5,
+      "years_experience": 5
+    },
+    {
+      "name": "Cassandra",
+      "category": "Database",
+      "proficiency": 4,
+      "years_experience": 4
+    },
+    {
+      "name": "Oracle",
+      "category": "Database",
+      "proficiency": 4,
+      "years_experience": 1
+    },
+    {
+      "name": "AWS",
+      "category": "Cloud",
+      "proficiency": 3,
+      "years_experience": 5
+    },
+    {
+      "name": "Docker",
+      "category": "Cloud",
+      "proficiency": 3,
+      "years_experience": 2
+    },
+    {
+      "name": "Terraform",
+      "category": "Cloud",
+      "proficiency": 3,
+      "years_experience": 5
+    },
+    {
+      "name": "Chef",
+      "category": "DevOps",
+      "proficiency": 3,
+      "years_experience": 6
+    },
+    {
+      "name": "ELK Stack",
+      "category": "DevOps",
+      "proficiency": 4,
+      "years_experience": 1
+    },
+    {
+      "name": "GitHub Actions",
+      "category": "DevOps",
+      "proficiency": 3,
+      "years_experience": 1
+    }
+  ],
+  "certifications": [
+    {
+      "name": "AWS Developer",
+      "provider": "Amazon Web Services",
+      "obtained_date": "2024-07-16",
+      "expiry_date": "2027-07-16",
+      "credential_id": "7835adab-cbf"
+    }
+  ],
+  "project_experience": [
+    {
+      "project_name": "Security Audit for TechCorp",
+      "client": "Logistics Tech",
+      "role": "Mid-level Developer",
+      "start_date": "2024-09-22",
+      "end_date": null,
+      "allocation_percentage": 100,
+      "description": "Defense politics happen whom outside put music open. Oil might kitchen charge.",
+      "technologies_used": [
+        "Cassandra",
+        "Oracle",
+        "Go"
+      ],
+      "team_size": 5
+    },
+    {
+      "project_name": "Analytics Dashboard for Mobile First",
+      "client": "Cybersecurity Inc",
+      "role": "Lead Developer",
+      "start_date": "2024-05-10",
+      "end_date": "2024-08-08",
+      "allocation_percentage": 80,
+      "description": "Nature add push husband party pattern. Report try career court billion major page. Fish church people him item toward American. Although modern everyone concern.",
+      "technologies_used": [
+        "Cassandra",
+        "Oracle",
+        "Go"
+      ],
+      "team_size": 6
+    },
+    {
+      "project_name": "Microservices Migration for Cybersecurity Inc",
+      "client": "Blockchain Ventures",
+      "role": "Senior Developer",
+      "start_date": "2023-04-10",
+      "end_date": "2024-04-04",
+      "allocation_percentage": 100,
+      "description": "Majority anyone suggest would fish. Peace reason garden million get decide. Believe station later Republican staff receive.",
+      "technologies_used": [
+        "Oracle",
+        "Go",
+        "Cassandra"
+      ],
+      "team_size": 4
+    },
+    {
+      "project_name": "E-commerce System for Blockchain Ventures",
+      "client": "EduTech Solutions",
+      "role": "Mid-level Developer",
+      "start_date": "2022-10-05",
+      "end_date": "2023-03-04",
+      "allocation_percentage": 100,
+      "description": "Require land beyond story stay once space. Center control bed purpose second special.",
+      "technologies_used": [
+        "Cassandra",
+        "Oracle",
+        "Go"
+      ],
+      "team_size": 6
+    }
+  ],
+  "created_at": "2025-09-28T09:36:21.849179"
+}

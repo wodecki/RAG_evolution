@@ -1,0 +1,58 @@
+{
+  "id": "proj_007",
+  "name": "Data Pipeline - Riley, Taylor and Lewis",
+  "client": "Oliver-Cooper",
+  "description": "Stand major guess account. Carry their establish industry chair reflect administration support. First get remain culture which travel without too. Possible ground again deep high shake.",
+  "start_date": "2025-09-27",
+  "end_date": "2026-01-25",
+  "estimated_duration_months": 4,
+  "budget": 66396.0,
+  "status": "active",
+  "team_size": 2,
+  "requirements": [
+    {
+      "skill_name": "S3",
+      "min_proficiency": 3,
+      "min_years": 5,
+      "is_mandatory": true
+    },
+    {
+      "skill_name": "Machine Learning",
+      "min_proficiency": 4,
+      "min_years": 1,
+      "is_mandatory": true
+    },
+    {
+      "skill_name": "Ruby on Rails",
+      "min_proficiency": 4,
+      "min_years": 4,
+      "is_mandatory": true
+    },
+    {
+      "skill_name": "Security Auditing",
+      "min_proficiency": 4,
+      "min_years": 4,
+      "is_mandatory": false
+    },
+    {
+      "skill_name": "Java",
+      "min_proficiency": 2,
+      "min_years": 5,
+      "is_mandatory": true
+    },
+    {
+      "skill_name": "WebSockets",
+      "min_proficiency": 3,
+      "min_years": 3,
+      "is_mandatory": true
+    },
+    {
+      "skill_name": "OAuth",
+      "min_proficiency": 4,
+      "min_years": 1,
+      "is_mandatory": true
+    }
+  ],
+  "assigned_programmers": [],
+  "created_at": "2025-09-28T09:36:21.856924"
+}

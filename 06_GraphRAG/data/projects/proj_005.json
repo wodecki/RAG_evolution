@@ -1,0 +1,52 @@
+{
+  "id": "proj_005",
+  "name": "API Gateway - Walker-Malone",
+  "client": "Harrell-Burgess",
+  "description": "Possible mouth later modern. Follow itself maybe player of kitchen. Experience born do light cut risk.",
+  "start_date": "2025-09-27",
+  "end_date": "2026-04-25",
+  "estimated_duration_months": 7,
+  "budget": 434402.0,
+  "status": "active",
+  "team_size": 2,
+  "requirements": [
+    {
+      "skill_name": "Ionic",
+      "min_proficiency": 2,
+      "min_years": 2,
+      "is_mandatory": true
+    },
+    {
+      "skill_name": "Event Sourcing",
+      "min_proficiency": 4,
+      "min_years": 5,
+      "is_mandatory": true
+    },
+    {
+      "skill_name": "Express.js",
+      "min_proficiency": 4,
+      "min_years": 1,
+      "is_mandatory": true
+    },
+    {
+      "skill_name": "EC2",
+      "min_proficiency": 4,
+      "min_years": 2,
+      "is_mandatory": false
+    },
+    {
+      "skill_name": "Pandas",
+      "min_proficiency": 2,
+      "min_years": 2,
+      "is_mandatory": true
+    },
+    {
+      "skill_name": "Swift",
+      "min_proficiency": 3,
+      "min_years": 5,
+      "is_mandatory": false
+    }
+  ],
+  "assigned_programmers": [],
+  "created_at": "2025-09-28T09:36:21.856539"
+}

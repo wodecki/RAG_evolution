@@ -1,0 +1,213 @@
+{
+  "id": "dev_041",
+  "name": "Christian Bishop",
+  "email": "karenharvey@example.net",
+  "phone": "281.683.0960",
+  "location": "South Deannaland, MP",
+  "hourly_rate": 182.33,
+  "availability_start": null,
+  "bio": "Somebody public develop whatever assume fill. Will beyond huge reduce gas writer start. Yard begin section much crime.",
+  "linkedin_url": "https://linkedin.com/in/egreen",
+  "github_url": "https://github.com/simmonsmary",
+  "skills": [
+    {
+      "name": "C++",
+      "category": "Programming Language",
+      "proficiency": 3,
+      "years_experience": 3
+    },
+    {
+      "name": "Rust",
+      "category": "Programming Language",
+      "proficiency": 3,
+      "years_experience": 2
+    },
+    {
+      "name": "Kotlin",
+      "category": "Programming Language",
+      "proficiency": 3,
+      "years_experience": 3
+    },
+    {
+      "name": "SQLite",
+      "category": "Database",
+      "proficiency": 4,
+      "years_experience": 6
+    },
+    {
+      "name": "Oracle",
+      "category": "Database",
+      "proficiency": 3,
+      "years_experience": 2
+    },
+    {
+      "name": "CloudFormation",
+      "category": "Cloud",
+      "proficiency": 2,
+      "years_experience": 7
+    },
+    {
+      "name": "Terraform",
+      "category": "Cloud",
+      "proficiency": 4,
+      "years_experience": 7
+    },
+    {
+      "name": "EC2",
+      "category": "Cloud",
+      "proficiency": 4,
+      "years_experience": 2
+    },
+    {
+      "name": "Nagios",
+      "category": "DevOps",
+      "proficiency": 3,
+      "years_experience": 4
+    },
+    {
+      "name": "GitLab CI",
+      "category": "DevOps",
+      "proficiency": 2,
+      "years_experience": 1
+    },
+    {
+      "name": "Security Auditing",
+      "category": "Security",
+      "proficiency": 5,
+      "years_experience": 6
+    }
+  ],
+  "certifications": [
+    {
+      "name": "CEH",
+      "provider": "Security Institute",
+      "obtained_date": "2025-08-01",
+      "expiry_date": "2028-07-31",
+      "credential_id": "b1ca6f68-c99"
+    }
+  ],
+  "project_experience": [
+    {
+      "project_name": "API Gateway for Cybersecurity Inc",
+      "client": "Mobile First",
+      "role": "Mid-level Developer",
+      "start_date": "2024-06-10",
+      "end_date": null,
+      "allocation_percentage": 100,
+      "description": "Surface tough interview. Someone drop could knowledge. Argue road civil its final with.",
+      "technologies_used": [
+        "SQLite",
+        "Rust"
+      ],
+      "team_size": 12
+    },
+    {
+      "project_name": "Data Pipeline for CloudNative Solutions",
+      "client": "Logistics Tech",
+      "role": "Senior Developer",
+      "start_date": "2024-03-02",
+      "end_date": "2024-05-31",
+      "allocation_percentage": 50,
+      "description": "Score American turn total cup reflect law. Speech meeting she arrive run indicate performance. Few process my another southern street budget everybody. Same future mouth hotel style against what.",
+      "technologies_used": [
+        "Oracle",
+        "SQLite",
+        "Rust"
+      ],
+      "team_size": 8
+    },
+    {
+      "project_name": "Machine Learning Platform for CloudNative Solutions",
+      "client": "Streaming Services",
+      "role": "Lead Developer",
+      "start_date": "2023-10-10",
+      "end_date": "2024-02-07",
+      "allocation_percentage": 100,
+      "description": "Industry expect hospital decade nothing student beautiful. Street mouth blue wear allow song. Trial family financial police thing leader might though.",
+      "technologies_used": [
+        "Oracle",
+        "SQLite",
+        "Rust"
+      ],
+      "team_size": 10
+    },
+    {
+      "project_name": "Analytics Dashboard for Social Media Platform",
+      "client": "DataSystems Inc",
+      "role": "Architect",
+      "start_date": "2022-04-06",
+      "end_date": "2023-09-28",
+      "allocation_percentage": 100,
+      "description": "Land receive situation air nature. Travel also and eat. Fear peace best sit international suggest full. Education because identify all involve expect sense.",
+      "technologies_used": [
+        "Kotlin",
+        "C++",
+        "Rust",
+        "SQLite",
+        "Oracle"
+      ],
+      "team_size": 3
+    },
+    {
+      "project_name": "CRM Solution for Cybersecurity Inc",
+      "client": "DataSystems Inc",
+      "role": "Principal Engineer",
+      "start_date": "2021-09-09",
+      "end_date": "2022-02-06",
+      "allocation_percentage": 50,
+      "description": "Discuss author law computer even. Memory boy key red build successful. Firm teacher truth history.",
+      "technologies_used": [
+        "Oracle",
+        "Rust",
+        "Kotlin",
+        "SQLite"
+      ],
+      "team_size": 10
+    },
+    {
+      "project_name": "Web Application for AI Research Labs",
+      "client": "Cybersecurity Inc",
+      "role": "Principal Engineer",
+      "start_date": "2020-02-19",
+      "end_date": "2021-08-12",
+      "allocation_percentage": 100,
+      "description": "Bed great leg kid very grow. Hold Mrs sort animal trip. Upon treatment control mean movement surface feel.",
+      "technologies_used": [
+        "SQLite",
+        "C++",
+        "Oracle",
+        "Kotlin"
+      ],
+      "team_size": 7
+    },
+    {
+      "project_name": "API Gateway for E-commerce Giants",
+      "client": "Social Media Platform",
+      "role": "Junior Developer",
+      "start_date": "2018-11-14",
+      "end_date": "2020-01-08",
+      "allocation_percentage": 80,
+      "description": "Measure of tree think. One task network security magazine culture else administration.",
+      "technologies_used": [
+        "C++",
+        "Rust"
+      ],
+      "team_size": 12
+    },
+    {
+      "project_name": "API Gateway for EduTech Solutions",
+      "client": "AI Research Labs",
+      "role": "Junior Developer",
+      "start_date": "2018-01-29",
+      "end_date": "2018-10-26",
+      "allocation_percentage": 80,
+      "description": "Fly back deep case technology anyone. Training common without put.",
+      "technologies_used": [
+        "SQLite",
+        "Rust"
+      ],
+      "team_size": 3
+    }
+  ],
+  "created_at": "2025-09-28T09:36:21.851299"
+}
