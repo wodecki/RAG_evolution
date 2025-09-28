@@ -1,0 +1,189 @@
+[
+  {
+    "id": "RFP-001",
+    "title": "Enterprise Web Application Development",
+    "client": "Global Finance Corp",
+    "description": "Seeking experienced development team for devops automation",
+    "project_type": "Machine Learning Implementation",
+    "duration_months": 20,
+    "team_size": 9,
+    "budget_range": "$500K - $1M",
+    "start_date": "2025-09-28",
+    "requirements": [
+      {
+        "skill_name": "Python",
+        "min_proficiency": "Intermediate",
+        "is_mandatory": true,
+        "preferred_certifications": [
+          "Google Cloud Professional",
+          "Certified Kubernetes Administrator"
+        ]
+      },
+      {
+        "skill_name": "MongoDB",
+        "min_proficiency": "Expert",
+        "is_mandatory": true,
+        "preferred_certifications": []
+      },
+      {
+        "skill_name": "Java",
+        "min_proficiency": "Advanced",
+        "is_mandatory": true,
+        "preferred_certifications": []
+      },
+      {
+        "skill_name": "Microservices",
+        "min_proficiency": "Expert",
+        "is_mandatory": true,
+        "preferred_certifications": [
+          "Google Cloud Professional",
+          "Certified Kubernetes Administrator"
+        ]
+      },
+      {
+        "skill_name": "React",
+        "min_proficiency": "Advanced",
+        "is_mandatory": false,
+        "preferred_certifications": [
+          "Google Cloud Professional"
+        ]
+      },
+      {
+        "skill_name": "Django",
+        "min_proficiency": "Intermediate",
+        "is_mandatory": false,
+        "preferred_certifications": [
+          "Certified Kubernetes Administrator",
+          "Google Cloud Professional"
+        ]
+      },
+      {
+        "skill_name": "TypeScript",
+        "min_proficiency": "Advanced",
+        "is_mandatory": true,
+        "preferred_certifications": [
+          "Google Cloud Professional"
+        ]
+      },
+      {
+        "skill_name": "AWS",
+        "min_proficiency": "Advanced",
+        "is_mandatory": false,
+        "preferred_certifications": [
+          "AWS Certified Solutions Architect",
+          "Google Cloud Professional"
+        ]
+      }
+    ],
+    "location": "North Kathryn",
+    "remote_allowed": true
+  },
+  {
+    "id": "RFP-002",
+    "title": "API Integration Platform Development",
+    "client": "Global Finance Corp",
+    "description": "Seeking experienced development team for devops automation",
+    "project_type": "E-commerce Modernization",
+    "duration_months": 14,
+    "team_size": 10,
+    "budget_range": "$250K - $500K",
+    "start_date": "2025-09-28",
+    "requirements": [
+      {
+        "skill_name": "DevOps",
+        "min_proficiency": "Intermediate",
+        "is_mandatory": false,
+        "preferred_certifications": [
+          "Google Cloud Professional"
+        ]
+      },
+      {
+        "skill_name": "Docker",
+        "min_proficiency": "Advanced",
+        "is_mandatory": true,
+        "preferred_certifications": []
+      },
+      {
+        "skill_name": "Django",
+        "min_proficiency": "Advanced",
+        "is_mandatory": true,
+        "preferred_certifications": [
+          "AWS Certified Solutions Architect"
+        ]
+      },
+      {
+        "skill_name": "Kubernetes",
+        "min_proficiency": "Intermediate",
+        "is_mandatory": false,
+        "preferred_certifications": []
+      },
+      {
+        "skill_name": "PostgreSQL",
+        "min_proficiency": "Intermediate",
+        "is_mandatory": true,
+        "preferred_certifications": [
+          "Google Cloud Professional",
+          "Certified Kubernetes Administrator"
+        ]
+      }
+    ],
+    "location": "Port Kevin",
+    "remote_allowed": false
+  },
+  {
+    "id": "RFP-003",
+    "title": "Security Enhancement Development",
+    "client": "Retail Solutions Ltd",
+    "description": "Seeking experienced development team for api integration platform",
+    "project_type": "Data Analytics Platform",
+    "duration_months": 20,
+    "team_size": 9,
+    "budget_range": "$500K - $1M",
+    "start_date": "2025-09-28",
+    "requirements": [
+      {
+        "skill_name": "DevOps",
+        "min_proficiency": "Advanced",
+        "is_mandatory": true,
+        "preferred_certifications": []
+      },
+      {
+        "skill_name": "Django",
+        "min_proficiency": "Intermediate",
+        "is_mandatory": true,
+        "preferred_certifications": []
+      },
+      {
+        "skill_name": "PostgreSQL",
+        "min_proficiency": "Intermediate",
+        "is_mandatory": false,
+        "preferred_certifications": [
+          "Google Cloud Professional"
+        ]
+      },
+      {
+        "skill_name": "Kubernetes",
+        "min_proficiency": "Intermediate",
+        "is_mandatory": false,
+        "preferred_certifications": []
+      },
+      {
+        "skill_name": "React",
+        "min_proficiency": "Advanced",
+        "is_mandatory": true,
+        "preferred_certifications": []
+      },
+      {
+        "skill_name": "JavaScript",
+        "min_proficiency": "Intermediate",
+        "is_mandatory": true,
+        "preferred_certifications": [
+          "Certified Kubernetes Administrator",
+          "Google Cloud Professional"
+        ]
+      }
+    ],
+    "location": "South Patricia",
+    "remote_allowed": false
+  }
+]

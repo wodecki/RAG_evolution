@@ -1,0 +1,445 @@
+[
+  {
+    "id": "PRJ-001",
+    "name": "Mobile App Development for RetailMax",
+    "client": "HealthTech Partners",
+    "description": "Development of security audit system with focus on scalability and performance",
+    "start_date": "2024-08-02",
+    "end_date": null,
+    "estimated_duration_months": 18,
+    "budget": 439717,
+    "status": "active",
+    "team_size": 5,
+    "requirements": [
+      {
+        "skill_name": "AWS",
+        "min_proficiency": "Intermediate",
+        "is_mandatory": false
+      },
+      {
+        "skill_name": "React",
+        "min_proficiency": "Intermediate",
+        "is_mandatory": false
+      }
+    ],
+    "assigned_programmers": [
+      {
+        "programmer_name": "Jessica Valdez",
+        "programmer_id": 19,
+        "assignment_start_date": "2024-08-02",
+        "assignment_end_date": "2026-01-09"
+      },
+      {
+        "programmer_name": "Perry Armstrong",
+        "programmer_id": 22,
+        "assignment_start_date": "2024-08-02",
+        "assignment_end_date": "2026-01-09"
+      },
+      {
+        "programmer_name": "Kimberly Martinez",
+        "programmer_id": 28,
+        "assignment_start_date": "2024-08-02",
+        "assignment_end_date": "2026-01-23"
+      },
+      {
+        "programmer_name": "Jeffery Barron",
+        "programmer_id": 30,
+        "assignment_start_date": "2024-08-02",
+        "assignment_end_date": "2026-01-04"
+      },
+      {
+        "programmer_name": "Vincent Collins",
+        "programmer_id": 21,
+        "assignment_start_date": "2024-08-02",
+        "assignment_end_date": "2026-01-06"
+      }
+    ]
+  },
+  {
+    "id": "PRJ-002",
+    "name": "Content Management System for CloudNative Solutions",
+    "client": "RetailMax",
+    "description": "Development of mobile app development with focus on scalability and performance",
+    "start_date": "2024-06-25",
+    "end_date": null,
+    "estimated_duration_months": 8,
+    "budget": null,
+    "status": "planned",
+    "team_size": 8,
+    "requirements": [
+      {
+        "skill_name": "JavaScript",
+        "min_proficiency": "Intermediate",
+        "is_mandatory": true
+      },
+      {
+        "skill_name": "Go",
+        "min_proficiency": "Beginner",
+        "is_mandatory": false
+      },
+      {
+        "skill_name": "Python",
+        "min_proficiency": "Intermediate",
+        "is_mandatory": true
+      },
+      {
+        "skill_name": "Java",
+        "min_proficiency": "Intermediate",
+        "is_mandatory": true
+      },
+      {
+        "skill_name": "MongoDB",
+        "min_proficiency": "Advanced",
+        "is_mandatory": true
+      }
+    ],
+    "assigned_programmers": []
+  },
+  {
+    "id": "PRJ-003",
+    "name": "Machine Learning Pipeline for RetailMax",
+    "client": "MediaStream",
+    "description": "Development of cloud migration with focus on scalability and performance",
+    "start_date": "2025-02-07",
+    "end_date": "2026-02-02",
+    "estimated_duration_months": 12,
+    "budget": null,
+    "status": "completed",
+    "team_size": 5,
+    "requirements": [
+      {
+        "skill_name": "Machine Learning",
+        "min_proficiency": "Intermediate",
+        "is_mandatory": false
+      },
+      {
+        "skill_name": "Rust",
+        "min_proficiency": "Advanced",
+        "is_mandatory": true
+      },
+      {
+        "skill_name": "Microservices",
+        "min_proficiency": "Intermediate",
+        "is_mandatory": true
+      },
+      {
+        "skill_name": "PostgreSQL",
+        "min_proficiency": "Advanced",
+        "is_mandatory": true
+      }
+    ],
+    "assigned_programmers": []
+  },
+  {
+    "id": "PRJ-004",
+    "name": "Cloud Migration for GreenEnergy Co",
+    "client": "LogisticsPro",
+    "description": "Development of payment processing system with focus on scalability and performance",
+    "start_date": "2025-02-22",
+    "end_date": null,
+    "estimated_duration_months": 14,
+    "budget": null,
+    "status": "planned",
+    "team_size": 2,
+    "requirements": [
+      {
+        "skill_name": "Java",
+        "min_proficiency": "Intermediate",
+        "is_mandatory": true
+      },
+      {
+        "skill_name": "Django",
+        "min_proficiency": "Advanced",
+        "is_mandatory": true
+      },
+      {
+        "skill_name": "Rust",
+        "min_proficiency": "Intermediate",
+        "is_mandatory": false
+      }
+    ],
+    "assigned_programmers": []
+  },
+  {
+    "id": "PRJ-005",
+    "name": "Microservices Architecture for DataSystems Inc",
+    "client": "SmartCity Initiative",
+    "description": "Development of e-commerce platform with focus on scalability and performance",
+    "start_date": "2024-09-09",
+    "end_date": null,
+    "estimated_duration_months": 16,
+    "budget": 204130,
+    "status": "active",
+    "team_size": 6,
+    "requirements": [
+      {
+        "skill_name": "C++",
+        "min_proficiency": "Advanced",
+        "is_mandatory": false
+      },
+      {
+        "skill_name": "Python",
+        "min_proficiency": "Advanced",
+        "is_mandatory": false
+      },
+      {
+        "skill_name": "Microservices",
+        "min_proficiency": "Intermediate",
+        "is_mandatory": true
+      },
+      {
+        "skill_name": "MongoDB",
+        "min_proficiency": "Intermediate",
+        "is_mandatory": true
+      }
+    ],
+    "assigned_programmers": [
+      {
+        "programmer_name": "Gloria Thomas",
+        "programmer_id": 1,
+        "assignment_start_date": "2024-09-09",
+        "assignment_end_date": "2025-12-23"
+      },
+      {
+        "programmer_name": "Brian Gutierrez",
+        "programmer_id": 6,
+        "assignment_start_date": "2024-09-09",
+        "assignment_end_date": "2025-12-07"
+      }
+    ]
+  },
+  {
+    "id": "PRJ-006",
+    "name": "Payment Processing System for CloudNative Solutions",
+    "client": "GreenEnergy Co",
+    "description": "Development of security audit system with focus on scalability and performance",
+    "start_date": "2024-01-25",
+    "end_date": "2025-04-19",
+    "estimated_duration_months": 15,
+    "budget": null,
+    "status": "completed",
+    "team_size": 6,
+    "requirements": [
+      {
+        "skill_name": "Flask",
+        "min_proficiency": "Beginner",
+        "is_mandatory": false
+      },
+      {
+        "skill_name": "PostgreSQL",
+        "min_proficiency": "Intermediate",
+        "is_mandatory": true
+      }
+    ],
+    "assigned_programmers": [
+      {
+        "programmer_name": "Monica Morgan",
+        "programmer_id": 4,
+        "assignment_start_date": "2024-01-25",
+        "assignment_end_date": "2025-04-08"
+      },
+      {
+        "programmer_name": "Patrick Barber",
+        "programmer_id": 17,
+        "assignment_start_date": "2024-01-25",
+        "assignment_end_date": "2025-04-10"
+      },
+      {
+        "programmer_name": "William Bonilla",
+        "programmer_id": 15,
+        "assignment_start_date": "2024-01-25",
+        "assignment_end_date": "2025-03-22"
+      },
+      {
+        "programmer_name": "Darrell Smith",
+        "programmer_id": 20,
+        "assignment_start_date": "2024-01-25",
+        "assignment_end_date": "2025-04-01"
+      },
+      {
+        "programmer_name": "Michael Kent",
+        "programmer_id": 3,
+        "assignment_start_date": "2024-01-25",
+        "assignment_end_date": "2025-04-16"
+      },
+      {
+        "programmer_name": "Meghan Bailey",
+        "programmer_id": 10,
+        "assignment_start_date": "2024-01-25",
+        "assignment_end_date": "2025-03-29"
+      }
+    ]
+  },
+  {
+    "id": "PRJ-007",
+    "name": "Data Analytics Dashboard for RetailMax",
+    "client": "RetailMax",
+    "description": "Development of data analytics dashboard with focus on scalability and performance",
+    "start_date": "2025-01-31",
+    "end_date": null,
+    "estimated_duration_months": 13,
+    "budget": 329043,
+    "status": "planned",
+    "team_size": 4,
+    "requirements": [
+      {
+        "skill_name": "Kubernetes",
+        "min_proficiency": "Intermediate",
+        "is_mandatory": true
+      },
+      {
+        "skill_name": "Rust",
+        "min_proficiency": "Advanced",
+        "is_mandatory": false
+      },
+      {
+        "skill_name": "Jenkins",
+        "min_proficiency": "Beginner",
+        "is_mandatory": false
+      }
+    ],
+    "assigned_programmers": []
+  },
+  {
+    "id": "PRJ-008",
+    "name": "Cloud Migration for DataSystems Inc",
+    "client": "LogisticsPro",
+    "description": "Development of security audit system with focus on scalability and performance",
+    "start_date": "2024-01-19",
+    "end_date": null,
+    "estimated_duration_months": 12,
+    "budget": null,
+    "status": "planned",
+    "team_size": 8,
+    "requirements": [
+      {
+        "skill_name": "FastAPI",
+        "min_proficiency": "Beginner",
+        "is_mandatory": true
+      },
+      {
+        "skill_name": "Flask",
+        "min_proficiency": "Beginner",
+        "is_mandatory": false
+      },
+      {
+        "skill_name": "Redis",
+        "min_proficiency": "Beginner",
+        "is_mandatory": true
+      },
+      {
+        "skill_name": "Go",
+        "min_proficiency": "Intermediate",
+        "is_mandatory": false
+      }
+    ],
+    "assigned_programmers": []
+  },
+  {
+    "id": "PRJ-009",
+    "name": "Customer Portal for CloudNative Solutions",
+    "client": "CloudNative Solutions",
+    "description": "Development of web application with focus on scalability and performance",
+    "start_date": "2024-08-27",
+    "end_date": null,
+    "estimated_duration_months": 9,
+    "budget": 303527,
+    "status": "active",
+    "team_size": 4,
+    "requirements": [
+      {
+        "skill_name": "Data Science",
+        "min_proficiency": "Advanced",
+        "is_mandatory": false
+      },
+      {
+        "skill_name": "React",
+        "min_proficiency": "Advanced",
+        "is_mandatory": true
+      },
+      {
+        "skill_name": "Vue.js",
+        "min_proficiency": "Beginner",
+        "is_mandatory": false
+      },
+      {
+        "skill_name": "JavaScript",
+        "min_proficiency": "Intermediate",
+        "is_mandatory": false
+      },
+      {
+        "skill_name": "Flask",
+        "min_proficiency": "Beginner",
+        "is_mandatory": false
+      }
+    ],
+    "assigned_programmers": [
+      {
+        "programmer_name": "Tanya Mendez",
+        "programmer_id": 13,
+        "assignment_start_date": "2024-08-27",
+        "assignment_end_date": "2025-05-13"
+      },
+      {
+        "programmer_name": "Joseph Fuller",
+        "programmer_id": 18,
+        "assignment_start_date": "2024-08-27",
+        "assignment_end_date": "2025-05-21"
+      },
+      {
+        "programmer_name": "Christine Rodriguez",
+        "programmer_id": 7,
+        "assignment_start_date": "2024-08-27",
+        "assignment_end_date": "2025-05-14"
+      }
+    ]
+  },
+  {
+    "id": "PRJ-010",
+    "name": "Web Application for TechCorp",
+    "client": "TechCorp",
+    "description": "Development of microservices architecture with focus on scalability and performance",
+    "start_date": "2025-08-14",
+    "end_date": null,
+    "estimated_duration_months": 13,
+    "budget": 292496,
+    "status": "active",
+    "team_size": 4,
+    "requirements": [
+      {
+        "skill_name": "Angular",
+        "min_proficiency": "Beginner",
+        "is_mandatory": false
+      },
+      {
+        "skill_name": "FastAPI",
+        "min_proficiency": "Beginner",
+        "is_mandatory": false
+      },
+      {
+        "skill_name": "Docker",
+        "min_proficiency": "Intermediate",
+        "is_mandatory": false
+      },
+      {
+        "skill_name": "Rust",
+        "min_proficiency": "Advanced",
+        "is_mandatory": true
+      }
+    ],
+    "assigned_programmers": [
+      {
+        "programmer_name": "Michael Kent",
+        "programmer_id": 3,
+        "assignment_start_date": "2025-08-14",
+        "assignment_end_date": "2026-08-23"
+      },
+      {
+        "programmer_name": "Krystal Castillo",
+        "programmer_id": 27,
+        "assignment_start_date": "2025-08-14",
+        "assignment_end_date": "2026-08-18"
+      }
+    ]
+  }
+]

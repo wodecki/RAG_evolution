@@ -28,7 +28,19 @@
       "Bash(uv show:*)",
       "Bash(uv sync:*)",
       "Bash(docker-compose up:*)",
-      "Bash(timeout 60 uv run:*)"
+      "Bash(timeout 60 uv run:*)",
+      "Bash(mv:*)",
+      "Bash(docker volume:*)",
+      "Bash(chmod:*)",
+      "Bash(docker-compose:*)",
+      "Bash(docker stop:*)",
+      "Bash(docker rm:*)",
+      "Bash(./start_session.sh:*)",
+      "WebFetch(domain:stackoverflow.com)",
+      "WebFetch(domain:neo4j.com)",
+      "Bash(docker exec:*)",
+      "WebFetch(domain:github.com)",
+      "Bash(timeout 30 uv run python 3_query_knowledge_graph.py)"
     ],
     "deny": [],
     "ask": []

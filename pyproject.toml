@@ -32,4 +32,5 @@ dependencies = [
     "faker>=37.8.0",
     "markdown>=3.9",
     "weasyprint>=66.0",
+    "toml>=0.10.2",
 ]

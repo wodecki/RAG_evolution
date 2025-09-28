@@ -1,11 +1,11 @@
 """
-PDF CV to Knowledge Graph Conversion
-====================================
+Data to Knowledge Graph Conversion
+==================================
 
-Extracts text from PDF CVs and converts them to a knowledge graph using
-LangChain's LLMGraphTransformer and stores in Neo4j.
+Extracts data from PDFs and JSONs, converts them to a knowledge graph using
+LangChain's LLMGraphTransformer, and stores in Neo4j.
 
-This demonstrates document-to-knowledge-graph conversion for GraphRAG.
+This creates the static knowledge base for programmer staffing GraphRAG system.
 """
 
 from dotenv import load_dotenv
@@ -29,11 +29,11 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-class CVKnowledgeGraphBuilder:
-    """Builds knowledge graph from PDF CVs using LangChain's LLMGraphTransformer."""
+class DataKnowledgeGraphBuilder:
+    """Builds knowledge graph from PDFs and JSONs using LangChain's LLMGraphTransformer."""
 
     def __init__(self):
-        """Initialize the CV knowledge graph builder."""
+        """Initialize the data knowledge graph builder."""
         self.setup_neo4j()
         self.setup_llm_transformer()
 
@@ -43,14 +43,64 @@ class CVKnowledgeGraphBuilder:
             self.graph = Neo4jGraph()
             logger.info("✓ Connected to Neo4j successfully")
 
-            # Clear existing data for clean run
-            logger.info("Clearing existing graph data...")
-            self.graph.query("MATCH (n) DETACH DELETE n")
-            logger.info("✓ Graph cleared")
+            # Complete cleanup for fresh start
+            logger.info("Performing complete Neo4j cleanup...")
+            self.complete_cleanup()
+            logger.info("✓ Neo4j completely cleared")
 
         except Exception as e:
             logger.error(f"Failed to connect to Neo4j: {e}")
             raise
+
+    def complete_cleanup(self):
+        """Perform complete Neo4j database cleanup."""
+        try:
+            # Step 1: Delete all nodes and relationships
+            logger.info("  - Deleting all nodes and relationships...")
+            self.graph.query("MATCH (n) DETACH DELETE n")
+
+            # Step 2: Drop all constraints
+            logger.info("  - Dropping all constraints...")
+            constraints_query = "SHOW CONSTRAINTS"
+            constraints = self.graph.query(constraints_query)
+            for constraint in constraints:
+                constraint_name = constraint.get('name', '')
+                if constraint_name:
+                    try:
+                        drop_query = f"DROP CONSTRAINT {constraint_name}"
+                        self.graph.query(drop_query)
+                        logger.debug(f"    Dropped constraint: {constraint_name}")
+                    except Exception as e:
+                        logger.debug(f"    Could not drop constraint {constraint_name}: {e}")
+
+            # Step 3: Drop all indexes
+            logger.info("  - Dropping all indexes...")
+            indexes_query = "SHOW INDEXES"
+            indexes = self.graph.query(indexes_query)
+            for index in indexes:
+                index_name = index.get('name', '')
+                if index_name and not index_name.startswith('__'):  # Skip system indexes
+                    try:
+                        drop_query = f"DROP INDEX {index_name}"
+                        self.graph.query(drop_query)
+                        logger.debug(f"    Dropped index: {index_name}")
+                    except Exception as e:
+                        logger.debug(f"    Could not drop index {index_name}: {e}")
+
+            # Step 4: Verify cleanup
+            node_count = self.graph.query("MATCH (n) RETURN count(n) as count")[0]['count']
+            rel_count = self.graph.query("MATCH ()-[r]->() RETURN count(r) as count")[0]['count']
+
+            if node_count == 0 and rel_count == 0:
+                logger.info("  ✓ Database completely clean")
+            else:
+                logger.warning(f"  ⚠ Cleanup incomplete: {node_count} nodes, {rel_count} relationships remain")
+
+        except Exception as e:
+            logger.error(f"Error during cleanup: {e}")
+            # Fallback to basic cleanup
+            logger.info("  - Falling back to basic cleanup...")
+            self.graph.query("MATCH (n) DETACH DELETE n")
 
     def setup_llm_transformer(self):
         """Setup LLM and graph transformer with CV-specific schema."""
@@ -296,7 +346,7 @@ async def main():
 
     try:
         # Initialize builder
-        builder = CVKnowledgeGraphBuilder()
+        builder = DataKnowledgeGraphBuilder()
 
         # Process all CVs
         processed_count = await builder.process_all_cvs()

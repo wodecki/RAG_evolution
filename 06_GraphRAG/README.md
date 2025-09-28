@@ -2,6 +2,29 @@
 
 A comprehensive demonstration of **GraphRAG vs Naive RAG** using a realistic programmer staffing scenario. This project showcases how knowledge graphs enable structured queries that are impossible with traditional vector-based RAG systems.
 
+## 🚀 Simple Session Management
+
+### Daily Workflow (3 Commands Only)
+
+**First Time:**
+```bash
+uv run python 0_setup.py    # Setup everything
+```
+
+**Every Session:**
+```bash
+./start_session.sh          # Start working
+# ... do your work ...
+./end_session.sh            # Stop & save
+```
+
+**Check Status Anytime:**
+```bash
+uv run python 0_setup.py --check
+```
+
+Your data automatically persists between sessions - no manual saving needed!
+
 ## 🎯 Problem Addressed
 
 Traditional RAG systems struggle with structured queries requiring:
