@@ -1,497 +1,260 @@
 """
-Synthetic Data Generation for GraphRAG System
-=============================================
+GraphRAG Data Generation - Single Integrated Module
+==================================================
 
-Generates realistic synthetic data for 50 programmers, 20 projects, and 3 RFPs
-to demonstrate GraphRAG capabilities.
+Generates realistic programmer profiles and PDF CVs for GraphRAG educational demonstration.
+Uses LLM to create unique, unstructured CVs in markdown format, then converts to PDF.
+
+CRITICAL: No fallbacks, no mock data. All dependencies must be available.
 """
 
 from dotenv import load_dotenv
 load_dotenv(override=True)
 
+import os
 import json
 import random
 from datetime import date, datetime, timedelta
 from faker import Faker
 from typing import List
-import os
-
-from utils.models import (
-    ProgrammerProfile, Skill, Certification, ProjectExperience, Project,
-    ProjectRequirement, RFP, RFPRequirement, SkillCategory, ProjectStatus,
-    ProgrammerRole
-)
+from langchain_openai import ChatOpenAI
+import markdown
+from weasyprint import HTML, CSS
 
 fake = Faker()
-random.seed(42)  # For reproducible data
 
-# Skill definitions with realistic distributions
-SKILLS_DATA = {
-    SkillCategory.PROGRAMMING_LANGUAGE: [
-        "Python", "JavaScript", "Java", "TypeScript", "C#", "Go", "Rust",
-        "C++", "PHP", "Ruby", "Kotlin", "Swift", "Scala"
-    ],
-    SkillCategory.FRAMEWORK: [
-        "React", "Vue.js", "Angular", "Django", "Flask", "FastAPI", "Express.js",
-        "Spring Boot", "ASP.NET", "Laravel", "Ruby on Rails", "Flutter", "React Native"
-    ],
-    SkillCategory.DATABASE: [
-        "PostgreSQL", "MySQL", "MongoDB", "Redis", "Elasticsearch", "Cassandra",
-        "DynamoDB", "Oracle", "SQL Server", "SQLite", "Neo4j", "InfluxDB"
-    ],
-    SkillCategory.CLOUD: [
-        "AWS", "Azure", "Google Cloud", "Docker", "Kubernetes", "Terraform",
-        "CloudFormation", "Serverless", "Lambda", "EC2", "S3", "RDS"
-    ],
-    SkillCategory.DEVOPS: [
-        "Jenkins", "GitLab CI", "GitHub Actions", "CircleCI", "Ansible",
-        "Chef", "Puppet", "Nagios", "Prometheus", "Grafana", "ELK Stack"
-    ],
-    SkillCategory.FRONTEND: [
-        "HTML5", "CSS3", "Sass", "Webpack", "Vite", "Bootstrap", "Tailwind CSS",
-        "Material-UI", "Figma", "Adobe XD", "Responsive Design", "PWA"
-    ],
-    SkillCategory.BACKEND: [
-        "REST APIs", "GraphQL", "Microservices", "Event Sourcing", "CQRS",
-        "Message Queues", "WebSockets", "gRPC", "API Gateway", "Load Balancing"
-    ],
-    SkillCategory.MOBILE: [
-        "iOS Development", "Android Development", "React Native", "Flutter",
-        "Xamarin", "Ionic", "Cordova", "Swift", "Kotlin", "Objective-C"
-    ],
-    SkillCategory.DATA_SCIENCE: [
-        "Machine Learning", "Deep Learning", "TensorFlow", "PyTorch", "scikit-learn",
-        "Pandas", "NumPy", "Data Analysis", "Statistics", "R", "Jupyter", "Apache Spark"
-    ],
-    SkillCategory.SECURITY: [
-        "Cybersecurity", "Penetration Testing", "OWASP", "SSL/TLS", "OAuth",
-        "JWT", "Encryption", "Vulnerability Assessment", "Security Auditing"
-    ]
-}
 
-CERTIFICATIONS_DATA = {
-    "AWS": ["AWS Solutions Architect", "AWS Developer", "AWS DevOps Engineer", "AWS Security Specialist"],
-    "Azure": ["Azure Solutions Architect", "Azure Developer", "Azure Administrator", "Azure Security Engineer"],
-    "Google Cloud": ["GCP Professional Cloud Architect", "GCP Professional Data Engineer", "GCP Associate Cloud Engineer"],
-    "Security": ["CISSP", "CEH", "CISM", "CompTIA Security+", "OSCP"],
-    "Project Management": ["PMP", "Scrum Master", "Product Owner", "Agile Coach"],
-    "Development": ["Oracle Certified Java Programmer", "Microsoft Certified Developer", "MongoDB Certified Developer"]
-}
+class GraphRAGDataGenerator:
+    """Integrated generator for programmer profiles and realistic PDF CVs."""
 
-COMPANIES = [
-    "TechCorp", "DataSystems Inc", "CloudNative Solutions", "FinTech Innovations",
-    "E-commerce Giants", "Healthcare Systems", "EduTech Solutions", "Gaming Studios",
-    "IoT Devices Corp", "Blockchain Ventures", "AI Research Labs", "Cybersecurity Inc",
-    "Mobile First", "Social Media Platform", "Streaming Services", "Logistics Tech"
-]
+    def __init__(self):
+        """Initialize with required dependencies - fail fast if missing."""
+        # Validate environment
+        api_key = os.getenv("OPENAI_API_KEY")
+        if not api_key:
+            raise ValueError("OPENAI_API_KEY environment variable is required")
 
-PROJECT_TYPES = [
-    "Web Application", "Mobile App", "Data Pipeline", "Machine Learning Platform",
-    "E-commerce System", "CRM Solution", "Analytics Dashboard", "API Gateway",
-    "Microservices Migration", "Cloud Migration", "Security Audit", "DevOps Pipeline"
-]
-
-def generate_programmer_skills() -> List[Skill]:
-    """Generate realistic skill set for a programmer."""
-    skills = []
-
-    # Core programming languages (1-3)
-    prog_langs = random.sample(SKILLS_DATA[SkillCategory.PROGRAMMING_LANGUAGE], random.randint(1, 3))
-    for lang in prog_langs:
-        skills.append(Skill(
-            name=lang,
-            category=SkillCategory.PROGRAMMING_LANGUAGE,
-            proficiency=random.randint(3, 5),
-            years_experience=random.randint(2, 10)
-        ))
-
-    # Frameworks related to programming languages
-    if "Python" in prog_langs:
-        frameworks = random.sample(["Django", "Flask", "FastAPI"], random.randint(1, 2))
-        for fw in frameworks:
-            skills.append(Skill(
-                name=fw,
-                category=SkillCategory.FRAMEWORK,
-                proficiency=random.randint(2, 5),
-                years_experience=random.randint(1, 8)
-            ))
-
-    if "JavaScript" in prog_langs or "TypeScript" in prog_langs:
-        frameworks = random.sample(["React", "Vue.js", "Angular", "Express.js"], random.randint(1, 3))
-        for fw in frameworks:
-            skills.append(Skill(
-                name=fw,
-                category=SkillCategory.FRAMEWORK,
-                proficiency=random.randint(2, 5),
-                years_experience=random.randint(1, 6)
-            ))
-
-    # Add other skills
-    for category in [SkillCategory.DATABASE, SkillCategory.CLOUD, SkillCategory.DEVOPS]:
-        category_skills = random.sample(SKILLS_DATA[category], random.randint(1, 3))
-        for skill_name in category_skills:
-            skills.append(Skill(
-                name=skill_name,
-                category=category,
-                proficiency=random.randint(2, 4),
-                years_experience=random.randint(1, 7)
-            ))
-
-    # Specialty skills (data science, security, etc.)
-    if random.random() < 0.3:  # 30% chance
-        specialty = random.choice([SkillCategory.DATA_SCIENCE, SkillCategory.SECURITY, SkillCategory.MOBILE])
-        specialty_skills = random.sample(SKILLS_DATA[specialty], random.randint(1, 2))
-        for skill_name in specialty_skills:
-            skills.append(Skill(
-                name=skill_name,
-                category=specialty,
-                proficiency=random.randint(3, 5),
-                years_experience=random.randint(2, 8)
-            ))
-
-    return skills
-
-def generate_certifications(skills: List[Skill]) -> List[Certification]:
-    """Generate certifications based on programmer's skills."""
-    certifications = []
-
-    # AWS certifications for cloud skills
-    has_aws = any(skill.name == "AWS" for skill in skills)
-    if has_aws and random.random() < 0.7:
-        cert_name = random.choice(CERTIFICATIONS_DATA["AWS"])
-        obtained = fake.date_between(start_date="-3y", end_date="today")
-        expiry = obtained + timedelta(days=365*3)  # 3-year validity
-
-        certifications.append(Certification(
-            name=cert_name,
-            provider="Amazon Web Services",
-            obtained_date=obtained,
-            expiry_date=expiry,
-            credential_id=fake.uuid4()[:12]
-        ))
-
-    # Similar logic for other cloud providers
-    has_azure = any(skill.name == "Azure" for skill in skills)
-    if has_azure and random.random() < 0.6:
-        cert_name = random.choice(CERTIFICATIONS_DATA["Azure"])
-        obtained = fake.date_between(start_date="-2y", end_date="today")
-        expiry = obtained + timedelta(days=365*2)
-
-        certifications.append(Certification(
-            name=cert_name,
-            provider="Microsoft",
-            obtained_date=obtained,
-            expiry_date=expiry,
-            credential_id=fake.uuid4()[:12]
-        ))
-
-    # Security certifications
-    has_security = any(skill.category == SkillCategory.SECURITY for skill in skills)
-    if has_security and random.random() < 0.8:
-        cert_name = random.choice(CERTIFICATIONS_DATA["Security"])
-        obtained = fake.date_between(start_date="-4y", end_date="today")
-
-        certifications.append(Certification(
-            name=cert_name,
-            provider="Security Institute",
-            obtained_date=obtained,
-            expiry_date=None if cert_name == "CISSP" else obtained + timedelta(days=365*3),
-            credential_id=fake.uuid4()[:12]
-        ))
-
-    return certifications
-
-def generate_project_experience(programmer_id: str, skills: List[Skill]) -> List[ProjectExperience]:
-    """Generate realistic project experience."""
-    projects = []
-    num_projects = random.randint(3, 8)
-
-    current_date = date.today()
-    project_end = current_date - timedelta(days=random.randint(30, 90))
-
-    for i in range(num_projects):
-        duration_months = random.randint(3, 18)
-        start_date = project_end - timedelta(days=duration_months * 30)
-
-        # Select technologies based on programmer's skills
-        tech_skills = [s.name for s in skills if s.category in [
-            SkillCategory.PROGRAMMING_LANGUAGE, SkillCategory.FRAMEWORK, SkillCategory.DATABASE
-        ]]
-        technologies = random.sample(tech_skills, min(len(tech_skills), random.randint(2, 5)))
-
-        project = ProjectExperience(
-            project_name=f"{random.choice(PROJECT_TYPES)} for {random.choice(COMPANIES)}",
-            client=random.choice(COMPANIES),
-            role=random.choice(list(ProgrammerRole)),
-            start_date=start_date,
-            end_date=project_end if i > 0 else None,  # Current project has no end date
-            allocation_percentage=random.choice([50, 80, 100]),
-            description=fake.paragraph(),
-            technologies_used=technologies,
-            team_size=random.randint(3, 12)
+        # Initialize LLM
+        self.llm = ChatOpenAI(
+            model="gpt-4o-mini",
+            temperature=0.7,
+            api_key=api_key
         )
 
-        projects.append(project)
-        project_end = start_date - timedelta(days=random.randint(7, 60))
+    def generate_programmer_profiles(self, num_profiles: int) -> List[dict]:
+        """Generate realistic programmer profiles."""
+        if num_profiles <= 0:
+            raise ValueError("Number of profiles must be positive")
 
-    return projects
+        profiles = []
+        for i in range(num_profiles):
+            profile = {
+                "id": i + 1,
+                "name": fake.name(),
+                "email": fake.email(),
+                "location": fake.city(),
+                "skills": self._generate_skills(),
+                "projects": self._generate_projects(),
+                "certifications": self._generate_certifications(),
+            }
+            profiles.append(profile)
 
-def generate_programmers(count: int = 50) -> List[ProgrammerProfile]:
-    """Generate synthetic programmer profiles."""
-    programmers = []
+        return profiles
 
-    for i in range(count):
-        programmer_id = f"dev_{i+1:03d}"
+    def _generate_skills(self) -> List[dict]:
+        """Generate realistic programming skills with proficiency levels."""
+        all_skills = [
+            "Python", "JavaScript", "TypeScript", "Java", "C++", "Go", "Rust",
+            "React", "Vue.js", "Angular", "Node.js", "Django", "Flask", "FastAPI",
+            "PostgreSQL", "MongoDB", "Redis", "MySQL",
+            "AWS", "Docker", "Kubernetes", "Jenkins", "Git",
+            "Machine Learning", "Data Science", "DevOps", "Microservices"
+        ]
 
-        skills = generate_programmer_skills()
-        certifications = generate_certifications(skills)
-        project_experience = generate_project_experience(programmer_id, skills)
+        proficiency_levels = [
+            "Beginner", "Intermediate", "Advanced", "Expert"
+        ]
 
-        # Calculate hourly rate based on skills and experience
-        avg_proficiency = sum(s.proficiency for s in skills) / len(skills)
-        max_experience = max(s.years_experience for s in skills)
-        base_rate = 80 + (avg_proficiency - 1) * 20 + max_experience * 5
-        hourly_rate = round(base_rate + random.uniform(-20, 30), 2)
+        num_skills = random.randint(5, 12)
+        selected_skills = random.sample(all_skills, num_skills)
 
-        # Availability
-        availability = None
-        if random.random() < 0.3:  # 30% immediately available
-            availability = date.today()
-        elif random.random() < 0.6:  # 60% available in the future
-            availability = date.today() + timedelta(days=random.randint(30, 180))
+        skills_with_proficiency = []
+        for skill in selected_skills:
+            # Weight proficiency levels - more intermediate/advanced than beginner/expert
+            proficiency = random.choices(
+                proficiency_levels,
+                weights=[10, 40, 35, 15]  # Beginner, Intermediate, Advanced, Expert
+            )[0]
 
-        programmer = ProgrammerProfile(
-            id=programmer_id,
-            name=fake.name(),
-            email=fake.email(),
-            phone=fake.phone_number(),
-            location=fake.city() + ", " + fake.state_abbr(),
-            hourly_rate=hourly_rate,
-            availability_start=availability,
-            bio=fake.paragraph(),
-            linkedin_url=f"https://linkedin.com/in/{fake.user_name()}",
-            github_url=f"https://github.com/{fake.user_name()}",
-            skills=skills,
-            certifications=certifications,
-            project_experience=project_experience
-        )
+            skills_with_proficiency.append({
+                "name": skill,
+                "proficiency": proficiency
+            })
 
-        programmers.append(programmer)
+        return skills_with_proficiency
 
-    return programmers
+    def _generate_projects(self) -> List[str]:
+        """Generate realistic project names."""
+        project_types = [
+            "E-commerce Platform", "Data Analytics Dashboard", "Mobile App",
+            "API Gateway", "Machine Learning Pipeline", "Web Application",
+            "Microservices Architecture", "Real-time Chat System",
+            "Content Management System", "Payment Processing System"
+        ]
+        num_projects = random.randint(2, 5)
+        return random.sample(project_types, num_projects)
 
-def generate_projects(count: int = 20) -> List[Project]:
-    """Generate synthetic project data."""
-    projects = []
+    def _generate_certifications(self) -> List[str]:
+        """Generate realistic certifications."""
+        certs = [
+            "AWS Certified Solutions Architect",
+            "Google Cloud Professional",
+            "Certified Kubernetes Administrator",
+            "Microsoft Azure Developer",
+            "Scrum Master Certification",
+            "Docker Certified Associate"
+        ]
+        num_certs = random.randint(0, 3)
+        return random.sample(certs, num_certs) if num_certs > 0 else []
 
-    for i in range(count):
-        project_id = f"proj_{i+1:03d}"
+    def generate_cv_markdown(self, profile: dict) -> str:
+        """Generate realistic CV in markdown format using LLM."""
 
-        # Generate requirements
-        requirements = []
-        num_requirements = random.randint(3, 7)
+        # Format skills with proficiency levels for the prompt
+        skills_text = []
+        for skill in profile['skills']:
+            skills_text.append(f"{skill['name']} ({skill['proficiency']})")
 
-        # Select random skills for requirements
-        all_skills = []
-        for skills_list in SKILLS_DATA.values():
-            all_skills.extend(skills_list)
+        prompt = f"""
+Create a professional CV in markdown format for a programmer with the following details:
 
-        required_skills = random.sample(all_skills, num_requirements)
-        for skill in required_skills:
-            requirements.append(ProjectRequirement(
-                skill_name=skill,
-                min_proficiency=random.randint(2, 4),
-                min_years=random.randint(1, 5),
-                is_mandatory=random.random() < 0.7  # 70% mandatory
-            ))
+Name: {profile['name']}
+Email: {profile['email']}
+Location: {profile['location']}
+Skills: {', '.join(skills_text)}
+Projects: {', '.join(profile['projects'])}
+Certifications: {', '.join(profile['certifications'])}
 
-        # Project dates
-        start_date = fake.date_between(start_date="-6m", end_date="+6m")
-        duration_months = random.randint(2, 12)
-        end_date = start_date + timedelta(days=duration_months * 30)
+Requirements:
+1. Use proper markdown formatting (headers, lists, emphasis)
+2. Create realistic content with specific details and achievements
+3. Include sections like: Summary, Experience, Skills, Projects, Education, etc.
+4. Make it unique and personal - vary the structure and tone
+5. Add realistic company names, dates, and project descriptions
+6. Include specific metrics and achievements where appropriate
+7. IMPORTANT: Use the proficiency levels provided for each skill (Beginner, Intermediate, Advanced, Expert) in your skills sections
 
-        project = Project(
-            id=project_id,
-            name=f"{random.choice(PROJECT_TYPES)} - {fake.company()}",
-            client=fake.company(),
-            description=fake.paragraph(),
-            start_date=start_date,
-            end_date=end_date,
-            estimated_duration_months=duration_months,
-            budget=random.randint(50000, 500000),
-            status=random.choice(list(ProjectStatus)),
-            team_size=random.randint(2, 8),
-            requirements=requirements,
-            assigned_programmers=[]  # Will be populated later
-        )
+Make each CV feel authentic and written by a real person, not a template.
+Use markdown syntax like # for headers, - for bullet points, **bold**, etc.
+Incorporate the skill proficiency levels naturally in the CV (e.g., "Advanced Python", "Expert React developer", etc.).
 
-        projects.append(project)
+IMPORTANT: Return ONLY the CV content in markdown format. Do NOT include any code block markers like ```markdown or ``` in your response.
+"""
 
-    return projects
+        response = self.llm.invoke(prompt)
+        content = response.content
 
-def generate_rfps(count: int = 3) -> List[RFP]:
-    """Generate synthetic RFP data."""
-    rfps = []
+        # Clean up markdown artifacts
+        content = content.replace("```markdown", "").replace("```", "")
+        content = content.strip()
 
-    rfp_scenarios = [
-        {
-            "title": "FinTech Payment Platform Development",
-            "client": "NextGen Bank",
-            "description": "Build a secure, scalable payment processing platform with real-time fraud detection and multi-currency support.",
-            "project_type": "Financial Technology",
-            "skills": ["Python", "Django", "PostgreSQL", "Redis", "AWS", "Docker", "Machine Learning"]
-        },
-        {
-            "title": "E-commerce Mobile Application",
-            "client": "RetailMax Corporation",
-            "description": "Develop cross-platform mobile application for e-commerce with AR features, social integration, and advanced analytics.",
-            "project_type": "Mobile Development",
-            "skills": ["React Native", "TypeScript", "Node.js", "MongoDB", "AWS", "GraphQL", "AR/VR"]
-        },
-        {
-            "title": "Healthcare Data Analytics Platform",
-            "client": "MedTech Solutions",
-            "description": "Create HIPAA-compliant analytics platform for processing medical data with ML-powered insights and predictive modeling.",
-            "project_type": "Healthcare Technology",
-            "skills": ["Python", "TensorFlow", "PostgreSQL", "Kubernetes", "Azure", "HIPAA Compliance", "Data Science"]
+        if not content:
+            raise ValueError(f"LLM returned empty content for {profile['name']}")
+
+        return content
+
+    def save_cv_as_pdf(self, markdown_content: str, filename: str, output_dir: str) -> str:
+        """Convert markdown CV to PDF."""
+        os.makedirs(output_dir, exist_ok=True)
+
+        # Convert markdown to HTML
+        html_content = markdown.markdown(markdown_content)
+
+        # Professional CSS styling
+        css_content = """
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
         }
-    ]
+        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; }
+        h2 { color: #34495e; margin-top: 30px; }
+        h3 { color: #7f8c8d; }
+        strong { color: #2c3e50; }
+        ul { margin-left: 20px; }
+        """
 
-    for i, scenario in enumerate(rfp_scenarios):
-        rfp_id = f"rfp_{i+1:03d}"
-
-        requirements = []
-        for skill in scenario["skills"]:
-            requirements.append(RFPRequirement(
-                skill_name=skill,
-                min_proficiency=random.randint(3, 5),
-                min_years=random.randint(2, 7),
-                is_mandatory=random.random() < 0.8,
-                preferred_certifications=[]
-            ))
-
-        # Add some preferred certifications
-        if "AWS" in scenario["skills"]:
-            requirements[0].preferred_certifications = ["AWS Solutions Architect", "AWS Developer"]
-
-        rfp = RFP(
-            id=rfp_id,
-            title=scenario["title"],
-            client=scenario["client"],
-            description=scenario["description"],
-            project_type=scenario["project_type"],
-            duration_months=random.randint(6, 18),
-            team_size=random.randint(4, 10),
-            budget_range=f"${random.randint(200, 800)}K - ${random.randint(800, 1500)}K",
-            start_date=date.today() + timedelta(days=random.randint(30, 90)),
-            requirements=requirements,
-            location=fake.city() + ", " + fake.state_abbr(),
-            remote_allowed=random.choice([True, False])
+        # Generate PDF
+        pdf_path = os.path.join(output_dir, f"{filename}.pdf")
+        HTML(string=html_content).write_pdf(
+            pdf_path,
+            stylesheets=[CSS(string=css_content)]
         )
 
-        rfps.append(rfp)
+        return pdf_path
 
-    return rfps
+    def generate_all_data(self, num_programmers: int = 10) -> dict:
+        """Generate all data: profiles and CVs."""
+        if num_programmers <= 0:
+            raise ValueError("Number of programmers must be positive")
 
-def save_data_to_files(programmers: List[ProgrammerProfile], projects: List[Project], rfps: List[RFP]):
-    """Save generated data to JSON files."""
+        print(f"Generating {num_programmers} programmer profiles and CVs...")
 
-    # Custom JSON encoder for datetime and date objects
-    def json_serializer(obj):
-        if hasattr(obj, 'isoformat'):
-            return obj.isoformat()
-        raise TypeError(f"Object of type {type(obj)} is not JSON serializable")
+        # Create output directory
+        output_dir = "data/programmers"
+        os.makedirs(output_dir, exist_ok=True)
 
-    # Save programmers
-    for programmer in programmers:
-        filename = f"data/programmers/{programmer.id}.json"
-        with open(filename, 'w') as f:
-            json.dump(programmer.model_dump(), f, indent=2, default=json_serializer)
+        # Generate programmer profiles
+        profiles = self.generate_programmer_profiles(num_programmers)
 
-    # Save projects
-    for project in projects:
-        filename = f"data/projects/{project.id}.json"
-        with open(filename, 'w') as f:
-            json.dump(project.model_dump(), f, indent=2, default=json_serializer)
+        # Generate CVs
+        generated_files = []
+        for i, profile in enumerate(profiles, 1):
+            print(f"Generating CV {i}/{num_programmers}: {profile['name']}")
 
-    # Save RFPs
-    for rfp in rfps:
-        filename = f"data/rfps/{rfp.id}.json"
-        with open(filename, 'w') as f:
-            json.dump(rfp.model_dump(), f, indent=2, default=json_serializer)
+            # Generate markdown CV
+            cv_markdown = self.generate_cv_markdown(profile)
 
-    print(f"✓ Saved {len(programmers)} programmer profiles")
-    print(f"✓ Saved {len(projects)} projects")
-    print(f"✓ Saved {len(rfps)} RFPs")
+            # Save as PDF
+            safe_name = profile['name'].replace(" ", "_").replace(".", "")
+            filename = f"cv_{profile['id']:03d}_{safe_name}"
 
-def generate_summary_statistics(programmers: List[ProgrammerProfile], projects: List[Project], rfps: List[RFP]):
-    """Generate and display summary statistics."""
+            file_path = self.save_cv_as_pdf(cv_markdown, filename, output_dir)
+            generated_files.append(file_path)
 
-    print("\n" + "="*50)
-    print("DATA GENERATION SUMMARY")
-    print("="*50)
+        # Save profiles as JSON
+        profiles_path = os.path.join(output_dir, "programmer_profiles.json")
+        with open(profiles_path, 'w', encoding='utf-8') as f:
+            json.dump(profiles, f, indent=2, default=str)
 
-    # Programmer statistics
-    total_skills = sum(len(p.skills) for p in programmers)
-    total_certs = sum(len(p.certifications) for p in programmers)
-    avg_experience = sum(max(s.years_experience for s in p.skills) for p in programmers) / len(programmers)
+        print(f"✅ Generated {len(generated_files)} CVs in {output_dir}/")
+        print(f"✅ Saved profiles to {profiles_path}")
 
-    print(f"\nProgrammer Statistics:")
-    print(f"- Total programmers: {len(programmers)}")
-    print(f"- Total skills: {total_skills}")
-    print(f"- Total certifications: {total_certs}")
-    print(f"- Average max experience: {avg_experience:.1f} years")
+        return {
+            "profiles": profiles,
+            "cv_files": generated_files,
+            "profiles_file": profiles_path
+        }
 
-    # Skill distribution
-    skill_counts = {}
-    for programmer in programmers:
-        for skill in programmer.skills:
-            skill_counts[skill.name] = skill_counts.get(skill.name, 0) + 1
-
-    top_skills = sorted(skill_counts.items(), key=lambda x: x[1], reverse=True)[:10]
-    print(f"\nTop 10 Skills:")
-    for skill, count in top_skills:
-        print(f"- {skill}: {count} programmers")
-
-    # Project statistics
-    print(f"\nProject Statistics:")
-    print(f"- Total projects: {len(projects)}")
-    total_requirements = sum(len(p.requirements) for p in projects)
-    print(f"- Total skill requirements: {total_requirements}")
-
-    # RFP statistics
-    print(f"\nRFP Statistics:")
-    print(f"- Total RFPs: {len(rfps)}")
-    for rfp in rfps:
-        print(f"- {rfp.title}: {len(rfp.requirements)} requirements, {rfp.team_size} team size")
 
 def main():
-    """Main data generation function."""
-    print("Generating Synthetic Data for GraphRAG System")
-    print("=" * 50)
+    """Generate data for GraphRAG demonstration."""
+    try:
+        generator = GraphRAGDataGenerator()
+        result = generator.generate_all_data(10)
 
-    # Generate data
-    print("Generating programmer profiles...")
-    programmers = generate_programmers(50)
+        print(f"\nGenerated files:")
+        for file_path in result["cv_files"]:
+            print(f"  - {file_path}")
 
-    print("Generating projects...")
-    projects = generate_projects(20)
+    except Exception as e:
+        print(f"❌ Error: {e}")
+        print("Ensure all dependencies are installed: uv sync")
+        print("Ensure OPENAI_API_KEY is set in .env file")
+        raise
 
-    print("Generating RFPs...")
-    rfps = generate_rfps(3)
-
-    # Save to files
-    print("\nSaving data to files...")
-    save_data_to_files(programmers, projects, rfps)
-
-    # Display statistics
-    generate_summary_statistics(programmers, projects, rfps)
-
-    print("\n" + "="*50)
-    print("✓ Data generation completed successfully!")
-    print("\nNext steps:")
-    print("1. Run: uv run python 2_build_knowledge_graph.py")
-    print("2. Verify data in data/ directories")
 
 if __name__ == "__main__":
     main()

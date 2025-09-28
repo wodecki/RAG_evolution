@@ -21,7 +21,14 @@
       "mcp__zen__listmodels",
       "mcp__context7__resolve-library-id",
       "mcp__context7__get-library-docs",
-      "mcp__zen__planner"
+      "mcp__zen__planner",
+      "WebFetch(domain:medium.com)",
+      "mcp__zen__thinkdeep",
+      "mcp__zen__consensus",
+      "Bash(uv show:*)",
+      "Bash(uv sync:*)",
+      "Bash(docker-compose up:*)",
+      "Bash(timeout 60 uv run:*)"
     ],
     "deny": [],
     "ask": []

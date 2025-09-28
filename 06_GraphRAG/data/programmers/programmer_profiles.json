@@ -1,0 +1,505 @@
+[
+  {
+    "id": 1,
+    "name": "Scott White",
+    "email": "mbradley@example.com",
+    "location": "Ericshire",
+    "skills": [
+      {
+        "name": "PostgreSQL",
+        "proficiency": "Intermediate"
+      },
+      {
+        "name": "Rust",
+        "proficiency": "Expert"
+      },
+      {
+        "name": "Git",
+        "proficiency": "Intermediate"
+      },
+      {
+        "name": "MongoDB",
+        "proficiency": "Advanced"
+      },
+      {
+        "name": "Vue.js",
+        "proficiency": "Intermediate"
+      },
+      {
+        "name": "React",
+        "proficiency": "Advanced"
+      },
+      {
+        "name": "FastAPI",
+        "proficiency": "Advanced"
+      },
+      {
+        "name": "Node.js",
+        "proficiency": "Advanced"
+      },
+      {
+        "name": "Machine Learning",
+        "proficiency": "Intermediate"
+      },
+      {
+        "name": "Microservices",
+        "proficiency": "Beginner"
+      }
+    ],
+    "projects": [
+      "API Gateway",
+      "Payment Processing System",
+      "Real-time Chat System",
+      "Data Analytics Dashboard",
+      "Machine Learning Pipeline"
+    ],
+    "certifications": [
+      "AWS Certified Solutions Architect",
+      "Scrum Master Certification"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Virginia Cuevas",
+    "email": "mary06@example.com",
+    "location": "Port Kristopher",
+    "skills": [
+      {
+        "name": "JavaScript",
+        "proficiency": "Advanced"
+      },
+      {
+        "name": "MongoDB",
+        "proficiency": "Beginner"
+      },
+      {
+        "name": "Redis",
+        "proficiency": "Advanced"
+      },
+      {
+        "name": "PostgreSQL",
+        "proficiency": "Intermediate"
+      },
+      {
+        "name": "Go",
+        "proficiency": "Expert"
+      },
+      {
+        "name": "Microservices",
+        "proficiency": "Advanced"
+      },
+      {
+        "name": "Jenkins",
+        "proficiency": "Intermediate"
+      },
+      {
+        "name": "Django",
+        "proficiency": "Advanced"
+      }
+    ],
+    "projects": [
+      "Content Management System",
+      "Payment Processing System",
+      "Machine Learning Pipeline",
+      "Web Application",
+      "Microservices Architecture"
+    ],
+    "certifications": [
+      "Docker Certified Associate",
+      "AWS Certified Solutions Architect"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Karina Jordan",
+    "email": "jeffreymoore@example.com",
+    "location": "South William",
+    "skills": [
+      {
+        "name": "Kubernetes",
+        "proficiency": "Intermediate"
+      },
+      {
+        "name": "Redis",
+        "proficiency": "Advanced"
+      },
+      {
+        "name": "Git",
+        "proficiency": "Advanced"
+      },
+      {
+        "name": "DevOps",
+        "proficiency": "Advanced"
+      },
+      {
+        "name": "TypeScript",
+        "proficiency": "Expert"
+      },
+      {
+        "name": "Django",
+        "proficiency": "Advanced"
+      },
+      {
+        "name": "Python",
+        "proficiency": "Advanced"
+      },
+      {
+        "name": "Docker",
+        "proficiency": "Beginner"
+      },
+      {
+        "name": "Java",
+        "proficiency": "Intermediate"
+      },
+      {
+        "name": "JavaScript",
+        "proficiency": "Advanced"
+      },
+      {
+        "name": "React",
+        "proficiency": "Beginner"
+      }
+    ],
+    "projects": [
+      "Real-time Chat System",
+      "Mobile App"
+    ],
+    "certifications": [
+      "Docker Certified Associate",
+      "Certified Kubernetes Administrator",
+      "Microsoft Azure Developer"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Jesse Lang",
+    "email": "wilsonrachel@example.net",
+    "location": "Garciaside",
+    "skills": [
+      {
+        "name": "Angular",
+        "proficiency": "Expert"
+      },
+      {
+        "name": "Microservices",
+        "proficiency": "Intermediate"
+      },
+      {
+        "name": "Jenkins",
+        "proficiency": "Intermediate"
+      },
+      {
+        "name": "MongoDB",
+        "proficiency": "Beginner"
+      },
+      {
+        "name": "Rust",
+        "proficiency": "Beginner"
+      },
+      {
+        "name": "DevOps",
+        "proficiency": "Intermediate"
+      },
+      {
+        "name": "Redis",
+        "proficiency": "Expert"
+      },
+      {
+        "name": "Django",
+        "proficiency": "Advanced"
+      },
+      {
+        "name": "Git",
+        "proficiency": "Intermediate"
+      },
+      {
+        "name": "FastAPI",
+        "proficiency": "Intermediate"
+      },
+      {
+        "name": "Docker",
+        "proficiency": "Advanced"
+      }
+    ],
+    "projects": [
+      "Payment Processing System",
+      "Data Analytics Dashboard",
+      "Web Application"
+    ],
+    "certifications": [
+      "Microsoft Azure Developer"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Eric Bates",
+    "email": "kellyharris@example.org",
+    "location": "Lake Elizabeth",
+    "skills": [
+      {
+        "name": "DevOps",
+        "proficiency": "Intermediate"
+      },
+      {
+        "name": "Rust",
+        "proficiency": "Expert"
+      },
+      {
+        "name": "Java",
+        "proficiency": "Intermediate"
+      },
+      {
+        "name": "MongoDB",
+        "proficiency": "Intermediate"
+      },
+      {
+        "name": "Redis",
+        "proficiency": "Beginner"
+      },
+      {
+        "name": "Django",
+        "proficiency": "Intermediate"
+      },
+      {
+        "name": "Machine Learning",
+        "proficiency": "Beginner"
+      },
+      {
+        "name": "MySQL",
+        "proficiency": "Intermediate"
+      },
+      {
+        "name": "Jenkins",
+        "proficiency": "Intermediate"
+      },
+      {
+        "name": "Docker",
+        "proficiency": "Expert"
+      },
+      {
+        "name": "PostgreSQL",
+        "proficiency": "Expert"
+      },
+      {
+        "name": "Microservices",
+        "proficiency": "Advanced"
+      }
+    ],
+    "projects": [
+      "API Gateway",
+      "Web Application",
+      "E-commerce Platform",
+      "Data Analytics Dashboard",
+      "Mobile App"
+    ],
+    "certifications": [
+      "Microsoft Azure Developer",
+      "AWS Certified Solutions Architect"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Jason Pearson",
+    "email": "rebeccadiaz@example.com",
+    "location": "Hartton",
+    "skills": [
+      {
+        "name": "Rust",
+        "proficiency": "Intermediate"
+      },
+      {
+        "name": "Angular",
+        "proficiency": "Intermediate"
+      },
+      {
+        "name": "AWS",
+        "proficiency": "Intermediate"
+      },
+      {
+        "name": "TypeScript",
+        "proficiency": "Beginner"
+      },
+      {
+        "name": "Redis",
+        "proficiency": "Intermediate"
+      },
+      {
+        "name": "MySQL",
+        "proficiency": "Intermediate"
+      }
+    ],
+    "projects": [
+      "API Gateway",
+      "E-commerce Platform",
+      "Machine Learning Pipeline"
+    ],
+    "certifications": [
+      "AWS Certified Solutions Architect"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Monica Green",
+    "email": "nholmes@example.com",
+    "location": "Port Jeffside",
+    "skills": [
+      {
+        "name": "Kubernetes",
+        "proficiency": "Intermediate"
+      },
+      {
+        "name": "Python",
+        "proficiency": "Advanced"
+      },
+      {
+        "name": "FastAPI",
+        "proficiency": "Beginner"
+      },
+      {
+        "name": "Java",
+        "proficiency": "Intermediate"
+      },
+      {
+        "name": "Docker",
+        "proficiency": "Advanced"
+      }
+    ],
+    "projects": [
+      "Machine Learning Pipeline",
+      "Content Management System",
+      "Data Analytics Dashboard",
+      "Real-time Chat System"
+    ],
+    "certifications": []
+  },
+  {
+    "id": 8,
+    "name": "Kevin Brown",
+    "email": "cgreen@example.net",
+    "location": "Port Lisafurt",
+    "skills": [
+      {
+        "name": "Django",
+        "proficiency": "Intermediate"
+      },
+      {
+        "name": "JavaScript",
+        "proficiency": "Intermediate"
+      },
+      {
+        "name": "PostgreSQL",
+        "proficiency": "Expert"
+      },
+      {
+        "name": "Python",
+        "proficiency": "Intermediate"
+      },
+      {
+        "name": "MongoDB",
+        "proficiency": "Intermediate"
+      }
+    ],
+    "projects": [
+      "Content Management System",
+      "Mobile App",
+      "Real-time Chat System",
+      "Microservices Architecture",
+      "E-commerce Platform"
+    ],
+    "certifications": [
+      "Scrum Master Certification"
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Samuel Bailey",
+    "email": "karadixon@example.net",
+    "location": "South Jacob",
+    "skills": [
+      {
+        "name": "FastAPI",
+        "proficiency": "Beginner"
+      },
+      {
+        "name": "PostgreSQL",
+        "proficiency": "Intermediate"
+      },
+      {
+        "name": "React",
+        "proficiency": "Advanced"
+      },
+      {
+        "name": "Node.js",
+        "proficiency": "Beginner"
+      },
+      {
+        "name": "Java",
+        "proficiency": "Advanced"
+      },
+      {
+        "name": "MongoDB",
+        "proficiency": "Advanced"
+      },
+      {
+        "name": "Go",
+        "proficiency": "Intermediate"
+      },
+      {
+        "name": "MySQL",
+        "proficiency": "Advanced"
+      },
+      {
+        "name": "Git",
+        "proficiency": "Intermediate"
+      }
+    ],
+    "projects": [
+      "Mobile App",
+      "Real-time Chat System",
+      "E-commerce Platform"
+    ],
+    "certifications": [
+      "Certified Kubernetes Administrator",
+      "Docker Certified Associate",
+      "Microsoft Azure Developer"
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Ms. Debbie Mills MD",
+    "email": "justinfoster@example.org",
+    "location": "North Barry",
+    "skills": [
+      {
+        "name": "JavaScript",
+        "proficiency": "Advanced"
+      },
+      {
+        "name": "Jenkins",
+        "proficiency": "Intermediate"
+      },
+      {
+        "name": "MongoDB",
+        "proficiency": "Advanced"
+      },
+      {
+        "name": "Go",
+        "proficiency": "Beginner"
+      },
+      {
+        "name": "Microservices",
+        "proficiency": "Intermediate"
+      },
+      {
+        "name": "Docker",
+        "proficiency": "Intermediate"
+      }
+    ],
+    "projects": [
+      "E-commerce Platform",
+      "Real-time Chat System",
+      "Web Application"
+    ],
+    "certifications": []
+  }
+]
