@@ -1,0 +1,344 @@
+{
+  "generation_timestamp": "2025-09-28T09:39:21.852799",
+  "query_type_performance": {
+    "count_python_devs": {
+      "query": "How many Python developers are available?",
+      "type": "counting",
+      "naive_rag": {
+        "answer": "Based on the provided context, there are **five Python developers** available. Here are their details:\n\n1. **Robert Garcia**\n   - ID: dev_028\n   - Location: Payneberg, UT\n   - Hourly Rate: $181.31\n   - Python Proficiency: 3 (5 years)\n\n2. **Zachary Long**\n   - ID: dev_034\n   - Location: Dickersonville, CT\n   - Hourly Rate: $164.44\n   - Python Proficiency: 5 (8 years)\n\n3. **Deanna Schmidt**\n   - ID: dev_046\n   - Location: North Erin, CO\n   - Hourly Rate: $148.63\n   - Python Proficiency: 3 (6 years)\n\n4. **Amanda Elliott**\n   - ID: dev_016\n   - Location: Aprilfurt, LA\n   - Hourly Rate: $161.12\n   - Python Proficiency: 5 (4 years)\n\n5. **Nicholas Vaughan**\n   - ID: dev_025\n   - Location: Kelseyhaven, ID\n   - Hourly Rate: $165.44\n   - Python Proficiency: 4 (10 years)\n\nIn summary, there are five Python developers with varying levels of proficiency and experience.",
+        "execution_time": 6.602236032485962,
+        "context_chunks": 5
+      },
+      "graph_rag": {
+        "answer": "There are currently 9 Python developers available. If you need further details about their specific skills or experience, please let me know!",
+        "execution_time": 0.9440608024597168,
+        "cypher_query": "MATCH (p:Programmer)-[:HAS_SKILL]->(s:Skill {name: 'Python'})\nRETURN count(p) as programmer_count",
+        "context_chunks": 1
+      },
+      "graph_advantage": "Exact counting through graph traversal"
+    },
+    "avg_react_rate": {
+      "query": "What is the average hourly rate for React developers?",
+      "type": "aggregation",
+      "naive_rag": {
+        "answer": "Based on the provided context, there are two programmers with React skills:\n\n1. **Norma Herrera**\n   - Hourly Rate: $177.8\n   - React Proficiency: 4 (3 years)\n\n2. **Ethan Robinson**\n   - Hourly Rate: $177.09\n   - React Proficiency: Not specified (but has Angular proficiency)\n\nTo calculate the average hourly rate for React developers, we will consider only the hourly rates of those who have React listed as a skill:\n\n- Total Hourly Rate: $177.8 (Norma) + $177.09 (Ethan) = $354.89\n- Number of React Developers: 1 (only Norma has a specified React proficiency)\n\nSince only Norma has a clear React proficiency, we will use her hourly rate for the average calculation:\n\nAverage Hourly Rate for React Developers = $177.8\n\nThus, the average hourly rate for React developers based on the provided context is **$177.8**.",
+        "execution_time": 4.5215981006622314,
+        "context_chunks": 5
+      },
+      "graph_rag": {
+        "answer": "The average hourly rate for React developers is $172.53. This figure is based on data from 8 programmers who possess React skills. If you have any further questions or need additional information, feel free to ask!",
+        "execution_time": 1.5584561824798584,
+        "cypher_query": "MATCH (p:Programmer)-[:HAS_SKILL]->(s:Skill {name: 'React'})\nRETURN avg(p.hourly_rate) as average_rate, count(p) as programmer_count",
+        "context_chunks": 1
+      },
+      "graph_advantage": "Direct aggregation on filtered nodes"
+    },
+    "fintech_experience": {
+      "query": "Find developers who have worked on fintech projects",
+      "type": "filtering",
+      "naive_rag": {
+        "answer": "Based on the provided context, the following developers have worked on fintech projects:\n\n1. **Developer from Document 1**:\n   - **Project**: Data Pipeline for FinTech Innovations at TechCorp\n   - **Role**: Junior Programmer\n   - **Duration**: 2022-10-22 to 2023-08-18\n   - **Technologies**: Angular, JavaScript\n\n2. **Developer from Document 2**:\n   - **Project**: DevOps Pipeline for FinTech Innovations at FinTech Innovations\n   - **Role**: Principal Programmer\n   - **Duration**: 2022-03-25 to 2023-03-20\n   - **Technologies**: Neo4j, DynamoDB, Swift\n\n3. **Developer from Document 3**:\n   - **Project**: Machine Learning Platform for FinTech Innovations at Cybersecurity Inc\n   - **Role**: Principal Programmer\n   - **Duration**: 2018-05-27 to 2018-11-23\n   - **Technologies**: Java, Express.js, Angular\n\n4. **Developer from Document 5**:\n   - **Project**: Security Audit for FinTech Innovations at CloudNative Solutions\n   - **Role**: Tech Lead\n   - **Duration**: 2019-03-07 to 2020-01-01\n   - **Technologies**: MySQL, Ruby, Rust, Scala\n\nIn total, there are **four developers** who have worked on fintech projects, each with different roles and technologies.",
+        "execution_time": 7.281274795532227,
+        "context_chunks": 5
+      },
+      "graph_rag": {
+        "answer": "Unfortunately, the query executed to find developers who have worked on fintech projects returned no results. This indicates that there are currently no programmers in the database who have experience with projects specifically labeled as fintech. If you have any other criteria or specific areas of expertise in mind, please let me know, and I can assist you further!",
+        "execution_time": 3.4391679763793945,
+        "cypher_query": "MATCH (p:Programmer)-[:WORKED_ON]->(proj:Project)\nWHERE proj.client CONTAINS 'fintech'\nRETURN p.id, p.name, p.email, p.location, p.hourly_rate, p.availability_start, p.bio, count(proj) AS projects_worked_on\nORDER BY projects_worked_on DESC\nLIMIT 10",
+        "context_chunks": 1
+      },
+      "graph_advantage": "Graph traversal to find specific relationships"
+    },
+    "skill_distribution": {
+      "query": "Which skills are most common among our programmers?",
+      "type": "aggregation",
+      "naive_rag": {
+        "answer": "Based on the provided context, the most common skills among the programmers are as follows:\n\n1. **RDS**: \n   - Matthew Young (3 years, proficiency 3)\n   - Ethan Robinson (2 years, proficiency 3)\n   - Kelly Clark (5 years, proficiency 4)\n   - Robert Garcia (5 years, proficiency 3)\n   - Total: 4 programmers\n\n2. **Oracle**: \n   - Matthew Young (2 years, proficiency 3)\n   - Ethan Robinson (3 years, proficiency 3)\n   - Kelly Clark (4 years, proficiency 4)\n   - Robert Garcia (7 years, proficiency 4)\n   - Total: 4 programmers\n\n3. **Grafana**: \n   - Matthew Young (2 years, proficiency 4)\n   - Ethan Robinson (7 years, proficiency 3)\n   - Kelly Clark (2 years, proficiency 3)\n   - Robert Garcia (3 years, proficiency 3)\n   - Total: 4 programmers\n\n4. **TypeScript**: \n   - Matthew Young (7 years, proficiency 3)\n   - Ethan Robinson (2 years, proficiency 5)\n   - Total: 2 programmers\n\n5. **Express.js**: \n   - Matthew Young (3 years, proficiency 4)\n   - Ethan Robinson (1 year, proficiency 4)\n   - Total: 2 programmers\n\n6. **Kotlin**: \n   - Ethan Robinson (3 years, proficiency 5)\n   - Kelly Clark (6 years, proficiency 3)\n   - Total: 2 programmers\n\n7. **Python**: \n   - Christopher Cortez (3 years, proficiency 3)\n   - Robert Garcia (5 years, proficiency 3)\n   - Total: 2 programmers\n\nIn summary, the skills RDS, Oracle, and Grafana are the most common, each shared by 4 programmers.",
+        "execution_time": 7.265880823135376,
+        "context_chunks": 5
+      },
+      "graph_rag": {
+        "answer": "The most common skills among our programmers, based on the query results, are as follows:\n\n1. **GitLab CI** (DevOps) - 18 programmers\n2. **Neo4j** (Database) - 16 programmers\n3. **CloudFormation** (Cloud) - 14 programmers\n4. **Oracle** (Database) - 13 programmers\n5. **Swift** (Programming Language) - 13 programmers\n6. **PHP** (Programming Language) - 13 programmers\n7. **InfluxDB** (Database) - 12 programmers\n8. **GitHub Actions** (DevOps) - 12 programmers\n9. **TypeScript** (Programming Language) - 11 programmers\n10. **Grafana** (DevOps) - 11 programmers\n11. **ELK Stack** (DevOps) - 10 programmers\n12. **Kotlin** (Mobile) - 10 programmers\n13. **Angular** (Framework) - 10 programmers\n14. **DynamoDB** (Database) - 10 programmers\n15. **CircleCI** (DevOps) - 10 programmers\n16. **Serverless** (Cloud) - 10 programmers\n17. **SQL Server** (Database) - 10 programmers\n18. **Terraform** (Cloud) - 10 programmers\n19. **RDS** (Cloud) - 10 programmers\n20. **Python** (Programming Language) - 9 programmers\n\nIn summary, the top skill is **GitLab CI** with 18 programmers, followed closely by **Neo4j** with 16 programmers. The results highlight a strong presence of skills in DevOps, Database, and Programming Languages among our programming staff.",
+        "execution_time": 8.308223962783813,
+        "cypher_query": "MATCH (p:Programmer)-[:HAS_SKILL]->(s:Skill)\nRETURN s.name as skill, s.category as category, count(p) as programmer_count\nORDER BY programmer_count DESC\nLIMIT 20",
+        "context_chunks": 1
+      },
+      "graph_advantage": "Aggregate across skill relationships"
+    },
+    "senior_javascript_devs": {
+      "query": "Who are the most experienced JavaScript developers?",
+      "type": "filtering_ranking",
+      "naive_rag": {
+        "answer": "The most experienced JavaScript developers based on the provided context are:\n\n1. **David Grant**\n   - **Proficiency**: 5\n   - **Years of Experience**: 8 years\n   - **Hourly Rate**: $189.25\n   - **Location**: North Lesliemouth, RI\n\n2. **Paul Williams**\n   - **Proficiency**: 5\n   - **Years of Experience**: 3 years\n   - **Hourly Rate**: $143.69\n   - **Location**: Port Richardburgh, OK\n\n3. **Nicholas Vaughan**\n   - **Proficiency**: 4\n   - **Years of Experience**: 2 years\n   - **Hourly Rate**: $165.44\n   - **Location**: Kelseyhaven, ID\n\nAmong these, David Grant has the highest level of experience with 8 years in JavaScript, followed by Paul Williams with 3 years. Nicholas Vaughan has 2 years of experience.",
+        "execution_time": 3.505885362625122,
+        "context_chunks": 5
+      },
+      "graph_rag": {
+        "answer": "The most experienced JavaScript developers, based on the query results, are as follows:\n\n1. **David Grant**\n   - Email: anthonycarter@example.org\n   - Location: North Lesliemouth, RI\n   - Hourly Rate: $189.25\n   - Average Experience: 8.00 years\n\n2. **Jon Martin**\n   - Email: kimberlypowers@example.com\n   - Location: North Victoriafort, WA\n   - Hourly Rate: $175.52\n   - Average Experience: 7.00 years\n\n3. **Matthew Gay**\n   - Email: stephanielawson@example.net\n   - Location: East Kylietown, KS\n   - Hourly Rate: $141.53\n   - Average Experience: 6.00 years\n\n4. **Cathy Campbell**\n   - Email: mccoyandrew@example.org\n   - Location: New Stacy, IL\n   - Hourly Rate: $178.12\n   - Average Experience: 5.00 years\n\n5. **Jocelyn Jennings**\n   - Email: wallerkristina@example.net\n   - Location: Alanland, NJ\n   - Hourly Rate: $155.91\n   - Average Experience: 5.00 years\n\n6. **Christopher Cortez**\n   - Email: andrew25@example.net\n   - Location: Anthonyville, VA\n   - Hourly Rate: $187.11\n   - Average Experience: 5.00 years\n\n7. **Paul Williams**\n   - Email: alexandria09@example.net\n   - Location: Port Richardburgh, OK\n   - Hourly Rate: $143.69\n   - Average Experience: 3.00 years\n\n8. **Nicholas Vaughan**\n   - Email: isaac18@example.net\n   - Location: Kelseyhaven, ID\n   - Hourly Rate: $165.44\n   - Average Experience: 2.00 years\n\n9. **Henry Owens**\n   - Email: larsonnicholas@example.org\n   - Location: Hallshire, GA\n   - Hourly Rate: $198.78\n   - Average Experience: 2.00 years\n\nIn summary, David Grant leads with the highest average experience of 8 years, followed by Jon Martin with 7 years. The list includes a total of 10 developers, with varying levels of experience and hourly rates. If you need further details or assistance, feel free to ask!",
+        "execution_time": 12.945246934890747,
+        "cypher_query": "MATCH (p:Programmer)-[HAS_SKILL]->(s:Skill)\nWHERE s.name = 'JavaScript'\nRETURN p.name, p.email, p.location, p.hourly_rate, avg(HAS_SKILL.years_experience) AS avg_experience\nORDER BY avg_experience DESC\nLIMIT 10",
+        "context_chunks": 1
+      },
+      "graph_advantage": "Multi-criteria filtering with relationship properties"
+    },
+    "ml_projects": {
+      "query": "What projects require machine learning skills?",
+      "type": "filtering",
+      "naive_rag": {
+        "answer": "The project that requires machine learning skills is:\n\n1. **Project: Machine Learning Platform - Hall-Anderson**\n   - **Client:** Blair, Dominguez and Wright\n   - **Status:** Planned\n   - **Start Date:** 2025-09-27\n   - **End Date:** 2026-05-25\n   - **Duration:** 8 months\n   - **Team Size:** 6\n   - **Budget:** $54,681.00\n   - **Skill Requirements:**\n     - **Machine Learning:** Minimum proficiency of 2, minimum years of experience: 3 (mandatory)\n     - Other mandatory skills include:\n       - **Xamarin:** Minimum proficiency of 2, minimum years of experience: 5\n       - **Azure:** Minimum proficiency of 3, minimum years of experience: 4\n       - **gRPC:** Minimum proficiency of 2, minimum years of experience: 4\n\nThis is the only project listed in the provided context that explicitly requires machine learning skills.",
+        "execution_time": 4.866355895996094,
+        "context_chunks": 5
+      },
+      "graph_rag": {
+        "answer": "Based on the executed query, there are currently no projects that require machine learning skills. The results returned no entries, indicating that there are no active projects in the database that list machine learning as a required skill. If you have any further questions or need assistance with other skills or projects, please let me know!",
+        "execution_time": 4.246997117996216,
+        "cypher_query": "MATCH (p:Project)-[:REQUIRES_SKILL]->(s:Skill)\nWHERE s.name CONTAINS 'machine learning'\nRETURN p.id, p.name, p.client, p.start_date, p.end_date, p.status, p.budget, p.team_size\nORDER BY p.start_date\nLIMIT 10",
+        "context_chunks": 1
+      },
+      "graph_advantage": "Direct relationship traversal"
+    },
+    "immediate_availability": {
+      "query": "Find developers available for immediate start",
+      "type": "filtering",
+      "naive_rag": {
+        "answer": "Based on the provided context, here are the developers available for immediate start:\n\n1. **Miguel Smith**\n   - **ID:** dev_040\n   - **Email:** lindsay55@example.net\n   - **Location:** Reedstad, PA\n   - **Hourly Rate:** $152.9\n   - **Skills:** \n     - Swift (proficiency: 5, years: 2)\n     - DynamoDB (proficiency: 2, years: 6)\n     - Neo4j (proficiency: 4, years: 3)\n     - EC2 (proficiency: 2, years: 5)\n     - Google Cloud (proficiency: 4, years: 5)\n     - CloudFormation (proficiency: 2, years: 3)\n     - GitLab CI (proficiency: 3, years: 2)\n\n2. **Nicholas Vaughan**\n   - **ID:** dev_025\n   - **Email:** isaac18@example.net\n   - **Location:** Kelseyhaven, ID\n   - **Hourly Rate:** $165.44\n   - **Skills:** \n     - Kotlin (proficiency: 4, years: 8)\n     - Python (proficiency: 4, years: 10)\n     - JavaScript (proficiency: 4, years: 2)\n     - FastAPI (proficiency: 3, years: 2)\n     - Express.js (proficiency: 4, years: 5)\n     - Angular (proficiency: 2, years: 5)\n     - Redis (proficiency: 2, years: 7)\n     - EC2 (proficiency: 2, years: 1)\n     - Serverless (proficiency: 4, years: 3)\n     - Kubernetes (proficiency: 4, years: 5)\n     - Jenkins (proficiency: 2, years: 2)\n     - GitHub Actions (proficiency: 4, years: 2)\n     - Chef (proficiency: 4, years: 7)\n\n3. **Kelly Clark**\n   - **ID:** dev_027\n   - **Email:** umoran@example.com\n   - **Location:** Port Jason, IL\n   - **Hourly Rate:** $141.07\n   - **Skills:** \n     - Kotlin (proficiency: 3, years: 6)\n     - C++ (proficiency: 3, years: 6)\n     - MongoDB (proficiency: 2, years: 4)\n     - DynamoDB (proficiency: 4, years: 4)\n     - Neo4j (proficiency: 4, years: 4)\n     - Lambda (proficiency: 2, years: 7)\n     - CloudFormation (proficiency: 3, years: 6)\n     - RDS (proficiency: 4, years: 5)\n     - GitLab CI (proficiency: 4, years: 6)\n     - ELK Stack (proficiency: 3, years: 2)\n     - CircleCI (proficiency: 4, years: 5)\n     - Ionic (proficiency: 3, years: 2)\n     - Cordova (proficiency: 3, years: 4)\n\n4. **Matthew Young**\n   - **ID:** dev_049\n   - **Email:** emily87@example.net\n   - **Location:** North Jessica, IA\n   - **Hourly Rate:** $188.91\n   - **Skills:** \n     - TypeScript (proficiency: 3, years: 7)\n     - Rust (proficiency: 4, years: 6)\n     - Ruby (proficiency: 3, years: 10)\n     - Vue.js (proficiency: 5, years: 5)\n     - Express.js (proficiency: 4, years: 3)\n     - Oracle (proficiency: 3, years: 2)\n     - RDS (proficiency: 3, years: 7)\n     - Terraform (proficiency: 3, years: 3)\n     - GitHub Actions (proficiency: 2, years: 5)\n     - Grafana (proficiency: 4, years: 2)\n\n5. **Christopher Cortez**\n   - **ID:** dev_001\n   - **Email:** andrew25@example.net\n   - **Location:** Anthonyville, VA\n   - **Hourly Rate:** $187.11\n   - **Skills:** \n     - JavaScript (proficiency: 3, years: 5)\n     - Python (proficiency: 3, years: 3)\n     - C# (proficiency: 5, years: 10)\n     - FastAPI (proficiency: 5, years: 1)\n     - React (proficiency: 3, years: 2)\n     - SQLite (proficiency: 2, years: 6)\n     - PostgreSQL (proficiency: 4, years: 6)\n     - SQL Server (proficiency: 4, years: 4)\n     - Serverless (proficiency: 4, years: 3)\n     - GitHub Actions (proficiency: 4, years: 4)\n\nThese developers are available for immediate start based on the information provided.",
+        "execution_time": 23.181964874267578,
+        "context_chunks": 5
+      },
+      "graph_rag": {
+        "answer": "Here are the developers available for immediate start based on the query results:\n\n### Developers Available for Immediate Start:\n\n1. **Melissa Campos**\n   - Location: East Heidi, HI\n   - Hourly Rate: $150.38\n   - Availability Start: 2025-09-28\n\n2. **Matthew Baker**\n   - Location: Gonzalezmouth, ND\n   - Hourly Rate: $182.95\n   - Availability Start: 2025-09-28\n\n3. **Christopher Cortez**\n   - Location: Anthonyville, VA\n   - Hourly Rate: $187.11\n   - Availability Start: 2025-09-28\n\n4. **Matthew Gay**\n   - Location: East Kylietown, KS\n   - Hourly Rate: $141.53\n   - Availability Start: 2025-09-28\n\n5. **Tiffany Diaz**\n   - Location: Nicholsland, MI\n   - Hourly Rate: $171.84\n   - Availability Start: 2025-09-28\n\n6. **Jillian Hart**\n   - Location: East Walter, WY\n   - Hourly Rate: $198.98\n   - Availability Start: 2025-09-28\n\n7. **Lisa Cross**\n   - Location: Lake Kristyhaven, SD\n   - Hourly Rate: $158.44\n   - Availability Start: 2025-09-28\n\n8. **Chelsea Williams**\n   - Location: Stephaniechester, HI\n   - Hourly Rate: $194.57\n   - Availability Start: 2025-09-28\n\n9. **Matthew Young**\n   - Location: North Jessica, IA\n   - Hourly Rate: $188.91\n   - Availability Start: 2025-09-28\n\n10. **Ethan Robinson**\n    - Location: Jacksonport, RI\n    - Hourly Rate: $177.09\n    - Availability Start: 2025-09-28\n\n11. **Robin Andrews**\n    - Location: New Lisa, ME\n    - Hourly Rate: $170.33\n    - Availability Start: 2025-09-28\n\n12. **Zachary Long**\n    - Location: Dickersonville, CT\n    - Hourly Rate: $164.44\n    - Availability Start: 2025-09-28\n\n13. **Sherry Robles**\n    - Location: Emilyburgh, OR\n    - Hourly Rate: $197.29\n    - Availability Start: 2025-09-28\n\n### Additional Developers with No Specified Availability Start:\n- **Christian Bishop** - Hourly Rate: $182.33 (Availability Start: None)\n- **Amanda Elliott** - Hourly Rate: $161.12 (Availability Start: None)\n- **Lisa Baker** - Hourly Rate: $181.38 (Availability Start: None)\n- **Victoria Holder** - Hourly Rate: $192.71 (Availability Start: None)\n- **John Santiago** - Hourly Rate: $147.07 (Availability Start: None)\n- **Marvin Vazquez** - Hourly Rate: $160.09 (Availability Start: None)\n- **Michael Hart** - Hourly Rate: $145.04 (Availability Start: None)\n\n### Summary:\nThere are **13 developers** available for immediate start on **2025-09-28**. Additionally, there are **6 developers** whose availability start date is unspecified. If you need further assistance or details about any specific developer, feel free to ask!",
+        "execution_time": 13.346611022949219,
+        "cypher_query": "MATCH (p:Programmer)\nWHERE p.availability_start <= date('2025-09-28') OR p.availability_start IS NULL\nRETURN p.name, p.location, p.hourly_rate, p.availability_start\nORDER BY p.availability_start",
+        "context_chunks": 1
+      },
+      "graph_advantage": "Temporal property filtering"
+    }
+  },
+  "quality_metrics": {
+    "specificity": {
+      "count_python_devs": {
+        "naive_specific": true,
+        "graph_specific": true,
+        "advantage": "Equal"
+      },
+      "avg_react_rate": {
+        "naive_specific": true,
+        "graph_specific": true,
+        "advantage": "Equal"
+      },
+      "fintech_experience": {
+        "naive_specific": true,
+        "graph_specific": false,
+        "advantage": "Equal"
+      },
+      "skill_distribution": {
+        "naive_specific": true,
+        "graph_specific": true,
+        "advantage": "Equal"
+      },
+      "senior_javascript_devs": {
+        "naive_specific": true,
+        "graph_specific": true,
+        "advantage": "Equal"
+      },
+      "ml_projects": {
+        "naive_specific": true,
+        "graph_specific": false,
+        "advantage": "Equal"
+      },
+      "immediate_availability": {
+        "naive_specific": true,
+        "graph_specific": true,
+        "advantage": "Equal"
+      }
+    },
+    "quantitative_accuracy": {
+      "count_python_devs": "Both provide quantitative answers",
+      "avg_react_rate": "Both provide quantitative answers",
+      "fintech_experience": "N/A",
+      "skill_distribution": "Both provide quantitative answers",
+      "senior_javascript_devs": "N/A",
+      "ml_projects": "N/A",
+      "immediate_availability": "N/A"
+    },
+    "completeness": {
+      "count_python_devs": {
+        "naive_length": 867,
+        "graph_length": 141,
+        "naive_context_sources": 5,
+        "graph_context_sources": 1
+      },
+      "avg_react_rate": {
+        "naive_length": 815,
+        "graph_length": 214,
+        "naive_context_sources": 5,
+        "graph_context_sources": 1
+      },
+      "fintech_experience": {
+        "naive_length": 1162,
+        "graph_length": 368,
+        "naive_context_sources": 5,
+        "graph_context_sources": 1
+      },
+      "skill_distribution": {
+        "naive_length": 1380,
+        "graph_length": 1244,
+        "naive_context_sources": 5,
+        "graph_context_sources": 1
+      },
+      "senior_javascript_devs": {
+        "naive_length": 711,
+        "graph_length": 1747,
+        "naive_context_sources": 5,
+        "graph_context_sources": 1
+      },
+      "ml_projects": {
+        "naive_length": 827,
+        "graph_length": 344,
+        "naive_context_sources": 5,
+        "graph_context_sources": 1
+      },
+      "immediate_availability": {
+        "naive_length": 3243,
+        "graph_length": 2483,
+        "naive_context_sources": 5,
+        "graph_context_sources": 1
+      }
+    },
+    "interpretability": {
+      "count_python_devs": {
+        "naive_interpretable": false,
+        "graph_interpretable": true,
+        "cypher_provided": true
+      },
+      "avg_react_rate": {
+        "naive_interpretable": false,
+        "graph_interpretable": true,
+        "cypher_provided": true
+      },
+      "fintech_experience": {
+        "naive_interpretable": false,
+        "graph_interpretable": true,
+        "cypher_provided": true
+      },
+      "skill_distribution": {
+        "naive_interpretable": false,
+        "graph_interpretable": true,
+        "cypher_provided": true
+      },
+      "senior_javascript_devs": {
+        "naive_interpretable": false,
+        "graph_interpretable": true,
+        "cypher_provided": true
+      },
+      "ml_projects": {
+        "naive_interpretable": false,
+        "graph_interpretable": true,
+        "cypher_provided": true
+      },
+      "immediate_availability": {
+        "naive_interpretable": false,
+        "graph_interpretable": true,
+        "cypher_provided": true
+      }
+    }
+  },
+  "performance_metrics": {
+    "execution_time": {
+      "naive_rag": {
+        "mean": 8.835683375597,
+        "median": 6.934058427810669,
+        "min": 3.505885362625122,
+        "max": 23.181964874267578,
+        "total_queries": 8
+      },
+      "graph_rag": {
+        "mean": 6.704915690422058,
+        "median": 4.649875044822693,
+        "min": 0.9440608024597168,
+        "max": 13.594285011291504,
+        "total_queries": 10
+      }
+    },
+    "query_success_rate": {
+      "naive_rag": 1.0,
+      "graph_rag": 1.0
+    },
+    "average_context_length": {
+      "naive_rag": 5,
+      "graph_rag": 1
+    }
+  },
+  "evaluation_queries": [
+    {
+      "id": "count_python_devs",
+      "query": "How many Python developers are available?",
+      "type": "counting",
+      "expected_approach": "Count nodes with specific relationships",
+      "graph_advantage": "Exact counting through graph traversal"
+    },
+    {
+      "id": "aws_certified_count",
+      "query": "How many developers have AWS certifications?",
+      "type": "counting",
+      "expected_approach": "Count programmers with AWS certifications",
+      "graph_advantage": "Precise relationship-based counting"
+    },
+    {
+      "id": "avg_react_rate",
+      "query": "What is the average hourly rate for React developers?",
+      "type": "aggregation",
+      "expected_approach": "Calculate average from matching programmers",
+      "graph_advantage": "Direct aggregation on filtered nodes"
+    },
+    {
+      "id": "top_developers_projects",
+      "query": "List the top 5 developers by number of completed projects",
+      "type": "ranking",
+      "expected_approach": "Count projects per developer and rank",
+      "graph_advantage": "Relationship counting with precise sorting"
+    },
+    {
+      "id": "fintech_experience",
+      "query": "Find developers who have worked on fintech projects",
+      "type": "filtering",
+      "expected_approach": "Filter by project domain",
+      "graph_advantage": "Graph traversal to find specific relationships"
+    },
+    {
+      "id": "skill_distribution",
+      "query": "Which skills are most common among our programmers?",
+      "type": "aggregation",
+      "expected_approach": "Group by skill and count",
+      "graph_advantage": "Aggregate across skill relationships"
+    },
+    {
+      "id": "senior_javascript_devs",
+      "query": "Who are the most experienced JavaScript developers?",
+      "type": "filtering_ranking",
+      "expected_approach": "Filter by skill, sort by experience",
+      "graph_advantage": "Multi-criteria filtering with relationship properties"
+    },
+    {
+      "id": "ml_projects",
+      "query": "What projects require machine learning skills?",
+      "type": "filtering",
+      "expected_approach": "Find projects with ML requirements",
+      "graph_advantage": "Direct relationship traversal"
+    },
+    {
+      "id": "immediate_availability",
+      "query": "Find developers available for immediate start",
+      "type": "filtering",
+      "expected_approach": "Filter by availability date",
+      "graph_advantage": "Temporal property filtering"
+    },
+    {
+      "id": "collaboration_network",
+      "query": "Find Python developers who worked with AWS-certified colleagues",
+      "type": "multi_hop",
+      "expected_approach": "Multi-hop graph traversal",
+      "graph_advantage": "Complex relationship reasoning impossible for naive RAG"
+    }
+  ]
+}
